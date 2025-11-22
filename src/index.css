@@ -2,53 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Futuristic Light Theme Design System */
 
 @layer base {
   :root {
-    /* Aerospace theme - Deep navy, cyan tech accents */
-    --background: 220 30% 6%;
-    --foreground: 210 40% 98%;
-
-    --card: 220 28% 8%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 220 30% 7%;
-    --popover-foreground: 210 40% 98%;
-
-    /* Navy aerospace primary */
-    --primary: 215 90% 18%;
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 221 83% 53%;
     --primary-foreground: 210 40% 98%;
-
-    /* Cyan tech accent */
-    --secondary: 190 95% 50%;
-    --secondary-foreground: 220 30% 6%;
-
-    --muted: 220 20% 15%;
-    --muted-foreground: 215 20% 65%;
-
-    /* Bright cyan for highlights */
-    --accent: 190 100% 55%;
-    --accent-foreground: 220 30% 6%;
-
-    /* Orange aerospace warning */
-    --warning: 30 100% 55%;
-    --warning-foreground: 220 30% 6%;
-
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 189 95% 45%;
+    --accent-foreground: 210 40% 98%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
-
-    --border: 220 25% 18%;
-    --input: 220 25% 18%;
-    --ring: 190 95% 50%;
-
-    --radius: 0.75rem;
-
-    /* Grid pattern overlay */
-    --grid-color: 190 95% 50%;
-    --grid-opacity: 0.05;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+    --radius: 1rem;
+    --warning: 38 92% 50%;
+    --warning-foreground: 210 40% 98%;
+    
+    /* Futuristic gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(221 83% 53%) 0%, hsl(189 95% 45%) 100%);
+    --gradient-secondary: linear-gradient(180deg, hsl(210 40% 98%) 0%, hsl(210 40% 96%) 100%);
+    --gradient-mesh: radial-gradient(at 0% 0%, hsla(221, 83%, 53%, 0.15) 0px, transparent 50%),
+                     radial-gradient(at 100% 0%, hsla(189, 95%, 45%, 0.15) 0px, transparent 50%),
+                     radial-gradient(at 100% 100%, hsla(221, 83%, 53%, 0.1) 0px, transparent 50%);
+    
+    /* Shadows */
+    --shadow-glow: 0 0 60px hsla(221, 83%, 53%, 0.3);
+    --shadow-float: 0 20px 60px -15px hsla(221, 83%, 53%, 0.2);
   }
 }
 
@@ -66,45 +56,62 @@ All colors MUST be HSL.
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Rajdhani', sans-serif;
-    font-weight: 600;
-  }
-
-  /* Grid pattern overlay */
-  .grid-pattern {
-    background-image: 
-      linear-gradient(hsl(var(--grid-color) / var(--grid-opacity)) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(var(--grid-color) / var(--grid-opacity)) 1px, transparent 1px);
-    background-size: 50px 50px;
-  }
-
-  /* Diagonal accent lines */
-  .diagonal-lines {
-    background-image: repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 35px,
-      hsl(var(--accent) / 0.03) 35px,
-      hsl(var(--accent) / 0.03) 70px
-    );
-  }
-
-  /* Glow effect */
-  .glow-cyan {
-    box-shadow: 0 0 20px hsl(var(--accent) / 0.3),
-                0 0 40px hsl(var(--accent) / 0.1);
-  }
-
-  .glow-text {
-    text-shadow: 0 0 20px hsl(var(--accent) / 0.5);
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
+.grid-pattern {
+  background-image: linear-gradient(hsla(221, 83%, 53%, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, hsla(221, 83%, 53%, 0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
 
-  body {
-    @apply bg-background text-foreground;
-  }
+.diagonal-lines {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 40px,
+    hsla(189, 95%, 45%, 0.05) 40px,
+    hsla(189, 95%, 45%, 0.05) 80px
+  );
+}
+
+.glow-text {
+  text-shadow: 0 0 40px hsla(221, 83%, 53%, 0.3);
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.gradient-border {
+  position: relative;
+  background: linear-gradient(var(--background), var(--background)) padding-box,
+              var(--gradient-primary) border-box;
+  border: 2px solid transparent;
+}
+
+.mesh-gradient {
+  background: var(--gradient-mesh);
+}
+
+@keyframes gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animate-gradient {
+  animation: gradient 8s ease infinite;
+}
+
+.shadow-glow {
+  box-shadow: var(--shadow-glow);
+}
+
+.shadow-float {
+  box-shadow: var(--shadow-float);
 }
