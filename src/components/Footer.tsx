@@ -66,7 +66,26 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border/40 mt-8 pt-6 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Adiban Aviation Private Limited. All rights reserved.</p>
+          <p>
+            © 2025 Adiban Aviation Private Limited. All rights reserved. | Designed & Developed by{" "}
+            <a 
+              href="https://enyard.in" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-accent transition-colors font-semibold"
+            >
+              Enyard
+            </a>{" "}
+            |{" "}
+            <a 
+              href="https://jezx.in" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-accent transition-colors font-semibold"
+            >
+              JezX
+            </a>
+          </p>
         </div>
       </div>
     </footer>

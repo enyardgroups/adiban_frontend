@@ -1,10 +1,10 @@
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
-import { ArrowRight, Plane, Zap, Shield, Globe, Sparkles, Rocket, ChevronDown, Award, Users, Cpu, Factory, Boxes, Target, TrendingUp, CheckCircle2, MapPin } from "lucide-react";
+import { ArrowRight, Plane, Zap, Shield, Globe, Sparkles, Rocket, ChevronDown, Award, Users, Cpu, Factory, Boxes, Target, TrendingUp, CheckCircle2, MapPin, FileText, Layout, Settings, Activity, Code, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import heroImage from "@/assets/hero-aviation.jpg";
+import heroImage from "@/assets/Gemini_Generated_Image_dbrffmdbrffmdbrf-Photoroom.png";
 import hardwareImage from "@/assets/hardware-tech.jpg";
 import uavImage from "@/assets/uav-flight.jpg";
 import testRigs from "@/assets/test-rigs.png";
@@ -134,12 +134,137 @@ const Index = () => {
     { value: "15+", label: "States Covered", icon: MapPin },
   ];
 
+  const services = [
+    {
+      title: "TC Documentation & Compliance Assistance",
+      description: "Expert guidance through type certification processes and regulatory compliance documentation",
+      icon: FileText,
+      color: "from-blue-500 to-cyan-500"
+    },
+    {
+      title: "Custom Drone Design & Development",
+      description: "Tailored UAV solutions designed to meet your specific mission requirements and operational needs",
+      icon: Plane,
+      color: "from-cyan-500 to-blue-500"
+    },
+    {
+      title: "Hardware Design & Development",
+      description: "Aerospace-grade hardware components engineered for reliability and performance",
+      icon: Cpu,
+      color: "from-purple-500 to-blue-500"
+    },
+    {
+      title: "Computer-Aided Design",
+      description: "Advanced CAD solutions for precise modeling and design optimization",
+      icon: Layout,
+      color: "from-blue-600 to-purple-500"
+    },
+    {
+      title: "Computer-Aided Manufacturing",
+      description: "Precision manufacturing solutions leveraging cutting-edge CAM technologies",
+      icon: Factory,
+      color: "from-purple-500 to-pink-500"
+    },
+    {
+      title: "Finite Element Analysis / Computational Fluid Dynamics",
+      description: "Advanced simulation and analysis for structural integrity and aerodynamic optimization",
+      icon: Activity,
+      color: "from-cyan-400 to-blue-600"
+    },
+  ];
+
+  // Structured Data for SEO
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Adiban Aviation Private Limited",
+    "alternateName": "Adiban Aviation",
+    "url": "https://adibanaviation.com",
+    "logo": "https://adibanaviation.com/logo.png",
+    "description": "Adiban Aviation Pvt. Ltd. is an emerging Aerospace & Defense technology company dedicated to developing high-performance drones and advanced UAV systems. We combine innovation, precision engineering, and regulatory expertise to deliver solutions that meet the highest standards of safety, reliability, and performance.",
+    "foundingDate": "2014",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "IN",
+      "addressRegion": "India"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Service",
+      "areaServed": "IN",
+      "availableLanguage": "English"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/adiban-aviation",
+      "https://twitter.com/AdibanAviation"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "150"
+    }
+  };
+
+  const websiteStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Adiban Aviation",
+    "url": "https://adibanaviation.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://adibanaviation.com/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  };
+
+  const serviceStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Aerospace & Defense Technology Services",
+    "provider": {
+      "@type": "Organization",
+      "name": "Adiban Aviation Private Limited"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "India"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Aerospace Services",
+      "itemListElement": services.map((service, index) => ({
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": service.title,
+          "description": service.description
+        }
+      }))
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <>
+      {/* Structured Data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteStructuredData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceStructuredData) }}
+      />
+      
+      <div className="min-h-screen bg-background">
+        <Navbar />
       
       {/* Revolutionary Hero Section */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden pt-20">
+      <main>
+      <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden pt-20" aria-label="Hero Section">
         {/* Dynamic Background with Mouse Interaction */}
         <div className="absolute inset-0">
           <motion.div 
@@ -232,7 +357,7 @@ const Index = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.8 }}
               >
-                Engineering India's future with autonomous UAV systems, precision aerospace components, and breakthrough testing solutions
+                Engineering India's future with autonomous <Link to="/products/uav" className="text-primary hover:underline font-semibold">UAV systems</Link>, precision <Link to="/products/hardware" className="text-primary hover:underline font-semibold">aerospace components</Link>, and breakthrough <Link to="/products/testrix" className="text-primary hover:underline font-semibold">testing solutions</Link>
               </motion.p>
 
               {/* CTA Buttons */}
@@ -294,18 +419,20 @@ const Index = () => {
               >
                 <motion.img 
                   src={heroImage} 
-                  alt="Advanced Aviation Technology" 
+                  alt="Adiban Aviation - Indian Aerospace & Defense UAV Technology - Woman engineer working with drones, robotic arms, and aerospace components" 
                   className="w-full h-full object-cover"
                   style={{ scale }}
+                  loading="eager"
+                  width="800"
+                  height="1000"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-accent/40" />
                 
                 {/* Floating Stats Cards */}
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 1.5 }}
-                  className="absolute top-8 -left-4 bg-card/90 backdrop-blur-md border-2 border-primary/30 rounded-2xl p-4 shadow-2xl"
+                  className="absolute top-4 left-4 bg-card/90 backdrop-blur-md border-2 border-primary/30 rounded-2xl p-4 shadow-2xl z-10"
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
@@ -322,7 +449,7 @@ const Index = () => {
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 1.7 }}
-                  className="absolute bottom-8 -right-4 bg-card/90 backdrop-blur-md border-2 border-accent/30 rounded-2xl p-4 shadow-2xl"
+                  className="absolute bottom-4 right-4 bg-card/90 backdrop-blur-md border-2 border-accent/30 rounded-2xl p-4 shadow-2xl z-10"
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-primary flex items-center justify-center">
@@ -381,7 +508,7 @@ const Index = () => {
       </section>
 
       {/* Highlights Section */}
-      <section className="py-32 relative overflow-hidden">
+      <section className="py-32 relative overflow-hidden" aria-label="Why Choose Us - Engineering Excellence">
         <div className="absolute inset-0 diagonal-lines" />
         
         <div className="container mx-auto px-4 relative z-10">
@@ -402,7 +529,7 @@ const Index = () => {
               </span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Combining innovation, precision engineering, and regulatory expertise to deliver world-class solutions
+              Combining innovation, precision engineering, and regulatory expertise to deliver world-class <Link to="/products" className="text-primary hover:underline font-semibold">aerospace solutions</Link>
             </p>
           </motion.div>
 
@@ -434,8 +561,246 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Who Are We Section */}
+      <section className="py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/5 to-primary/5" />
+        <div className="absolute inset-0 grid-pattern opacity-20" />
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Side - Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-display font-semibold text-sm mb-4">
+                  WHO ARE WE
+                </span>
+                <h2 className="text-5xl md:text-6xl font-display font-bold mb-6">
+                  Shaping the{" "}
+                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                    Future
+                  </span>{" "}
+                  of Unmanned Aviation
+                </h2>
+              </motion.div>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-lg text-muted-foreground leading-relaxed"
+              >
+                Adiban Aviation Pvt. Ltd. is an emerging <Link to="/about" className="text-primary hover:underline font-semibold">Aerospace & Defense technology company</Link> dedicated to developing high-performance <Link to="/products/uav" className="text-primary hover:underline font-semibold">drones and advanced UAV systems</Link>. We combine innovation, precision engineering, and regulatory expertise to deliver solutions that meet the highest standards of safety, reliability, and performance.
+              </motion.p>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-lg text-muted-foreground leading-relaxed"
+              >
+                Guided by our vision to become a complete drone stack OEM, we specialize in <Link to="/services" className="text-primary hover:underline font-semibold">UAV design, development, compliance documentation, and type certification assistance</Link>. Our multidisciplinary team brings together deep expertise in aerodynamics, avionics, propulsion, and systems integration — ensuring every product reflects engineering excellence and operational efficiency.
+              </motion.p>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-xl font-display font-semibold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
+              >
+                At Adiban Aviation, we're not just building drones — we're shaping the future of unmanned aviation in India.
+              </motion.p>
+
+              {/* Key Points */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="grid grid-cols-2 gap-4 pt-6"
+              >
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
+                    <Rocket className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-display font-bold mb-1">Complete Drone Stack</h4>
+                    <p className="text-sm text-muted-foreground">End-to-end OEM solutions</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-accent to-primary flex items-center justify-center flex-shrink-0">
+                    <Shield className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-display font-bold mb-1">Regulatory Expertise</h4>
+                    <p className="text-sm text-muted-foreground">Type certification assistance</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-cyan-500 flex items-center justify-center flex-shrink-0">
+                    <Zap className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-display font-bold mb-1">Multidisciplinary Team</h4>
+                    <p className="text-sm text-muted-foreground">Aerodynamics to avionics</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-primary flex items-center justify-center flex-shrink-0">
+                    <Award className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-display font-bold mb-1">Engineering Excellence</h4>
+                    <p className="text-sm text-muted-foreground">Operational efficiency</p>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            {/* Right Side - Visual Elements */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="relative bg-card/50 backdrop-blur-sm border-2 border-border rounded-3xl p-8 lg:p-12">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-3xl" />
+                
+                <div className="relative z-10 space-y-6">
+                  <motion.div
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    transition={{ delay: 0.3, duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="flex items-center gap-4"
+                  >
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                      <Plane className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-display font-bold">Aerospace Innovation</h3>
+                      <p className="text-muted-foreground">Cutting-edge technology</p>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    transition={{ delay: 0.4, duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="flex items-center gap-4"
+                  >
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent to-primary flex items-center justify-center">
+                      <Cpu className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-display font-bold">Precision Engineering</h3>
+                      <p className="text-muted-foreground">Highest quality standards</p>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    transition={{ delay: 0.5, duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="flex items-center gap-4"
+                  >
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-cyan-500 flex items-center justify-center">
+                      <Shield className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-display font-bold">Safety & Reliability</h3>
+                      <p className="text-muted-foreground">Mission-critical solutions</p>
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
+
+              {/* Decorative Elements */}
+              <div className="absolute -z-10 -top-10 -right-10 w-64 h-64 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-3xl" />
+              <div className="absolute -z-10 -bottom-10 -left-10 w-56 h-56 bg-gradient-to-br from-accent/20 to-primary/20 rounded-full blur-3xl" />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Awesome Services Section */}
+      <section className="py-32 relative overflow-hidden" aria-label="Our Services">
+        <div className="absolute inset-0 diagonal-lines opacity-30" />
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-20"
+          >
+            <span className="inline-block px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent font-display font-semibold text-sm mb-4">
+              OUR SERVICES
+            </span>
+            <h2 className="text-5xl md:text-6xl font-display font-bold mb-6">
+              Our Awesome{" "}
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                Services
+              </span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Comprehensive <Link to="/services" className="text-primary hover:underline font-semibold">aerospace solutions</Link> from design to certification, delivering excellence at every stage
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -8, transition: { duration: 0.2 } }}
+                className="group"
+              >
+                <div className="relative bg-card border-2 border-border rounded-2xl p-8 h-full overflow-hidden hover:border-primary/40 transition-all duration-300 hover:shadow-float">
+                  <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+                  
+                  <div className="relative z-10">
+                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                      <service.icon className="h-8 w-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-display font-bold mb-3 group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-accent group-hover:bg-clip-text group-hover:text-transparent transition-all">
+                      {service.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed text-sm">
+                      {service.description} <Link to="/services" className="text-primary hover:underline font-semibold inline-flex items-center gap-1">Learn more <ArrowRight className="w-3 h-3" /></Link>
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Use Cases Section */}
-      <section className="py-32 relative bg-secondary/30">
+      <section className="py-32 relative bg-secondary/30" aria-label="UAV Applications and Use Cases">
         <div className="absolute inset-0 mesh-gradient opacity-30" />
         
         <div className="container mx-auto px-4 relative z-10">
@@ -456,7 +821,7 @@ const Index = () => {
               </span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Our UAV systems and aerospace solutions power critical operations across multiple sectors
+              Our <Link to="/products/uav" className="text-primary hover:underline font-semibold">UAV systems</Link> and <Link to="/products" className="text-primary hover:underline font-semibold">aerospace solutions</Link> power critical operations across multiple sectors
             </p>
           </motion.div>
 
@@ -489,7 +854,7 @@ const Index = () => {
       </section>
 
       {/* Products Section */}
-      <section className="py-32 relative">
+      <section className="py-32 relative" aria-label="Our Products and Solutions">
         <div className="absolute inset-0 grid-pattern opacity-20" />
         
         <div className="container mx-auto px-4 relative z-10">
@@ -510,7 +875,7 @@ const Index = () => {
               </span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Cutting-edge solutions designed for exceptional performance and reliability
+              Cutting-edge <Link to="/products" className="text-primary hover:underline font-semibold">aerospace solutions</Link> designed for exceptional performance and reliability
             </p>
           </motion.div>
 
@@ -530,10 +895,13 @@ const Index = () => {
                     <div className="relative aspect-[4/3] overflow-hidden">
                       <motion.img 
                         src={product.image} 
-                        alt={product.title}
+                        alt={`${product.title} - ${product.description} by Adiban Aviation, Indian Aerospace & Defense Manufacturer`}
                         className="w-full h-full object-cover"
                         whileHover={{ scale: 1.1 }}
                         transition={{ duration: 0.6 }}
+                        loading="lazy"
+                        width="800"
+                        height="600"
                       />
                       <div className={`absolute inset-0 bg-gradient-to-br ${product.gradient} opacity-20 group-hover:opacity-30 transition-opacity duration-300`} />
                     </div>
@@ -610,9 +978,11 @@ const Index = () => {
           </div>
         </motion.div>
       </section>
+      </main>
 
       <Footer />
     </div>
+    </>
   );
 };
 
