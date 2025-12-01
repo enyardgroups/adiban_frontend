@@ -130,8 +130,8 @@ const About = () => {
       />
 
       <div className="min-h-screen bg-background">
-        <Navbar />
-        
+      <Navbar />
+      
         {/* Innovative Hero Section with Split Design */}
         <section 
           ref={heroRef} 
@@ -244,13 +244,13 @@ const About = () => {
                     { value: "500+", label: "Projects", icon: Rocket },
                     { value: "10+", label: "Years", icon: Award },
                   ].map((stat, i) => (
-                    <motion.div
+          <motion.div
                       key={stat.label}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.9 + i * 0.1 }}
                       className="bg-card/50 backdrop-blur-sm border border-border rounded-xl p-4 hover:border-primary/50 transition-all"
-                    >
+          >
                       <stat.icon className="w-6 h-6 text-primary mb-2" />
                       <div className="text-2xl font-display font-bold text-primary">{stat.value}</div>
                       <div className="text-xs text-muted-foreground">{stat.label}</div>
@@ -300,7 +300,7 @@ const About = () => {
                       </div>
                     </div>
                   </motion.div>
-                </motion.div>
+          </motion.div>
 
                 {/* Decorative Elements */}
                 <div className="absolute -z-10 -top-10 -right-10 w-72 h-72 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-3xl animate-pulse" />
@@ -318,7 +318,7 @@ const About = () => {
             <div className="container mx-auto px-4 relative z-10">
               <div className="grid lg:grid-cols-2 gap-16 items-center">
                 {/* Left - Content */}
-                <motion.div
+          <motion.div
                   initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8 }}
@@ -339,7 +339,7 @@ const About = () => {
                   <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                     <p>
                       <strong className="text-foreground">Adiban Aviation Private Limited</strong> is India's premier <Link to="/products" className="text-primary hover:underline font-semibold">Aerospace & Defense technology company</Link>, established in 2014 with a vision to revolutionize unmanned aviation in India. We are dedicated to developing high-performance <Link to="/products/uav" className="text-primary hover:underline font-semibold">drones and advanced UAV systems</Link> that meet the highest international standards. Our commitment to innovation, precision engineering, and regulatory compliance has positioned us as a trusted partner for defense, agriculture, logistics, and research sectors across India.
-                    </p>
+            </p>
                     
                     <p>
                       As a complete <Link to="/products" className="text-primary hover:underline font-semibold">drone stack OEM</Link>, we specialize in comprehensive <Link to="/services" className="text-primary hover:underline font-semibold">UAV design, development, compliance documentation, and type certification assistance</Link>. Our multidisciplinary team of 50+ expert engineers brings together deep expertise in aerodynamics, avionics, propulsion systems, and systems integration. With over 500+ successful projects delivered and 10+ years of industry experience, we have established ourselves as India's leading manufacturer of <Link to="/products/hardware" className="text-primary hover:underline font-semibold">aerospace hardware</Link> and <Link to="/products/testrix" className="text-primary hover:underline font-semibold">testing solutions</Link>.
@@ -347,9 +347,9 @@ const About = () => {
                     
                     <p>
                       Our state-of-the-art facilities in Villupuram, Tamil Nadu, enable us to maintain 100% in-house manufacturing capabilities. We invest 35% of our resources in research and development, ensuring continuous innovation in <Link to="/services" className="text-primary hover:underline font-semibold">custom drone design, CAD/CAM services, FEA/CFD analysis</Link>, and aerospace component development. At Adiban Aviation, we're not just building drones — we're shaping the future of unmanned aviation in India.
-                    </p>
+            </p>
                   </div>
-                </motion.div>
+          </motion.div>
 
                 {/* Right - Timeline */}
                 <motion.div
@@ -363,7 +363,7 @@ const About = () => {
                     <h3 className="text-2xl font-display font-bold mb-8 text-center">Our Journey</h3>
                     <div className="space-y-6">
                       {milestones.map((milestone, index) => (
-                        <motion.div
+            <motion.div
                           key={milestone.year}
                           initial={{ opacity: 0, x: 30 }}
                           whileInView={{ opacity: 1, x: 0 }}
@@ -429,10 +429,10 @@ const About = () => {
                       </p>
                     </div>
                   </div>
-                </motion.div>
+            </motion.div>
 
                 {/* Mission Card */}
-                <motion.div
+            <motion.div
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2, duration: 0.6 }}
@@ -491,12 +491,12 @@ const About = () => {
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                   The core principles that guide everything we do
-                </p>
-              </motion.div>
+              </p>
+            </motion.div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
                 {companyValues.map((value, index) => (
-                  <motion.div
+            <motion.div
                     key={value.title}
                     initial={{ opacity: 0, y: 50, rotateY: -15 }}
                     whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
@@ -560,7 +560,7 @@ const About = () => {
                         className="text-[200px] md:text-[300px] font-display font-bold leading-none bg-gradient-to-br from-primary/20 via-accent/20 to-primary/20 bg-clip-text text-transparent select-none"
                       >
                         "
-                      </motion.div>
+            </motion.div>
                       <div className="absolute inset-0 flex items-center justify-center">
                         <motion.div
                           animate={{ rotate: 360 }}
@@ -568,7 +568,7 @@ const About = () => {
                           className="w-32 h-32 rounded-full border-4 border-primary/20"
                         />
                       </div>
-                    </div>
+          </div>
                   </motion.div>
 
                   {/* Center - Main Quote Content */}
@@ -640,7 +640,7 @@ const About = () => {
                             >
                               <Quote className="w-12 h-12 text-white" />
                             </motion.div>
-                            <motion.div
+          <motion.div
                               animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
                               transition={{ duration: 2, repeat: Infinity }}
                               className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/30 to-accent/30 blur-xl"
@@ -662,7 +662,7 @@ const About = () => {
                           </motion.span>
                           
                           <motion.p
-                            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4, duration: 0.6 }}
                             viewport={{ once: true }}
@@ -701,7 +701,7 @@ const About = () => {
                         <motion.div
                           initial={{ opacity: 0, x: -20 }}
                           whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.6, duration: 0.6 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
                           viewport={{ once: true }}
                           className="flex items-center justify-center lg:justify-start gap-4 mt-12 pt-8 border-t border-border/50"
                         >
@@ -710,7 +710,7 @@ const About = () => {
                               whileHover={{ scale: 1.1, rotate: 360 }}
                               transition={{ duration: 0.5 }}
                               className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg"
-                            >
+          >
                               <Award className="w-7 h-7 text-white" />
                             </motion.div>
                             <motion.div
@@ -735,9 +735,9 @@ const About = () => {
                         />
                       </div>
                     </div>
-                  </motion.div>
-                </div>
-              </div>
+          </motion.div>
+        </div>
+      </div>
             </div>
           </section>
 
@@ -801,8 +801,8 @@ const About = () => {
           </section>
         </main>
 
-        <Footer />
-      </div>
+      <Footer />
+    </div>
     </>
   );
 };
