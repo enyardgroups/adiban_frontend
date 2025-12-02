@@ -406,9 +406,10 @@ const Careers = () => {
             </div>
           </section>
 
-          {/* Job Openings Section */}
+          {/* Job Openings Section - Innovative Design */}
           <section className="py-32 relative bg-secondary/30 overflow-hidden" aria-label="Job Openings">
             <div className="absolute inset-0 diagonal-lines opacity-20" />
+            <div className="absolute inset-0 mesh-gradient opacity-10" />
             
             <div className="container mx-auto px-4 relative z-10">
               <motion.div
@@ -418,144 +419,380 @@ const Careers = () => {
                 viewport={{ once: true }}
                 className="text-center mb-16"
               >
-                <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-display font-semibold text-sm mb-6">
+                <motion.span
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.2, type: "spring" }}
+                  viewport={{ once: true }}
+                  className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-display font-semibold text-sm mb-6"
+                >
                   OPEN POSITIONS
-                </span>
+                </motion.span>
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
                   Current{" "}
-                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]">
                     Openings
                   </span>
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                   Explore exciting career opportunities with us
                 </p>
+                <motion.div
+                  initial={{ width: 0 }}
+                  whileInView={{ width: "150px" }}
+                  transition={{ delay: 0.4, duration: 0.8 }}
+                  viewport={{ once: true }}
+                  className="h-1.5 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mt-6"
+                />
               </motion.div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
-                {/* Job List */}
+                {/* Job List - Enhanced Cards */}
                 <div className="space-y-4">
-                  {jobOpenings.map((job, index) => (
-                    <motion.div
-                      key={job.id}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1, duration: 0.5 }}
-                      viewport={{ once: true }}
-                      onClick={() => setSelectedJob(job.id)}
-                      className={`relative bg-card border-2 rounded-2xl p-6 cursor-pointer transition-all duration-300 ${
-                        selectedJob === job.id 
-                          ? "border-primary/40 shadow-float" 
-                          : "border-border hover:border-primary/20"
-                      }`}
-                    >
-                      <div className="flex items-start justify-between gap-4">
-                        <div className="flex-1">
-                          <h3 className="text-xl font-display font-bold mb-2 group-hover:text-primary transition-colors">
-                            {job.title}
-                          </h3>
-                          <div className="flex flex-wrap gap-2 mb-3">
-                            <span className="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs text-primary font-semibold">
-                              {job.type}
-                            </span>
-                            <span className="px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-xs text-accent font-semibold">
-                              {job.workMode}
-                            </span>
-                            <span className="px-3 py-1 rounded-full bg-secondary border border-border text-xs text-muted-foreground font-semibold">
-                              {job.department}
-                            </span>
-                          </div>
-                          <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                            <div className="flex items-center gap-1">
-                              <MapPin className="w-4 h-4" />
-                              {job.location}
+                  {jobOpenings.map((job, index) => {
+                    const isSelected = selectedJob === job.id;
+                    const typeColors: Record<JobType, string> = {
+                      "Full Time": "from-blue-500 to-cyan-500",
+                      "Part Time": "from-purple-500 to-pink-500",
+                      "Intern": "from-green-500 to-emerald-500",
+                      "Contract": "from-orange-500 to-red-500",
+                    };
+                    const modeColors: Record<WorkMode, string> = {
+                      "Onsite": "from-indigo-500 to-blue-500",
+                      "Hybrid": "from-cyan-500 to-teal-500",
+                      "Remote": "from-violet-500 to-purple-500",
+                    };
+
+                    return (
+                      <motion.div
+                        key={job.id}
+                        initial={{ opacity: 0, x: -30, scale: 0.95 }}
+                        whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                        transition={{ delay: index * 0.08, duration: 0.5, type: "spring" }}
+                        viewport={{ once: true }}
+                        onClick={() => setSelectedJob(job.id)}
+                        whileHover={{ scale: 1.02, x: 4 }}
+                        className={`relative group cursor-pointer transition-all duration-300 ${
+                          isSelected ? "z-10" : ""
+                        }`}
+                      >
+                        <div className={`relative bg-card border-2 rounded-2xl overflow-hidden transition-all duration-300 ${
+                          isSelected 
+                            ? "border-primary/60 shadow-2xl shadow-primary/20" 
+                            : "border-border hover:border-primary/30 shadow-lg"
+                        }`}>
+                          {/* Gradient Overlay on Selection */}
+                          {isSelected && (
+                            <motion.div
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              className={`absolute inset-0 bg-gradient-to-br ${typeColors[job.type]} opacity-5`}
+                            />
+                          )}
+
+                          {/* Animated Background Pattern */}
+                          <motion.div
+                            animate={{ 
+                              rotate: [0, 360],
+                              scale: [1, 1.2, 1]
+                            }}
+                            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                            className={`absolute -top-10 -right-10 w-32 h-32 border-2 border-primary/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                          />
+
+                          <div className="relative z-10 p-6">
+                            <div className="flex items-start justify-between gap-4 mb-4">
+                              <div className="flex-1">
+                                <div className="flex items-center gap-3 mb-3">
+                                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${typeColors[job.type]} flex items-center justify-center flex-shrink-0 shadow-lg`}>
+                                    <Briefcase className="w-6 h-6 text-white" />
+                                  </div>
+                                  <div>
+                                    <h3 className={`text-xl font-display font-bold mb-1 transition-colors ${
+                                      isSelected ? "text-primary" : "group-hover:text-primary"
+                                    }`}>
+                                      {job.title}
+                                    </h3>
+                                    <p className="text-xs text-muted-foreground font-semibold">{job.department}</p>
+                                  </div>
+                                </div>
+
+                                {/* Enhanced Badges */}
+                                <div className="flex flex-wrap gap-2 mb-4">
+                                  <motion.span
+                                    whileHover={{ scale: 1.05 }}
+                                    className={`px-3 py-1.5 rounded-full bg-gradient-to-r ${typeColors[job.type]} text-white text-xs font-semibold shadow-md`}
+                                  >
+                                    {job.type}
+                                  </motion.span>
+                                  <motion.span
+                                    whileHover={{ scale: 1.05 }}
+                                    className={`px-3 py-1.5 rounded-full bg-gradient-to-r ${modeColors[job.workMode]} text-white text-xs font-semibold shadow-md`}
+                                  >
+                                    {job.workMode}
+                                  </motion.span>
+                                </div>
+
+                                {/* Info Icons */}
+                                <div className="flex flex-wrap items-center gap-4 text-sm">
+                                  <motion.div
+                                    whileHover={{ scale: 1.1 }}
+                                    className="flex items-center gap-1.5 text-muted-foreground"
+                                  >
+                                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                                      <MapPin className="w-4 h-4 text-primary" />
+                                    </div>
+                                    <span className="font-medium">{job.location}</span>
+                                  </motion.div>
+                                  <motion.div
+                                    whileHover={{ scale: 1.1 }}
+                                    className="flex items-center gap-1.5 text-muted-foreground"
+                                  >
+                                    <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center">
+                                      <Clock className="w-4 h-4 text-accent" />
+                                    </div>
+                                    <span className="font-medium">{job.experience}</span>
+                                  </motion.div>
+                                </div>
+                              </div>
+
+                              {/* Arrow Indicator */}
+                              <motion.div
+                                animate={{ x: isSelected ? 8 : 0 }}
+                                transition={{ duration: 0.3 }}
+                                className="flex-shrink-0"
+                              >
+                                <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${
+                                  isSelected 
+                                    ? "bg-gradient-to-br from-primary to-accent" 
+                                    : "bg-primary/10 group-hover:bg-primary/20"
+                                }`}>
+                                  <ArrowRight className={`w-5 h-5 transition-colors ${
+                                    isSelected ? "text-white" : "text-primary"
+                                  }`} />
+                                </div>
+                              </motion.div>
                             </div>
-                            <div className="flex items-center gap-1">
-                              <Clock className="w-4 h-4" />
-                              {job.experience}
-                            </div>
+
+                            {/* Quick Preview on Hover */}
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              whileHover={{ height: "auto", opacity: 1 }}
+                              className="overflow-hidden"
+                            >
+                              <p className="text-sm text-muted-foreground line-clamp-2 mt-4 pt-4 border-t border-border/50">
+                                {job.description}
+                              </p>
+                            </motion.div>
                           </div>
+
+                          {/* Selection Indicator */}
+                          {isSelected && (
+                            <motion.div
+                              initial={{ width: 0 }}
+                              animate={{ width: "100%" }}
+                              className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-primary to-accent"
+                            />
+                          )}
                         </div>
-                        <ArrowRight className={`w-5 h-5 text-primary transition-transform ${selectedJob === job.id ? "translate-x-2" : ""}`} />
-                      </div>
-                    </motion.div>
-                  ))}
+                      </motion.div>
+                    );
+                  })}
                 </div>
 
-                {/* Job Details */}
+                {/* Job Details - Enhanced Panel */}
                 <div className="lg:sticky lg:top-24 h-fit">
                   {selectedJobData ? (
                     <motion.div
                       key={selectedJobData.id}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5 }}
-                      className="bg-card/80 backdrop-blur-md border-2 border-border rounded-3xl p-8"
+                      initial={{ opacity: 0, x: 30, scale: 0.95 }}
+                      animate={{ opacity: 1, x: 0, scale: 1 }}
+                      transition={{ duration: 0.5, type: "spring" }}
+                      className="relative"
                     >
-                      <div className="mb-6">
-                        <h3 className="text-3xl font-display font-bold mb-4">{selectedJobData.title}</h3>
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          <span className="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-sm text-primary font-semibold">
-                            {selectedJobData.type}
-                          </span>
-                          <span className="px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-sm text-accent font-semibold">
-                            {selectedJobData.workMode}
-                          </span>
-                          <span className="px-3 py-1 rounded-full bg-secondary border border-border text-sm text-muted-foreground font-semibold">
-                            {selectedJobData.department}
-                          </span>
-                        </div>
-                        <div className="space-y-2 text-sm text-muted-foreground">
-                          <div className="flex items-center gap-2">
-                            <MapPin className="w-4 h-4" />
-                            {selectedJobData.location}
+                      {/* Background Effects */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/5 to-primary/5 rounded-3xl blur-2xl" />
+                      <div className="absolute inset-0 grid-pattern opacity-10 rounded-3xl" />
+
+                      <div className="relative bg-card/90 backdrop-blur-md border-2 border-primary/20 rounded-3xl p-8 shadow-2xl overflow-hidden">
+                        {/* Header with Gradient */}
+                        <div className="relative mb-8 pb-6 border-b-2 border-border/50">
+                          <div className="flex items-start justify-between gap-4 mb-4">
+                            <div className="flex-1">
+                              <h3 className="text-3xl md:text-4xl font-display font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                                {selectedJobData.title}
+                              </h3>
+                              <div className="flex flex-wrap gap-2 mb-4">
+                                {(() => {
+                                  const typeColors: Record<JobType, string> = {
+                                    "Full Time": "from-blue-500 to-cyan-500",
+                                    "Part Time": "from-purple-500 to-pink-500",
+                                    "Intern": "from-green-500 to-emerald-500",
+                                    "Contract": "from-orange-500 to-red-500",
+                                  };
+                                  const modeColors: Record<WorkMode, string> = {
+                                    "Onsite": "from-indigo-500 to-blue-500",
+                                    "Hybrid": "from-cyan-500 to-teal-500",
+                                    "Remote": "from-violet-500 to-purple-500",
+                                  };
+                                  return (
+                                    <>
+                                      <span className={`px-4 py-2 rounded-full bg-gradient-to-r ${typeColors[selectedJobData.type]} text-white text-sm font-semibold shadow-lg`}>
+                                        {selectedJobData.type}
+                                      </span>
+                                      <span className={`px-4 py-2 rounded-full bg-gradient-to-r ${modeColors[selectedJobData.workMode]} text-white text-sm font-semibold shadow-lg`}>
+                                        {selectedJobData.workMode}
+                                      </span>
+                                      <span className="px-4 py-2 rounded-full bg-secondary border-2 border-border text-sm text-muted-foreground font-semibold">
+                                        {selectedJobData.department}
+                                      </span>
+                                    </>
+                                  );
+                                })()}
+                              </div>
+                            </div>
+                            <motion.div
+                              whileHover={{ rotate: 360 }}
+                              transition={{ duration: 0.5 }}
+                              className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0 shadow-lg"
+                            >
+                              <Briefcase className="w-8 h-8 text-white" />
+                            </motion.div>
                           </div>
-                          <div className="flex items-center gap-2">
-                            <Clock className="w-4 h-4" />
-                            {selectedJobData.experience}
+
+                          {/* Location & Experience */}
+                          <div className="grid grid-cols-2 gap-4">
+                            <div className="bg-primary/5 border border-primary/20 rounded-xl p-4">
+                              <div className="flex items-center gap-2 mb-1">
+                                <MapPin className="w-4 h-4 text-primary" />
+                                <span className="text-xs font-semibold text-primary">Location</span>
+                              </div>
+                              <p className="text-sm font-medium text-foreground">{selectedJobData.location}</p>
+                            </div>
+                            <div className="bg-accent/5 border border-accent/20 rounded-xl p-4">
+                              <div className="flex items-center gap-2 mb-1">
+                                <Clock className="w-4 h-4 text-accent" />
+                                <span className="text-xs font-semibold text-accent">Experience</span>
+                              </div>
+                              <p className="text-sm font-medium text-foreground">{selectedJobData.experience}</p>
+                            </div>
                           </div>
                         </div>
-                      </div>
 
-                      <div className="space-y-6">
-                        <div>
-                          <h4 className="font-display font-bold mb-2">Description</h4>
-                          <p className="text-muted-foreground leading-relaxed">{selectedJobData.description}</p>
+                        {/* Content Sections */}
+                        <div className="space-y-8">
+                          {/* Description */}
+                          <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                          >
+                            <div className="flex items-center gap-2 mb-3">
+                              <div className="w-1 h-6 bg-gradient-to-b from-primary to-accent rounded-full" />
+                              <h4 className="font-display font-bold text-lg">Job Description</h4>
+                            </div>
+                            <p className="text-muted-foreground leading-relaxed pl-3">{selectedJobData.description}</p>
+                          </motion.div>
+
+                          {/* Responsibilities */}
+                          <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.3 }}
+                          >
+                            <div className="flex items-center gap-2 mb-4">
+                              <div className="w-1 h-6 bg-gradient-to-b from-primary to-accent rounded-full" />
+                              <h4 className="font-display font-bold text-lg">Key Responsibilities</h4>
+                            </div>
+                            <ul className="space-y-3 pl-3">
+                              {selectedJobData.responsibilities.map((resp, i) => (
+                                <motion.li
+                                  key={i}
+                                  initial={{ opacity: 0, x: -10 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ delay: 0.4 + i * 0.05 }}
+                                  className="flex items-start gap-3"
+                                >
+                                  <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0 mt-0.5 shadow-md">
+                                    <CheckCircle2 className="w-4 h-4 text-white" />
+                                  </div>
+                                  <span className="text-muted-foreground leading-relaxed flex-1">{resp}</span>
+                                </motion.li>
+                              ))}
+                            </ul>
+                          </motion.div>
+
+                          {/* Requirements */}
+                          <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.5 }}
+                          >
+                            <div className="flex items-center gap-2 mb-4">
+                              <div className="w-1 h-6 bg-gradient-to-b from-accent to-primary rounded-full" />
+                              <h4 className="font-display font-bold text-lg">Requirements</h4>
+                            </div>
+                            <ul className="space-y-3 pl-3">
+                              {selectedJobData.requirements.map((req, i) => (
+                                <motion.li
+                                  key={i}
+                                  initial={{ opacity: 0, x: -10 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ delay: 0.6 + i * 0.05 }}
+                                  className="flex items-start gap-3"
+                                >
+                                  <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-accent to-primary flex items-center justify-center flex-shrink-0 mt-0.5 shadow-md">
+                                    <CheckCircle2 className="w-4 h-4 text-white" />
+                                  </div>
+                                  <span className="text-muted-foreground leading-relaxed flex-1">{req}</span>
+                                </motion.li>
+                              ))}
+                            </ul>
+                          </motion.div>
                         </div>
 
-                        <div>
-                          <h4 className="font-display font-bold mb-3">Key Responsibilities</h4>
-                          <ul className="space-y-2">
-                            {selectedJobData.responsibilities.map((resp, i) => (
-                              <li key={i} className="flex items-start gap-2 text-muted-foreground">
-                                <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
-                                <span>{resp}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        <div>
-                          <h4 className="font-display font-bold mb-3">Requirements</h4>
-                          <ul className="space-y-2">
-                            {selectedJobData.requirements.map((req, i) => (
-                              <li key={i} className="flex items-start gap-2 text-muted-foreground">
-                                <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0 mt-1" />
-                                <span>{req}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+                        {/* Apply Button */}
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.8 }}
+                          className="mt-8 pt-6 border-t-2 border-border/50"
+                        >
+                          <Button
+                            onClick={() => {
+                              setFormData({ ...formData, role: selectedJobData.title });
+                              document.getElementById('application-form')?.scrollIntoView({ behavior: 'smooth' });
+                            }}
+                            size="lg"
+                            className="w-full bg-gradient-to-r from-primary to-accent hover:shadow-glow font-display font-semibold text-lg py-7 rounded-2xl group"
+                          >
+                            Apply for this Position
+                            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform" />
+                          </Button>
+                        </motion.div>
                       </div>
                     </motion.div>
                   ) : (
                     <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className="bg-card/80 backdrop-blur-md border-2 border-border rounded-3xl p-8 text-center"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="relative bg-card/80 backdrop-blur-md border-2 border-border rounded-3xl p-12 text-center overflow-hidden"
                     >
-                      <Briefcase className="w-16 h-16 text-muted-foreground/50 mx-auto mb-4" />
-                      <p className="text-muted-foreground">Select a position to view details</p>
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
+                      <div className="relative z-10">
+                        <motion.div
+                          animate={{ 
+                            rotate: [0, 10, -10, 0],
+                            scale: [1, 1.1, 1]
+                          }}
+                          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                          className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mx-auto mb-6"
+                        >
+                          <Briefcase className="w-10 h-10 text-primary/50" />
+                        </motion.div>
+                        <h3 className="text-xl font-display font-bold mb-2 text-foreground">Select a Position</h3>
+                        <p className="text-muted-foreground">Choose a job opening from the list to view detailed information</p>
+                      </div>
                     </motion.div>
                   )}
                 </div>
@@ -564,7 +801,7 @@ const Careers = () => {
           </section>
 
           {/* Application Form Section */}
-          <section className="py-32 relative overflow-hidden" aria-label="Application Form">
+          <section id="application-form" className="py-32 relative overflow-hidden" aria-label="Application Form">
             <div className="absolute inset-0 grid-pattern opacity-10" />
             
             <div className="container mx-auto px-4 relative z-10">
