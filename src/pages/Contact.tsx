@@ -46,17 +46,20 @@ const Contact = () => {
       ],
       description: "Call us during business hours",
       gradient: "from-blue-500 to-cyan-500",
-      action: "Call Now"
+      action: "Call Now",
+      primaryLink: "tel:+918903501042"
     },
     {
       icon: Mail,
       title: "Email",
       details: [
         { label: "General", value: "contact@adibanaviation.in", link: "mailto:contact@adibanaviation.in" },
+        { label: "Support", value: "info@adibanaviation.com", link: "mailto:info@adibanaviation.com" },
       ],
       description: "Send us an email anytime",
       gradient: "from-purple-500 to-blue-500",
-      action: "Send Email"
+      action: "Send Email",
+      primaryLink: "mailto:contact@adibanaviation.in"
     },
     {
       icon: MapPin,
@@ -66,7 +69,8 @@ const Contact = () => {
       ],
       description: "Visit our facility",
       gradient: "from-green-500 to-emerald-500",
-      action: "Get Directions"
+      action: "Get Direction",
+      primaryLink: "https://www.google.com/maps/search/?api=1&query=65/65,+Trichy+Main+Road,+Nathamedu,+Pidagam,+Villupuram,+Tamil+Nadu,+605401"
     },
   ];
 
@@ -203,39 +207,41 @@ const Contact = () => {
                     whileHover={{ y: -8, transition: { duration: 0.2 } }}
                     className="group"
                   >
-                    <div className="relative bg-card border-2 border-border rounded-3xl p-8 h-full overflow-hidden hover:border-primary/40 transition-all duration-300 hover:shadow-float">
+                    <div className="relative bg-card border-2 border-border rounded-3xl p-8 h-full overflow-hidden hover:border-primary/40 transition-all duration-300 hover:shadow-float flex flex-col">
                       <div className={`absolute inset-0 bg-gradient-to-br ${method.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
                       
-                      <div className="relative z-10">
-                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${method.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                          <method.icon className="h-8 w-8 text-white" />
-                        </div>
-                        
-                        <h3 className="text-2xl font-display font-bold mb-2">{method.title}</h3>
-                        <p className="text-sm text-muted-foreground mb-6">{method.description}</p>
-                        
-                        <div className="space-y-3 mb-6">
-                          {method.details.map((detail, i) => (
-                            <div key={i}>
-                              {detail.label && (
-                                <p className="text-xs text-muted-foreground mb-1">{detail.label}</p>
-                              )}
-                              {detail.link ? (
-                                <a 
-                                  href={detail.link}
-                                  className="text-foreground hover:text-primary transition-colors font-semibold block"
-                                >
-                                  {detail.value}
-                                </a>
-                              ) : (
-                                <p className="text-foreground font-semibold">{detail.value}</p>
-                              )}
-                            </div>
-                          ))}
+                      <div className="relative z-10 flex flex-col h-full">
+                        <div>
+                          <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${method.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                            <method.icon className="h-8 w-8 text-white" />
+                          </div>
+                          
+                          <h3 className="text-2xl font-display font-bold mb-2">{method.title}</h3>
+                          <p className="text-sm text-muted-foreground mb-6">{method.description}</p>
+                          
+                          <div className="space-y-3 mb-6">
+                            {method.details.map((detail, i) => (
+                              <div key={i}>
+                                {detail.label && (
+                                  <p className="text-xs text-muted-foreground mb-1">{detail.label}</p>
+                                )}
+                                {detail.link ? (
+                                  <a 
+                                    href={detail.link}
+                                    className="text-foreground hover:text-primary transition-colors font-semibold block"
+                                  >
+                                    {detail.value}
+                                  </a>
+                                ) : (
+                                  <p className="text-foreground font-semibold">{detail.value}</p>
+                                )}
+                              </div>
+                            ))}
+                          </div>
                         </div>
 
-                        {method.details[0].link && (
-                          <a href={method.details[0].link}>
+                        {(method.primaryLink || method.details[0].link) && (
+                          <a href={method.primaryLink || method.details[0].link} className="mt-auto">
                             <Button 
                               variant="outline" 
                               className="w-full border-2 border-primary/20 hover:bg-primary/5 hover:border-primary/40"

@@ -1,11 +1,204 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Wrench, Cpu, Ruler, Factory, Zap, Wind, ArrowRight, CheckCircle2, Sparkles, Rocket, Target, Shield, Code, Layers, Settings } from "lucide-react";
+import { Wrench, Cpu, Ruler, Factory, Zap, Wind, ArrowRight, CheckCircle2, Sparkles, Rocket, Target, Shield, Code, Layers, Settings, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/useSEO";
+
+// Import service images
+import service1 from "@/assets/services/1.jpg";
+import service2 from "@/assets/services/2.png";
+import service3 from "@/assets/services/3.png";
+import service4 from "@/assets/services/4.png";
+import service5 from "@/assets/services/5.png";
+import service6 from "@/assets/services/6.jpg";
+import service7 from "@/assets/services/7.jpg";
+import service8 from "@/assets/services/8.jpg";
+import service9 from "@/assets/services/9.jpg";
+import service10 from "@/assets/services/10.jpg";
+import service11 from "@/assets/services/11.jpg";
+import service12 from "@/assets/services/12.jpg";
+import service13 from "@/assets/services/13.jpg";
+import service14 from "@/assets/services/14.jpg";
+import service15 from "@/assets/services/15.jpg";
+import service16 from "@/assets/services/16.jpg";
+import service17 from "@/assets/services/17.jpg";
+import service18 from "@/assets/services/18.jpg";
+import service19 from "@/assets/services/19.png";
+
+const serviceImages = [
+  service1, service2, service3, service4, service5, service6, service7, service8, service9, service10,
+  service11, service12, service13, service14, service15, service16, service17, service18, service19
+];
+
+// Carousel Component
+const Carousel = ({ images }: { images: string[] }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Auto-play functionality
+  useEffect(() => {
+    if (isPaused) return;
+    
+    const interval = setInterval(() => {
+      setDirection(1);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 2000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [images.length, isPaused]);
+
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? 1000 : -1000,
+      opacity: 0
+    })
+  };
+
+  const swipeConfidenceThreshold = 10000;
+  const swipePower = (offset: number, velocity: number) => {
+    return Math.abs(offset) * velocity;
+  };
+
+  const paginate = (newDirection: number) => {
+    setDirection(newDirection);
+    setCurrentIndex((prevIndex) => {
+      if (newDirection === 1) {
+        return prevIndex === images.length - 1 ? 0 : prevIndex + 1;
+      } else {
+        return prevIndex === 0 ? images.length - 1 : prevIndex - 1;
+      }
+    });
+  };
+
+  return (
+      <div 
+        className="relative max-w-6xl mx-auto"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+      <div className="relative h-[600px] rounded-3xl overflow-hidden bg-card border-2 border-border shadow-2xl">
+        <motion.div
+          key={currentIndex}
+          custom={direction}
+          variants={slideVariants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={{
+            x: { type: "spring", stiffness: 300, damping: 30 },
+            opacity: { duration: 0.2 }
+          }}
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={1}
+          onDragEnd={(e, { offset, velocity }) => {
+            const swipe = swipePower(offset.x, velocity.x);
+
+            if (swipe < -swipeConfidenceThreshold) {
+              paginate(1);
+            } else if (swipe > swipeConfidenceThreshold) {
+              paginate(-1);
+            }
+          }}
+          className="absolute inset-0"
+        >
+          <img
+            src={images[currentIndex]}
+            alt={`Adiban Aviation Project ${currentIndex + 1}`}
+            className="w-full h-full object-contain bg-gradient-to-br from-primary/5 to-accent/5 p-8"
+            loading="lazy"
+          />
+        </motion.div>
+
+        {/* Navigation Buttons */}
+        <button
+          onClick={() => paginate(-1)}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-card/90 backdrop-blur-md border-2 border-primary/30 hover:border-primary/60 flex items-center justify-center transition-all hover:scale-110 shadow-lg"
+          aria-label="Previous image"
+        >
+          <ChevronLeft className="w-6 h-6 text-primary" />
+        </button>
+        <button
+          onClick={() => paginate(1)}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-card/90 backdrop-blur-md border-2 border-primary/30 hover:border-primary/60 flex items-center justify-center transition-all hover:scale-110 shadow-lg"
+          aria-label="Next image"
+        >
+          <ChevronRight className="w-6 h-6 text-primary" />
+        </button>
+
+        {/* Dots Indicator */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setDirection(index > currentIndex ? 1 : -1);
+                setCurrentIndex(index);
+              }}
+              className={`w-2 h-2 rounded-full transition-all ${
+                index === currentIndex
+                  ? "bg-primary w-8"
+                  : "bg-primary/30 hover:bg-primary/50"
+              }`}
+              aria-label={`Go to image ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Image Counter */}
+        <div className="absolute top-4 right-4 z-20 px-4 py-2 rounded-full bg-card/90 backdrop-blur-md border-2 border-primary/30 text-sm font-display font-semibold text-primary">
+          {currentIndex + 1} / {images.length}
+        </div>
+      </div>
+
+      {/* Thumbnail Strip */}
+      <div className="mt-8 overflow-x-auto scrollbar-thin pb-4">
+        <div className="flex gap-4 justify-center">
+          {images.map((image, index) => (
+            <motion.button
+              key={index}
+              onClick={() => {
+                setDirection(index > currentIndex ? 1 : -1);
+                setCurrentIndex(index);
+              }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className={`relative flex-shrink-0 w-24 h-24 rounded-xl overflow-hidden border-2 transition-all ${
+                index === currentIndex
+                  ? "border-primary shadow-lg scale-110"
+                  : "border-border hover:border-primary/50"
+              }`}
+            >
+              <img
+                src={image}
+                alt={`Thumbnail ${index + 1}`}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              {index === currentIndex && (
+                <div className="absolute inset-0 bg-primary/20" />
+              )}
+            </motion.button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Services = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -326,6 +519,36 @@ const Services = () => {
                   </motion.div>
                 ))}
               </div>
+            </div>
+          </section>
+
+          {/* Our Work - Image Carousel */}
+          <section className="py-32 relative overflow-hidden" aria-label="Our Work">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
+            
+            <div className="container mx-auto px-4 relative z-10">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-center mb-16"
+              >
+                <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-display font-semibold text-sm mb-6">
+                  OUR WORK
+                </span>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
+                  Showcasing{" "}
+                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                    Our Projects
+                  </span>
+                </h2>
+                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                  A glimpse into our engineering excellence and innovative solutions
+                </p>
+              </motion.div>
+
+              <Carousel images={serviceImages} />
             </div>
           </section>
 

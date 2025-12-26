@@ -22,9 +22,9 @@ const About = () => {
 
   // SEO Optimization
   useSEO({
-    title: "About Us - Adiban Aviation | Leading Indian Aerospace & Defense UAV Manufacturer",
-    description: "Learn about Adiban Aviation Private Limited - India's premier Aerospace & Defense technology company. Discover our vision, mission, company values, and journey in developing high-performance drones, UAV systems, and aerospace solutions. 500+ projects delivered, 10+ years of excellence.",
-    keywords: "Adiban Aviation about, Indian aerospace company, UAV manufacturer India, drone technology company, aerospace defense company India, Adiban Aviation history, aerospace engineering company, drone development company, Indian OEM aerospace, UAV systems manufacturer, aerospace innovation India, defense technology company",
+    title: "About Us - Adiban Aviation | Engineering Excellence in Indian Aerospace Technology",
+    description: "Learn about Adiban Aviation Private Limited - an Indian aerospace technology company focused on building reliable unmanned systems, avionics hardware, and advanced engineering solutions. Discover our engineering-first approach, OEM capabilities, and commitment to Make in India principles. Specializing in UAV platforms, aerospace electronics, CAD/CAM, FEA/CFD, and DGCA compliance.",
+    keywords: "Adiban Aviation about, Indian aerospace technology company, unmanned systems India, UAV manufacturer, avionics hardware, aerospace engineering solutions, OEM aerospace India, CAD/CAM services, FEA/CFD analysis, DGCA compliance, type certification, Make in India aerospace, embedded systems, aerospace electronics, UAV platforms, engineering-first approach",
     canonical: "https://adibanaviation.com/about",
     ogImage: "https://adibanaviation.com/about-og-image.jpg",
     ogType: "website"
@@ -48,7 +48,7 @@ const About = () => {
       "alternateName": "Adiban Aviation",
       "url": "https://adibanaviation.com",
       "logo": "https://adibanaviation.com/logo.png",
-      "description": "Adiban Aviation Pvt. Ltd. is India's premier Aerospace & Defense technology company dedicated to developing high-performance drones and advanced UAV systems. We specialize in custom drone design, hardware development, CAD/CAM services, FEA/CFD analysis, and type certification assistance.",
+      "description": "Adiban Aviation Pvt. Ltd. is an Indian aerospace technology company focused on building reliable unmanned systems, avionics hardware, and advanced engineering solutions. Guided by an engineering-first mindset and Make in India principles, we develop technologies that are practical, dependable, and ready for real-world aviation use.",
       "foundingDate": "2014",
       "address": {
         "@type": "PostalAddress",
@@ -82,6 +82,23 @@ const About = () => {
     }
   };
 
+  const visionMission = [
+    {
+      icon: Eye,
+      title: "Our Vision",
+      description: "To be a global leader in UAV innovation and shape the future of aerial solutions. We envision a world where unmanned aviation technology transforms industries, enhances safety, and creates new possibilities for human progress. We aim to establish Adiban Aviation as India's most trusted and innovative aerospace technology company, recognized worldwide for engineering excellence and commitment to the \"Make in India\" initiative.",
+      color: "from-blue-500 to-cyan-500",
+      stat: "Global"
+    },
+    {
+      icon: Target,
+      title: "Our Mission",
+      description: "To deliver innovative technologies that make the drone industry safer, smarter, and more efficient. We are committed to developing high-performance UAV systems that meet the evolving needs of defense, agriculture, logistics, and research sectors. Through continuous innovation, rigorous quality standards, and customer-centric approach, we strive to exceed expectations and set new benchmarks in aerospace engineering.",
+      color: "from-cyan-500 to-blue-500",
+      stat: "Excellence"
+    },
+  ];
+
   const companyValues = [
     {
       icon: Shield,
@@ -114,11 +131,12 @@ const About = () => {
   ];
 
   const milestones = [
-    { year: "2014", title: "Founded", description: "Adiban Aviation was established with a vision to revolutionize Indian aerospace technology." },
-    { year: "2016", title: "First UAV", description: "Successfully developed and launched our first custom drone system." },
-    { year: "2019", title: "Type Certification", description: "Achieved type certification for multiple UAV platforms." },
-    { year: "2022", title: "500+ Projects", description: "Reached milestone of 500+ successful projects delivered." },
-    { year: "2024", title: "Industry Leader", description: "Recognized as India's leading aerospace & defense technology company." },
+    { year: "Founded", title: "Founded", description: "Established with a focus on indigenous aerospace engineering and unmanned systems development." },
+    { year: "First Systems", title: "First Systems Built", description: "Designed and developed early UAV platforms and aerospace subsystems through hands-on prototyping." },
+    { year: "Engineering", title: "Engineering Maturity", description: "Strengthened internal capabilities across CAD/CAM, FEA/CFD, electronics, and embedded systems." },
+    { year: "Compliance", title: "Compliance-Ready Development", description: "Evolved design and validation practices with an understanding of regulatory and certification pathways." },
+    { year: "Experience", title: "Operational Experience", description: "Delivered multiple engineering and unmanned system solutions across varied real-world applications." },
+    { year: "Forward", title: "Continuing Forward", description: "Advancing reliable, indigenous aerospace technologies through disciplined engineering and iteration." },
   ];
 
   return (
@@ -332,22 +350,30 @@ const About = () => {
                     Engineering{" "}
                     <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                       Excellence
-                    </span>{" "}
-                    Since Day One
+                    </span>
+                    , Built with Purpose
                   </h2>
                   
                   <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                     <p>
-                      <strong className="text-foreground">Adiban Aviation Private Limited</strong> is India's premier <Link to="/products" className="text-primary hover:underline font-semibold">Aerospace & Defense technology company</Link>, established in 2014 with a vision to revolutionize unmanned aviation in India. We are dedicated to developing high-performance <Link to="/products/uav" className="text-primary hover:underline font-semibold">drones and advanced UAV systems</Link> that meet the highest international standards. Our commitment to innovation, precision engineering, and regulatory compliance has positioned us as a trusted partner for defense, agriculture, logistics, and research sectors across India.
-            </p>
-                    
-                    <p>
-                      As a complete <Link to="/products" className="text-primary hover:underline font-semibold">drone stack OEM</Link>, we specialize in comprehensive <Link to="/services" className="text-primary hover:underline font-semibold">UAV design, development, compliance documentation, and type certification assistance</Link>. Our multidisciplinary team of 50+ expert engineers brings together deep expertise in aerodynamics, avionics, propulsion systems, and systems integration. With over 500+ successful projects delivered and 10+ years of industry experience, we have established ourselves as India's leading manufacturer of <Link to="/products/hardware" className="text-primary hover:underline font-semibold">aerospace hardware</Link> and <Link to="/products/testrix" className="text-primary hover:underline font-semibold">testing solutions</Link>.
+                      <strong className="text-foreground">Adiban Aviation Private Limited</strong> is an Indian <Link to="/products" className="text-primary hover:underline font-semibold">aerospace technology company</Link> focused on building reliable <Link to="/products/uav" className="text-primary hover:underline font-semibold">unmanned systems</Link>, <Link to="/products/hardware" className="text-primary hover:underline font-semibold">avionics hardware</Link>, and advanced engineering solutions. Guided by an engineering-first mindset and <strong className="text-foreground">Make in India</strong> principles, we work to develop technologies that are practical, dependable, and ready for real-world aviation use.
                     </p>
                     
                     <p>
-                      Our state-of-the-art facilities in Villupuram, Tamil Nadu, enable us to maintain 100% in-house manufacturing capabilities. We invest 35% of our resources in research and development, ensuring continuous innovation in <Link to="/services" className="text-primary hover:underline font-semibold">custom drone design, CAD/CAM services, FEA/CFD analysis</Link>, and aerospace component development. At Adiban Aviation, we're not just building drones — we're shaping the future of unmanned aviation in India.
-            </p>
+                      From the beginning, Adiban Aviation has followed an <strong className="text-foreground">OEM-led approach</strong>, developing strong in-house capabilities across <Link to="/products/uav" className="text-primary hover:underline font-semibold">UAV platforms</Link>, aerospace electronics, embedded systems, and supporting engineering services. Our work spans design and manufacturability (<Link to="/services" className="text-primary hover:underline font-semibold">CAD/CAM</Link>), engineering analysis and validation (<Link to="/services" className="text-primary hover:underline font-semibold">FEA/CFD</Link>), hardware development, system integration, and compliance-oriented technical documentation.
+                    </p>
+                    
+                    <p>
+                      We design with a clear understanding of <strong className="text-foreground">DGCA regulatory frameworks</strong> and <Link to="/services" className="text-primary hover:underline font-semibold">UAV type certification pathways</Link>, ensuring that safety, compliance, and long-term readiness are considered early in the engineering process. This approach allows us to build systems thoughtfully, without shortcuts or retroactive fixes.
+                    </p>
+                    
+                    <p>
+                      With in-house development and manufacturing facilities in <strong className="text-foreground">Tamil Nadu</strong>, we maintain close control over design iterations, quality, testing, and validation. Continuous investment in research and engineering helps us improve steadily across UAV subsystems, aerospace components, and product development processes.
+                    </p>
+                    
+                    <p>
+                      At Adiban Aviation, we focus on doing the fundamentals right — <strong className="text-foreground">disciplined engineering</strong>, indigenous capability development, and systems built to perform reliably in demanding environments. Our goal is to contribute meaningfully to India's growing unmanned aviation ecosystem through responsible innovation and well-engineered solutions.
+                    </p>
                   </div>
           </motion.div>
 
@@ -364,7 +390,7 @@ const About = () => {
                     <div className="space-y-6">
                       {milestones.map((milestone, index) => (
             <motion.div
-                          key={milestone.year}
+                          key={milestone.title}
                           initial={{ opacity: 0, x: 30 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           transition={{ delay: index * 0.1, duration: 0.5 }}
@@ -373,7 +399,7 @@ const About = () => {
                         >
                           <div className="flex flex-col items-center">
                             <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
-                              <span className="text-white font-display font-bold text-sm">{milestone.year.slice(2)}</span>
+                              <Rocket className="w-6 h-6 text-white" />
                             </div>
                             {index < milestones.length - 1 && (
                               <div className="w-0.5 h-full bg-gradient-to-b from-primary/30 to-accent/30 mt-2" />
@@ -392,75 +418,74 @@ const About = () => {
             </div>
           </section>
 
-          {/* Vision & Mission - Side by Side Creative Layout */}
-          <section className="py-32 relative bg-secondary/30 overflow-hidden" aria-label="Vision and Mission">
+          {/* Vision & Mission - New Creative Design */}
+          <section className="py-32 relative overflow-hidden" aria-label="Vision and Mission">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
             <div className="absolute inset-0 diagonal-lines opacity-20" />
             
             <div className="container mx-auto px-4 relative z-10">
-              <div className="grid lg:grid-cols-2 gap-8">
-                {/* Vision Card */}
+              {/* Vision Section - Left Aligned */}
+              <div className="mb-24">
                 <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
+                  initial={{ opacity: 0, x: -100 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8 }}
                   viewport={{ once: true }}
-                  whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                  className="group"
+                  className="max-w-4xl"
                 >
-                  <div className="relative bg-card border-2 border-border rounded-3xl p-8 md:p-12 h-full overflow-hidden hover:border-primary/40 transition-all duration-300 hover:shadow-float">
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-3xl" />
-                    
-                    <div className="relative z-10">
-                      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent font-display font-semibold text-sm mb-6">
-                        <Eye className="w-4 h-4" />
+                  <div className="flex items-start gap-6 mb-6">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0 shadow-lg">
+                      <Eye className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <span className="inline-block px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-500 font-display font-semibold text-sm mb-4">
                         OUR VISION
-                      </div>
-                      <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <Eye className="w-10 h-10 text-white" />
-                      </div>
-                      <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+                      </span>
+                      <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
                         Leading the{" "}
-                        <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                        <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
                           Future
                         </span>
                       </h2>
-                      <p className="text-lg text-muted-foreground leading-relaxed">
-                        To be a global leader in <Link to="/products/uav" className="text-primary hover:underline font-semibold">UAV innovation</Link> and shaping the future of aerial solutions. We envision a world where unmanned aviation technology transforms industries, enhances safety, and creates new possibilities for human progress. Our vision extends beyond manufacturing — we aim to establish Adiban Aviation as India's most trusted and innovative <Link to="/products" className="text-primary hover:underline font-semibold">aerospace technology company</Link>, recognized worldwide for engineering excellence, cutting-edge <Link to="/services" className="text-primary hover:underline font-semibold">drone solutions</Link>, and commitment to the "Make in India" initiative.
-                      </p>
                     </div>
                   </div>
-            </motion.div>
+                  <div className="pl-24">
+                    <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                      To be a global leader in UAV innovation and shape the future of aerial solutions. We envision a world where unmanned aviation technology transforms industries, enhances safety, and creates new possibilities for human progress. We aim to establish Adiban Aviation as India's most trusted and innovative aerospace technology company, recognized worldwide for engineering excellence and commitment to the "Make in India" initiative.
+                    </p>
+                  </div>
+                </motion.div>
+              </div>
 
-                {/* Mission Card */}
-            <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2, duration: 0.6 }}
+              {/* Mission Section - Right Aligned */}
+              <div className="flex justify-end">
+                <motion.div
+                  initial={{ opacity: 0, x: 100 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8 }}
                   viewport={{ once: true }}
-                  whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                  className="group"
+                  className="max-w-4xl"
                 >
-                  <div className="relative bg-card border-2 border-border rounded-3xl p-8 md:p-12 h-full overflow-hidden hover:border-accent/40 transition-all duration-300 hover:shadow-float">
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-accent/10 to-primary/10 rounded-full blur-3xl" />
-                    
-                    <div className="relative z-10">
-                      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-display font-semibold text-sm mb-6">
-                        <Target className="w-4 h-4" />
+                  <div className="flex items-start gap-6 mb-6 flex-row-reverse">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center flex-shrink-0 shadow-lg">
+                      <Target className="w-8 h-8 text-white" />
+                    </div>
+                    <div className="text-right">
+                      <span className="inline-block px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-500 font-display font-semibold text-sm mb-4">
                         OUR MISSION
-                      </div>
-                      <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-accent to-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <Target className="w-10 h-10 text-white" />
-                      </div>
-                      <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+                      </span>
+                      <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
                         Delivering{" "}
-                        <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                        <span className="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
                           Excellence
                         </span>
                       </h2>
-                      <p className="text-lg text-muted-foreground leading-relaxed">
-                        To deliver innovative technologies that make the <Link to="/products/uav" className="text-primary hover:underline font-semibold">drone industry</Link> safer, smarter, and more efficient. We are committed to developing high-performance <Link to="/products" className="text-primary hover:underline font-semibold">UAV systems</Link> that meet the evolving needs of defense, agriculture, logistics, and research sectors. Through continuous innovation, rigorous quality standards, and customer-centric approach, we strive to exceed expectations and set new benchmarks in <Link to="/services" className="text-primary hover:underline font-semibold">aerospace engineering</Link>. Our mission includes providing comprehensive <Link to="/products/hardware" className="text-primary hover:underline font-semibold">aerospace hardware solutions</Link> and <Link to="/products/testrix" className="text-primary hover:underline font-semibold">testing equipment</Link> that ensure reliability and performance.
-                      </p>
                     </div>
+                  </div>
+                  <div className="pr-24">
+                    <p className="text-lg md:text-xl text-muted-foreground leading-relaxed text-right">
+                      To deliver innovative technologies that make the drone industry safer, smarter, and more efficient. We are committed to developing high-performance UAV systems that meet the evolving needs of defense, agriculture, logistics, and research sectors. Through continuous innovation, rigorous quality standards, and customer-centric approach, we strive to exceed expectations and set new benchmarks in aerospace engineering.
+                    </p>
                   </div>
                 </motion.div>
               </div>

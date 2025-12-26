@@ -3,9 +3,9 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { TestTube2, Gauge, CheckCircle, Rocket, Award, Shield, Zap, ArrowRight, Target } from "lucide-react";
+import { TestTube2, Gauge, CheckCircle, Rocket, Award, Shield, Zap, ArrowRight, Target, Satellite, Battery, Radio, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import testRigsImage from "@/assets/test-rigs.png";
+import testRigsImage from "@/assets/testrigs.jpg";
 import { useSEO } from "@/hooks/useSEO";
 
 const TestrixProducts = () => {
@@ -20,11 +20,11 @@ const TestrixProducts = () => {
 
   // SEO Optimization
   useSEO({
-    title: "Testrix Solutions - Adiban Aviation | Drone Gimbal Rig & Testing Systems | Made in India",
-    description: "Explore Adiban Aviation's Testrix testing solutions: Drone Gimbal Rig, Flight Test Systems, and Quality Assurance Tools. 99.99% accuracy, 1000+ tests performed. Precision validation for aerospace components.",
-    keywords: "Testrix solutions, drone gimbal rig, flight test systems, quality assurance tools, aerospace testing, UAV testing equipment, drone testing rig, precision testing, Adiban Aviation testrix, Indian testing solutions",
+    title: "Test Rigs - Adiban Aviation | GPS Test Module, Power Monitor, Battery Health Checker, Servo ESC Tester, Drone Gimbal Rig | Made in India",
+    description: "Explore Adiban Aviation's Test Rigs solutions: GPS Test & Validation Module, Power Monitor Module, Battery Health Checker & RC Receiver Tester, Servo & ESC Tester, and Drone Gimbal Rig. Precision testing and validation for aerospace components.",
+    keywords: "Test Rigs, GPS test module, power monitor module, battery health checker, RC receiver tester, servo ESC tester, drone gimbal rig, aerospace testing, UAV testing equipment, precision testing, Adiban Aviation test rigs, Indian testing solutions",
     canonical: "https://adibanaviation.com/products/testrix",
-    ogImage: "https://adibanaviation.com/testrix-og-image.jpg",
+    ogImage: "https://adibanaviation.com/test-rigs-og-image.jpg",
     ogType: "website"
   });
 
@@ -47,51 +47,74 @@ const TestrixProducts = () => {
       icon: CheckCircle,
       title: "Quality Assurance",
       description: "Rigorous testing protocols ensuring aerospace-grade reliability standards. Compliance with international aviation testing requirements.",
-      gradient: "from-purple-500 to-blue-500",
+      gradient: "from-blue-500 to-cyan-500",
       benefits: ["Standards Compliance", "Quality Validation", "Certification Support", "Documentation"]
     },
   ];
 
   const testSystems = [
     {
+      icon: Satellite,
+      name: "GPS Test & Validation Module",
+      description: "Standalone test and diagnostic interface for UART-based GNSS receivers, designed to decode and process NMEA data and display key positioning, fix status, and signal quality parameters during integration, testing, and troubleshooting.",
+      gradient: "from-blue-500 to-cyan-500",
+      capabilities: [
+        "UART Interface for GNSS Receivers (NMEA Input)",
+        "Real-Time NMEA Parsing & Display of Position and Fix Data (Latitude, Longitude, Altitude, Fix Mode)",
+        "Satellite & Signal Metrics Monitoring (Satellite Count, HDOP, Time)",
+        "Flexible External Power Support (5V via USB or 3–6S Input via Buck Regulation)"
+      ]
+    },
+    {
+      icon: Zap,
+      name: "Power Monitor Module",
+      description: "Integrated power monitoring and regulation module designed to measure electrical parameters while supplying regulated power to onboard electronics. The module supports wide battery input ranges and enables real-time visibility into system power health during integration and operation.",
+      gradient: "from-cyan-500 to-blue-500",
+      capabilities: [
+        "Wide Input Voltage Support (2S–14S Battery Input)",
+        "Direct Battery Pass-Through Output for External Loads",
+        "Integrated Buck Regulation with Fixed 5V Output",
+        "Real-Time Voltage & Current Monitoring with Onboard Display"
+      ]
+    },
+    {
+      icon: Battery,
+      name: "Battery Health Checker & RC Receiver Tester",
+      description: "Integrated test and diagnostic module for evaluating battery health and validating RC receiver signals during system setup, integration, and troubleshooting. Designed to support both power and control verification in a single, standalone interface.",
+      gradient: "from-blue-500 to-cyan-500",
+      capabilities: [
+        "Battery Cell & Pack Voltage Monitoring (Li-Po / Li-Ion up to 6S)",
+        "Individual Cell Voltage Display for Health Assessment",
+        "RC Receiver Signal Testing (PPM or up to 10 PWM Inputs)",
+        "Standalone Display for Battery and RC Input Diagnostics"
+      ]
+    },
+    {
+      icon: Settings,
+      name: "Servo & ESC Tester",
+      description: "Integrated test and calibration interface for validating servo actuators and electronic speed controllers during UAV assembly, integration, and maintenance workflows.",
+      gradient: "from-blue-600 to-cyan-500",
+      capabilities: [
+        "Multi-Channel PWM Signal Generation",
+        "ESC Calibration & Functional Verification",
+        "Receiver Signal Pass-Through (PPM / PWM)",
+        "Standalone, Portable Test Operation"
+      ]
+    },
+    {
+      icon: TestTube2,
       name: "Drone Gimbal Rig",
-      description: "Flagship testing solution designed for comprehensive drone gimbal system validation. Precision-engineered for accurate assessment of gimbal performance, stability, and control under various conditions.",
-      features: [
-        "Multi-axis testing capabilities",
-        "Real-time data acquisition",
-        "Integration with analysis software",
-        "Detailed performance metrics",
-        "Environmental simulation"
-      ]
-    },
-    {
-      name: "Flight Test Systems",
-      description: "Comprehensive UAV performance evaluation systems for flight testing and validation. Designed for both indoor and outdoor testing scenarios.",
-      features: [
-        "Flight parameter monitoring",
-        "Autonomous flight testing",
-        "Safety systems integration",
-        "Data recording and analysis"
-      ]
-    },
-    {
-      name: "Avionics Testing Equipment",
-      description: "Electronic systems validation equipment for avionics components. Ensures reliability and performance of critical electronic systems.",
-      features: [
-        "Circuit validation",
-        "Signal integrity testing",
-        "EMI/EMC compliance",
-        "Environmental stress testing"
-      ]
-    },
-    {
-      name: "Quality Assurance Tools",
-      description: "Manufacturing process verification tools for quality control. Ensures consistent production quality and compliance.",
-      features: [
-        "Process monitoring",
-        "Quality metrics tracking",
-        "Defect detection",
-        "Statistical analysis"
+      description: "The Drone Gimbal Rig is a safe, customisable and versatile test platform for FPV drones (up to 6-inch). From classrooms and training labs to hobby workshops and research centers, it helps users test, tune, and validate drones with confidence before real-world flights.",
+      gradient: "from-yellow-500 to-orange-500",
+      applications: [
+        "Complete System Validation",
+        "Training & Demonstrations",
+        "Environmental Simulation",
+        "Flight Controller & Firmware Testing",
+        "Signal & Communication Checks",
+        "Payload & Accessory Impact",
+        "Maneuverability & Stability Testing",
+        "Failsafe & Safety Verification"
       ]
     },
   ];
@@ -123,7 +146,7 @@ const TestrixProducts = () => {
         <section 
           ref={heroRef} 
           className="relative min-h-[70vh] flex items-center overflow-hidden pt-20"
-          aria-label="Testrix Solutions Hero"
+          aria-label="Test Rigs Hero"
         >
           {/* Background */}
           <div className="absolute inset-0">
@@ -174,7 +197,7 @@ const TestrixProducts = () => {
                     <TestTube2 className="w-5 h-5 text-primary" />
                   </motion.div>
                   <span className="text-base font-display font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-                    TESTRIX SOLUTIONS
+                    TEST RIGS
                   </span>
                 </motion.div>
 
@@ -228,10 +251,10 @@ const TestrixProducts = () => {
                 style={{ y }}
                 className="relative"
               >
-                <div className="relative rounded-3xl overflow-hidden bg-card border-2 border-border">
+                <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-blue-50 to-cyan-50 border-2 border-border">
                   <motion.img 
                     src={testRigsImage} 
-                    alt="Adiban Aviation Testrix Solutions - Drone Gimbal Rig and Precision Testing Equipment for Aerospace Components"
+                    alt="Adiban Aviation Test Rigs - GPS Test Module, Power Monitor, Battery Health Checker, Servo ESC Tester, and Drone Gimbal Rig for Aerospace Testing"
                     className="w-full h-auto rounded-3xl object-contain p-8"
                     loading="eager"
                     width="800"
@@ -245,7 +268,7 @@ const TestrixProducts = () => {
 
         <main>
           {/* Features Section */}
-          <section className="py-32 relative overflow-hidden" aria-label="Testrix Features">
+          <section className="py-32 relative overflow-hidden" aria-label="Test Rigs Features">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
             
             <div className="container mx-auto px-4 relative z-10">
@@ -331,7 +354,7 @@ const TestrixProducts = () => {
                 </h2>
               </motion.div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
                 {testSystems.map((system, index) => (
                   <motion.div
                     key={system.name}
@@ -339,24 +362,42 @@ const TestrixProducts = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1, duration: 0.6 }}
                     viewport={{ once: true }}
-                    whileHover={{ y: -8, transition: { duration: 0.2 } }}
+                    whileHover={{ y: -12, transition: { duration: 0.3 } }}
                     className="group"
                   >
                     <div className="relative bg-card border-2 border-border rounded-2xl p-8 h-full overflow-hidden hover:border-primary/40 transition-all duration-300 hover:shadow-float">
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className={`absolute inset-0 bg-gradient-to-br ${system.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
                       
                       <div className="relative z-10">
-                        <h3 className="text-2xl font-display font-bold mb-4">{system.name}</h3>
-                        <p className="text-muted-foreground mb-6 leading-relaxed">{system.description}</p>
-
-                        <div className="space-y-2">
-                          {system.features.map((feature, i) => (
-                            <div key={i} className="flex items-start gap-3">
-                              <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                              <span className="text-sm text-muted-foreground">{feature}</span>
-                            </div>
-                          ))}
+                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${system.gradient} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
+                          <system.icon className="h-8 w-8 text-white" />
                         </div>
+                        <h3 className="text-xl font-display font-bold mb-3">{system.name}</h3>
+                        <p className="text-muted-foreground mb-6 leading-relaxed text-sm">{system.description}</p>
+
+                        {system.capabilities && (
+                          <div className="space-y-2">
+                            <p className="text-sm font-display font-semibold text-primary mb-2">Key Capabilities:</p>
+                            {system.capabilities.map((capability, i) => (
+                              <div key={i} className="flex items-start gap-2 text-xs">
+                                <CheckCircle className="w-3 h-3 text-primary flex-shrink-0 mt-0.5" />
+                                <span className="text-muted-foreground">{capability}</span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+
+                        {system.applications && (
+                          <div className="space-y-2">
+                            <p className="text-sm font-display font-semibold text-primary mb-2">Applications:</p>
+                            {system.applications.map((application, i) => (
+                              <div key={i} className="flex items-start gap-2 text-xs">
+                                <CheckCircle className="w-3 h-3 text-primary flex-shrink-0 mt-0.5" />
+                                <span className="text-muted-foreground">{application}</span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     </div>
                   </motion.div>
@@ -366,7 +407,7 @@ const TestrixProducts = () => {
           </section>
 
           {/* Advantages */}
-          <section className="py-32 relative overflow-hidden" aria-label="Testrix Advantages">
+          <section className="py-32 relative overflow-hidden" aria-label="Test Rigs Advantages">
             <div className="absolute inset-0 grid-pattern opacity-10" />
             
             <div className="container mx-auto px-4 relative z-10">
@@ -420,10 +461,10 @@ const TestrixProducts = () => {
                   
                   <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                     <p>
-                      Our flagship testing solution designed for comprehensive drone gimbal system validation. This precision-engineered test rig allows for accurate assessment of gimbal performance, stability, and control under various conditions. Features include multi-axis testing capabilities, real-time data acquisition, and integration with advanced analysis software for detailed performance metrics.
+                      The Drone Gimbal Rig is a safe, customisable and versatile test platform for FPV drones (up to 6-inch). From classrooms and training labs to hobby workshops and research centers, it helps users test, tune, and validate drones with confidence before real-world flights.
                     </p>
                     <p>
-                      The <Link to="/products/hardware" className="text-primary hover:underline font-semibold">Testrix Drone Gimbal Rig</Link> is essential for <Link to="/products/uav" className="text-primary hover:underline font-semibold">UAV manufacturers</Link> and quality assurance teams who require precise validation of gimbal systems. Our testing solutions ensure that every component meets the highest standards before deployment in <Link to="/services" className="text-primary hover:underline font-semibold">mission-critical applications</Link>.
+                      The <Link to="/products/hardware" className="text-primary hover:underline font-semibold">Drone Gimbal Rig</Link> is essential for <Link to="/products/uav" className="text-primary hover:underline font-semibold">UAV manufacturers</Link> and quality assurance teams who require precise validation of gimbal systems. Our testing solutions ensure that every component meets the highest standards before deployment in <Link to="/services" className="text-primary hover:underline font-semibold">mission-critical applications</Link>.
                     </p>
                   </div>
                 </motion.div>
@@ -451,7 +492,7 @@ const TestrixProducts = () => {
                   </span>?
                 </h2>
                 <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-2xl mx-auto">
-                  Our Testrix solutions ensure quality and reliability. <Link to="/contact" className="text-primary hover:underline font-semibold">Contact us</Link> to learn more about our testing capabilities.
+                  Our Test Rigs solutions ensure quality and reliability. <Link to="/contact" className="text-primary hover:underline font-semibold">Contact us</Link> to learn more about our testing capabilities.
                 </p>
                 
                 <div className="flex flex-wrap gap-4 justify-center">

@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Cpu, Zap, Battery, Radio, Lightbulb, Rocket, CheckCircle2, Shield, Award, ArrowRight } from "lucide-react";
+import { Cpu, Zap, Battery, Radio, Lightbulb, Rocket, CheckCircle2, Shield, Award, ArrowRight, Wifi } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import hardwareImage from "@/assets/hardware-tech.jpg";
 import { useSEO } from "@/hooks/useSEO";
@@ -20,9 +20,9 @@ const HardwareProducts = () => {
 
   // SEO Optimization
   useSEO({
-    title: "Aerospace Hardware - Adiban Aviation | BEC, Power Modules, PDB, Servo Testers | Made in India",
-    description: "Explore Adiban Aviation's aerospace-grade hardware components: BEC (Battery Eliminator Circuit), Power Modules, PDB (Power Distribution Board), Servo Testers, and Strobe Lights. 50+ components, 100% quality assurance. Indian aerospace hardware manufacturer.",
-    keywords: "aerospace hardware India, BEC power module, PDB power distribution board, servo tester, strobe lights aviation, aerospace components, avionics hardware, Indian hardware manufacturer, drone hardware components, Adiban Aviation hardware",
+    title: "Aerospace Hardware - Adiban Aviation | FPV Flight Controller, BEC, Power Modules, PDB, Strobe Lights | Made in India",
+    description: "Explore Adiban Aviation's aerospace-grade hardware components: FPV Flight Controllers, BEC (Battery Eliminator Circuit), Power Modules, PDB (Power Distribution Board), and Aviation Strobe Lights. Engineered for precision, low-latency control, and mission-critical reliability. Indian aerospace hardware manufacturer.",
+    keywords: "aerospace hardware India, FPV flight controller, BEC power module, PDB power distribution board, power module UAV, aviation strobe lights, aerospace components, avionics hardware, Indian hardware manufacturer, drone hardware components, Adiban Aviation hardware, low-latency flight control",
     canonical: "https://adibanaviation.com/products/hardware",
     ogImage: "https://adibanaviation.com/hardware-og-image.jpg",
     ogType: "website"
@@ -31,38 +31,38 @@ const HardwareProducts = () => {
   const hardwareItems = [
     {
       icon: Cpu,
-      name: "BEC (Battery Eliminator Circuit)",
-      description: "Precision voltage regulation for stable power delivery to flight control systems. Ensures consistent performance under varying load conditions.",
+      name: "FPV Flight Controller",
+      description: "A high-performance flight controller engineered for precise, low-latency manual flight. Designed for FPV platforms where direct stick response, fast control execution, and consistent flight behaviour are critical across racing, freestyle, cinematic, and fast manual inspection use cases.",
       gradient: "from-blue-500 to-cyan-500",
-      specs: ["Input: 2S-6S LiPo", "Output: 5V/3A", "Efficiency: 95%+", "Protection: Overcurrent, Overvoltage"]
+      capabilities: ["Ultra-Low-Latency Control Loop Execution", "High-Rate Attitude Estimation & Gyro Sampling", "Multi-Motor Configuration Support (Quad / Hex / Octa)", "FPV-Optimized Firmware Compatibility (Betaflight / iNav)"]
     },
     {
       icon: Zap,
-      name: "Power Module",
-      description: "High-efficiency power distribution modules for reliable UAV operations. Designed for mission-critical applications with advanced monitoring capabilities.",
+      name: "BEC (Battery Eliminator Circuit)",
+      description: "Dedicated voltage regulation subsystem for UAV platforms, providing stable and efficient power to flight control, avionics, and peripheral systems under dynamic load conditions.",
       gradient: "from-cyan-500 to-blue-500",
-      specs: ["Current Sensing", "Voltage Monitoring", "High Efficiency", "Compact Design"]
+      capabilities: ["Wide Input Range (2S–12S Li-Po)", "Multiple Regulated Outputs (5V / 6V / 9V / 12V @ 3A)", "High Conversion Efficiency (>90%)", "Integrated Electrical Protection (Overcurrent / Overvoltage)"]
     },
     {
       icon: Battery,
-      name: "PDB (Power Distribution Board)",
-      description: "Advanced power distribution boards with integrated current sensing. Optimized for multi-rotor and fixed-wing applications.",
+      name: "Power Module",
+      description: "Power monitoring subsystem for UAV platforms, enabling real-time measurement of electrical parameters for system health, energy management, and mission reliability.",
       gradient: "from-purple-500 to-blue-500",
-      specs: ["Multi-Output", "Current Sensing", "Low Resistance", "Aerospace Grade"]
+      capabilities: ["Voltage Sensing", "Current Sensing", "Regulated Power Output (5V)", "Compact, Lightweight Integration"]
     },
     {
       icon: Radio,
-      name: "Servo Tester",
-      description: "Precision testing equipment for servo motor validation and calibration. Essential for quality assurance in servo-driven systems.",
+      name: "PDB (Power Distribution Board)",
+      description: "Centralized power distribution subsystem for multi-rotor and fixed-wing UAV architectures, designed to deliver clean and balanced power across propulsion and avionics domains.",
       gradient: "from-blue-600 to-purple-500",
-      specs: ["Multi-Channel", "PWM Control", "Real-Time Feedback", "Portable Design"]
+      capabilities: ["Multi-Output Power Distribution", "Clean, Low-Noise Power Rails", "Low-Resistance High-Current Paths", "Aerospace-Grade Design & Layout"]
     },
     {
       icon: Lightbulb,
-      name: "Strobe Lights",
-      description: "High-visibility aviation strobe lights for enhanced safety and compliance. Meets international aviation lighting standards.",
+      name: "Aviation Strobe Light",
+      description: "Integrated strobe lighting solution for UAV platforms, designed to support visibility, orientation, and operational safety across diverse mission profiles.",
       gradient: "from-yellow-500 to-orange-500",
-      specs: ["High Intensity", "Weather Resistant", "Low Power", "Long Range Visibility"]
+      capabilities: ["High-Intensity Strobe Output", "Flight Controller–Synchronized Operation", "Low Power Electrical Footprint", "Extended Visibility Range"]
     },
   ];
 
@@ -262,13 +262,13 @@ const HardwareProducts = () => {
                         <h3 className="text-xl font-display font-bold mb-3">{item.name}</h3>
                         <p className="text-muted-foreground mb-6 leading-relaxed text-sm">{item.description}</p>
 
-                        {/* Specifications */}
+                        {/* Key Capabilities */}
                         <div className="space-y-2">
-                          <p className="text-sm font-display font-semibold text-primary mb-2">Key Specs:</p>
-                          {item.specs.map((spec, i) => (
-                            <div key={i} className="flex items-center gap-2 text-xs">
-                              <CheckCircle2 className="w-3 h-3 text-primary flex-shrink-0" />
-                              <span className="text-muted-foreground">{spec}</span>
+                          <p className="text-sm font-display font-semibold text-primary mb-2">Key Capabilities:</p>
+                          {item.capabilities.map((capability, i) => (
+                            <div key={i} className="flex items-start gap-2 text-xs">
+                              <CheckCircle2 className="w-3 h-3 text-primary flex-shrink-0 mt-0.5" />
+                              <span className="text-muted-foreground">{capability}</span>
                             </div>
                           ))}
                         </div>

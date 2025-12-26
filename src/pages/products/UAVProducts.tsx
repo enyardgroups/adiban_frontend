@@ -6,6 +6,9 @@ import Footer from "@/components/Footer";
 import { Plane, Wind, Wifi, Rocket, CheckCircle2, Shield, Zap, ArrowRight, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import uavImage from "@/assets/uav-flight.jpg";
+import fpvImage from "@/assets/fpv.png";
+import agriImage from "@/assets/agri.png";
+import logisticsImage from "@/assets/logistics.png";
 import { useSEO } from "@/hooks/useSEO";
 
 const UAVProducts = () => {
@@ -32,14 +35,16 @@ const UAVProducts = () => {
     {
       icon: Wifi,
       name: "FPV Drones",
-      description: "First-person view racing and freestyle drones with high-speed performance and agility. Engineered for competitive racing and professional aerial cinematography.",
+      image: fpvImage,
+      description: "First-person view drones engineered for high-speed maneuvering, immersive control, and precision flight in dynamic environments. Developed to support tactical missions, aerial reconnaissance, and rapid-response operations where agility and real-time visuals are crucial.",
       gradient: "from-blue-500 to-cyan-500",
-      features: ["High-Speed Performance", "Low Latency FPV", "Agile Maneuverability", "Racing Grade"],
-      applications: ["Racing Competitions", "Aerial Cinematography", "Recreational Flying"]
+      features: ["Low-Latency", "Agile", "Compact", "Durable"],
+      applications: ["Recon", "Surveillance", "Rescue", "Racing"]
     },
     {
       icon: Wind,
       name: "Agricultural UAVs",
+      image: agriImage,
       description: "Precision agriculture solutions for crop monitoring, spraying, and field analysis. Designed to optimize farming operations and increase crop yields.",
       gradient: "from-green-500 to-emerald-500",
       features: ["Precision Spraying", "Crop Monitoring", "Field Mapping", "Multi-Spectral Imaging"],
@@ -48,6 +53,7 @@ const UAVProducts = () => {
     {
       icon: Plane,
       name: "Logistics Drones",
+      image: logisticsImage,
       description: "Heavy-lift cargo drones designed for efficient last-mile delivery and transportation. Built for commercial logistics and supply chain operations.",
       gradient: "from-purple-500 to-blue-500",
       features: ["Heavy Payload Capacity", "Long Range", "Autonomous Navigation", "Weather Resistant"],
@@ -230,56 +236,94 @@ const UAVProducts = () => {
                 </p>
               </motion.div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                {uavTypes.map((type, index) => (
-                  <motion.div
-                    key={type.name}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.15, duration: 0.6 }}
-                    viewport={{ once: true }}
-                    whileHover={{ y: -12, transition: { duration: 0.3 } }}
-                    className="group"
-                  >
-                    <div className="relative bg-card border-2 border-border rounded-3xl p-8 h-full overflow-hidden hover:border-primary/40 transition-all duration-300 hover:shadow-float">
-                      <div className={`absolute inset-0 bg-gradient-to-br ${type.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
-                      
-                      <div className="relative z-10">
-                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${type.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                          <type.icon className="h-8 w-8 text-white" />
-                        </div>
-                        <h3 className="text-2xl font-display font-bold mb-4">{type.name}</h3>
-                        <p className="text-muted-foreground mb-6 leading-relaxed">{type.description}</p>
-
-                        {/* Features */}
-                        <div className="mb-6 space-y-2">
-                          <p className="text-sm font-display font-semibold text-primary mb-2">Key Features:</p>
-                          {type.features.map((feature, i) => (
-                            <div key={i} className="flex items-center gap-2 text-sm">
-                              <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
-                              <span className="text-muted-foreground">{feature}</span>
-                            </div>
-                          ))}
-                        </div>
-
-                        {/* Applications */}
-                        <div>
-                          <p className="text-sm font-display font-semibold text-accent mb-2">Applications:</p>
-                          <div className="flex flex-wrap gap-2">
-                            {type.applications.map((app, i) => (
-                              <span 
-                                key={i}
-                                className="px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-xs text-accent font-semibold"
-                              >
-                                {app}
-                              </span>
-                            ))}
+              <div className="space-y-24">
+                {uavTypes.map((type, index) => {
+                  const isEven = index % 2 === 0;
+                  return (
+                    <motion.div
+                      key={type.name}
+                      initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.15, duration: 0.6 }}
+                      viewport={{ once: true }}
+                      className="group"
+                    >
+                      <div className={`grid lg:grid-cols-2 gap-12 items-center ${
+                        !isEven ? "lg:grid-flow-dense" : ""
+                      }`}>
+                        {/* Image Section */}
+                        <motion.div
+                          initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.15 + 0.2, duration: 0.6 }}
+                          viewport={{ once: true }}
+                          className={`relative ${!isEven ? "lg:col-start-2" : ""}`}
+                        >
+                          <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-primary/5 to-accent/5 border-2 border-border">
+                            <motion.img
+                              src={type.image}
+                              alt={`${type.name} - ${type.description} by Adiban Aviation`}
+                              className="w-full h-auto object-contain p-8"
+                              whileHover={{ scale: 1.05 }}
+                              transition={{ duration: 0.6 }}
+                              loading="lazy"
+                            />
+                            <div className={`absolute inset-0 bg-gradient-to-br ${type.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
                           </div>
-                        </div>
+                        </motion.div>
+
+                        {/* Content Section */}
+                        <motion.div
+                          initial={{ opacity: 0, x: isEven ? 50 : -50 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.15 + 0.3, duration: 0.6 }}
+                          viewport={{ once: true }}
+                          className={`relative ${!isEven ? "lg:col-start-1 lg:row-start-1" : ""}`}
+                        >
+                          <div className="relative bg-card border-2 border-border rounded-3xl p-8 lg:p-10 overflow-hidden hover:border-primary/40 transition-all duration-300 hover:shadow-float">
+                            <div className={`absolute inset-0 bg-gradient-to-br ${type.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+                            
+                            <div className="relative z-10">
+                              <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${type.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                                <type.icon className="h-8 w-8 text-white" />
+                              </div>
+                              <h3 className="text-3xl md:text-4xl font-display font-bold mb-4">{type.name}</h3>
+                              <p className="text-muted-foreground mb-6 leading-relaxed text-lg">{type.description}</p>
+
+                              {/* Features */}
+                              <div className="mb-6 space-y-2">
+                                <p className="text-sm font-display font-semibold text-primary mb-3">Key Features:</p>
+                                <div className="grid grid-cols-2 gap-2">
+                                  {type.features.map((feature, i) => (
+                                    <div key={i} className="flex items-center gap-2 text-sm">
+                                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
+                                      <span className="text-muted-foreground">{feature}</span>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+
+                              {/* Applications */}
+                              <div>
+                                <p className="text-sm font-display font-semibold text-accent mb-3">Applications:</p>
+                                <div className="flex flex-wrap gap-2">
+                                  {type.applications.map((app, i) => (
+                                    <span 
+                                      key={i}
+                                      className="px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-xs text-accent font-semibold"
+                                    >
+                                      {app}
+                                    </span>
+                                  ))}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </motion.div>
                       </div>
-                    </div>
-                  </motion.div>
-                ))}
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
           </section>

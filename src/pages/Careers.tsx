@@ -59,25 +59,27 @@ const Careers = () => {
   const jobOpenings: JobOpening[] = [
     {
       id: "1",
-      title: "Embedded System Engineer",
+      title: "Embedded Systems Engineer",
       department: "Engineering",
       type: "Full Time",
       workMode: "Onsite",
       location: "Villupuram, Tamil Nadu",
       experience: "2-5 years",
-      description: "Design and develop embedded systems for UAV platforms. Work on flight controllers, sensor integration, and real-time systems.",
+      description: "Design, develop, and support embedded systems for UAV platforms, with primary responsibility for flight-critical firmware, hardware integration, and real-time system reliability across prototype and production stages.",
       requirements: [
-        "Bachelor's/Master's in Electronics/Computer Engineering",
-        "Experience with ARM microcontrollers",
-        "Proficiency in C/C++",
-        "Knowledge of RTOS",
-        "Understanding of communication protocols"
+        "Bachelor's degree in Electronics, Computer Engineering, or equivalent practical experience",
+        "Strong proficiency in embedded C/C++ for bare-metal and RTOS-based systems",
+        "Hands-on experience with ARM-based microcontrollers (STM32 or equivalent)",
+        "Practical understanding of real-time systems, interrupts, timers, and DMA",
+        "Experience with embedded communication protocols (SPI, I²C, UART; CAN preferred)",
+        "Ability to read schematics, interpret datasheets, and debug hardware-software interactions"
       ],
       responsibilities: [
-        "Design embedded firmware for flight control systems",
-        "Integrate sensors and actuators",
-        "Optimize system performance",
-        "Conduct testing and validation"
+        "Develop and maintain embedded firmware for UAV flight controllers and onboard subsystems",
+        "Integrate sensors, actuators, and communication interfaces on custom UAV hardware",
+        "Ensure deterministic real-time performance, timing integrity, and system stability",
+        "Support hardware bring-up, low-level debugging, and root-cause analysis",
+        "Perform bench, integration, and pre-flight validation in coordination with hardware and test teams"
       ]
     },
     {
@@ -88,65 +90,72 @@ const Careers = () => {
       workMode: "Hybrid",
       location: "Villupuram, Tamil Nadu",
       experience: "1-4 years",
-      description: "Develop and maintain firmware for aerospace hardware components. Focus on reliability and performance optimization.",
+      description: "Develop and maintain embedded firmware for aerospace hardware components, with a strong focus on system reliability, performance optimization, and long-term maintainability in production environments.",
       requirements: [
-        "Degree in Electronics/Computer Science",
-        "Strong C/C++ programming skills",
-        "Experience with embedded systems",
-        "Knowledge of hardware interfaces",
-        "Debugging and testing expertise"
+        "Bachelor's degree in Electronics, Computer Science, or a related engineering discipline",
+        "Strong proficiency in C/C++ for embedded systems development",
+        "Hands-on experience with embedded systems and microcontroller-based designs",
+        "Practical knowledge of hardware interfaces and communication protocols (SPI, I²C, UART, CAN)",
+        "Proven ability to debug, test, and validate firmware on real hardware"
       ],
       responsibilities: [
-        "Develop firmware for hardware modules",
-        "Implement communication protocols",
-        "Perform code reviews",
-        "Maintain documentation"
+        "Design, develop, and maintain firmware for aerospace and UAV hardware modules",
+        "Implement and maintain reliable communication protocols between onboard subsystems",
+        "Ensure firmware robustness, performance, and fault tolerance",
+        "Conduct code reviews and follow structured development practices",
+        "Create and maintain technical documentation for firmware and interfaces",
+        "Support debugging, testing, and validation during development and integration"
       ]
     },
     {
       id: "3",
-      title: "PCB Designer",
+      title: "PCB Design Engineer",
       department: "Hardware",
       type: "Full Time",
       workMode: "Onsite",
       location: "Villupuram, Tamil Nadu",
       experience: "2-6 years",
-      description: "Design printed circuit boards for aerospace applications. Ensure compliance with industry standards and reliability requirements.",
+      description: "Design and develop printed circuit boards for aerospace and UAV applications, with a focus on electrical integrity, reliability, manufacturability, and compliance with applicable industry standards.",
       requirements: [
-        "Degree in Electronics Engineering",
-        "Proficiency in Altium/KiCad/Eagle",
-        "Knowledge of PCB layout principles",
-        "Understanding of EMI/EMC",
-        "Experience with high-speed design"
+        "Bachelor's degree in Electronics Engineering or a related discipline",
+        "Proficiency with PCB design tools such as Altium Designer, KiCad, or Eagle",
+        "Strong understanding of PCB layout principles, stack-ups, and routing practices",
+        "Working knowledge of EMI/EMC concepts and mitigation techniques",
+        "Experience with high-speed and mixed-signal PCB design"
       ],
       responsibilities: [
-        "Design PCB layouts",
-        "Component selection and placement",
-        "Signal integrity analysis",
-        "Generate manufacturing files"
+        "Design PCB layouts for aerospace electronic systems and subsystems",
+        "Perform component selection, placement, and footprint validation",
+        "Analyze and ensure signal integrity, power integrity, and grounding performance",
+        "Address EMI/EMC considerations throughout the design process",
+        "Generate manufacturing outputs including Gerbers, drill files, stack-ups, and assembly documentation",
+        "Support design reviews, prototyping, and design-for-manufacturing (DFM) activities"
       ]
     },
     {
       id: "4",
-      title: "Full Stack Software Developer",
+      title: "Full-Stack Software Developer",
       department: "Software",
       type: "Full Time",
       workMode: "Hybrid",
       location: "Villupuram, Tamil Nadu",
       experience: "2-5 years",
-      description: "Develop web applications and software solutions for UAV management systems. Work on both frontend and backend development.",
+      description: "Design and develop full-stack software solutions for UAV management and operational systems. The role covers frontend, backend, and data layers, with a focus on reliability, scalability, and integration with UAV platforms and ground systems.",
       requirements: [
-        "Degree in Computer Science/Engineering",
-        "Experience with React/Node.js",
-        "Database design knowledge",
-        "API development skills",
-        "Version control (Git)"
+        "Bachelor's degree in Computer Science, Software Engineering, or a related field",
+        "Experience as a full-stack developer using modern frameworks (React, Node.js or equivalent)",
+        "Strong understanding of backend development and API design",
+        "Practical experience with database design and optimization (SQL / NoSQL)",
+        "Proficiency with version control systems (Git)",
+        "Familiarity with software testing, deployment, and production environments"
       ],
       responsibilities: [
-        "Develop web applications",
-        "Design and implement APIs",
-        "Database design and optimization",
-        "Code testing and deployment"
+        "Develop and maintain web-based user interfaces for UAV monitoring and management",
+        "Design, implement, and maintain backend services and RESTful APIs",
+        "Design and optimize databases for operational, telemetry, and user data",
+        "Ensure system reliability, performance, and secure data handling",
+        "Perform testing, deployment, and ongoing maintenance of production systems",
+        "Collaborate with embedded, avionics, and operations teams to align software with system requirements"
       ]
     },
     {
@@ -157,19 +166,22 @@ const Careers = () => {
       workMode: "Onsite",
       location: "Villupuram, Tamil Nadu",
       experience: "1-3 years",
-      description: "Train individuals and organizations on drone operations, safety protocols, and flight techniques.",
+      description: "Deliver structured drone pilot training focused on safe operations, regulatory compliance, and practical flight proficiency in accordance with DGCA regulations. The role emphasizes operational discipline, safety management, and trainee competency development.",
       requirements: [
-        "Drone pilot certification",
-        "Teaching experience preferred",
-        "Strong communication skills",
-        "Knowledge of regulations",
-        "Patience and clarity"
+        "Valid DGCA-issued Remote Pilot Certificate (RPC) for the relevant drone category",
+        "Demonstrated experience in drone flight operations and instructional environments",
+        "Strong understanding of DGCA regulations, safety procedures, and operational requirements",
+        "Ability to clearly explain technical, operational, and regulatory concepts",
+        "Strong communication skills with a patient, safety-first teaching approach"
       ],
       responsibilities: [
-        "Conduct training sessions",
-        "Develop training materials",
-        "Assess trainee progress",
-        "Maintain safety standards"
+        "Conduct theoretical and practical drone training sessions aligned with DGCA guidelines",
+        "Train pilots in normal operations, emergency procedures, and safety protocols",
+        "Ensure adherence to applicable aviation rules, airspace restrictions, and operational limits",
+        "Evaluate trainee performance through assessments, flight checks, and skill demonstrations",
+        "Maintain accurate training records, flight logs, and assessment documentation",
+        "Enforce safety procedures during all training activities",
+        "Support regulatory inspections, audits, and compliance-related activities when required"
       ]
     },
     {
@@ -180,19 +192,22 @@ const Careers = () => {
       workMode: "Onsite",
       location: "Villupuram, Tamil Nadu",
       experience: "1-3 years",
-      description: "Operate UAV systems for testing, demonstrations, and field operations. Ensure safe and efficient flight operations.",
+      description: "Operate UAV systems for testing, demonstrations, and field operations, ensuring safe, efficient, and compliant flight activities in accordance with applicable aviation regulations and operational procedures.",
       requirements: [
-        "Valid drone pilot license",
-        "Flight experience",
-        "Technical understanding",
-        "Safety consciousness",
-        "Physical fitness"
+        "Valid DGCA-issued Remote Pilot Certificate (RPC) for the applicable UAV category",
+        "Practical experience operating multirotor and/or fixed-wing UAV platforms",
+        "Basic technical understanding of UAV systems, sensors, and ground control software",
+        "Strong safety awareness and compliance-oriented mindset",
+        "Physical fitness and ability to operate UAVs in field environments"
       ],
       responsibilities: [
-        "Operate UAV systems",
-        "Pre-flight inspections",
-        "Mission planning",
-        "Data collection"
+        "Operate UAV platforms during testing, demonstrations, and operational missions",
+        "Perform pre-flight, in-flight, and post-flight checks to ensure airworthiness and system readiness",
+        "Plan and execute missions in compliance with airspace rules, safety procedures, and operational constraints",
+        "Collect flight data, imagery, or sensor outputs as required by the mission",
+        "Identify and report technical issues, anomalies, or safety concerns during operations",
+        "Maintain accurate flight logs, checklists, and operational records",
+        "Adhere strictly to safety protocols and operational best practices"
       ]
     },
     {
@@ -203,19 +218,21 @@ const Careers = () => {
       workMode: "Onsite",
       location: "Villupuram, Tamil Nadu",
       experience: "2-5 years",
-      description: "Integrate various subsystems into complete UAV platforms. Ensure seamless operation of all components.",
+      description: "Integrate mechanical, electrical, avionics, and software subsystems into complete UAV platforms. The role focuses on ensuring reliable system interaction, functional integrity, and operational readiness across prototype and production builds.",
       requirements: [
-        "Engineering degree",
-        "Systems integration experience",
-        "Problem-solving skills",
-        "Testing knowledge",
-        "Documentation skills"
+        "Bachelor's degree in Engineering (Electronics, Mechatronics, Aerospace, or related field)",
+        "Hands-on experience with UAV or embedded systems integration",
+        "Strong problem-solving and debugging skills at system level",
+        "Practical knowledge of testing, validation, and troubleshooting methods",
+        "Ability to create and maintain clear technical documentation"
       ],
       responsibilities: [
-        "Integrate subsystems",
-        "System testing",
-        "Troubleshooting",
-        "Documentation"
+        "Integrate avionics, propulsion, power, sensors, and communication subsystems into UAV platforms",
+        "Perform system-level bring-up, configuration, and integration testing",
+        "Troubleshoot hardware, software, and interface-level issues across subsystems",
+        "Validate system functionality through bench, ground, and pre-flight testing",
+        "Coordinate with firmware, hardware, and operations teams to resolve integration issues",
+        "Document integration procedures, configurations, and test results"
       ]
     },
     {
@@ -448,7 +465,7 @@ const Careers = () => {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
                 {/* Job List - Enhanced Cards */}
-                <div className="space-y-4">
+                <div className="space-y-4 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 scrollbar-thin">
                   {jobOpenings.map((job, index) => {
                     const isSelected = selectedJob === job.id;
                     const typeColors: Record<JobType, string> = {
@@ -486,7 +503,7 @@ const Careers = () => {
                             <motion.div
                               initial={{ opacity: 0 }}
                               animate={{ opacity: 1 }}
-                              className={`absolute inset-0 bg-gradient-to-br ${typeColors[job.type]} opacity-5`}
+                              className={`absolute inset-0 bg-gradient-to-br ${typeColors[job.type]} opacity-3`}
                             />
                           )}
 
@@ -509,11 +526,13 @@ const Careers = () => {
                                   </div>
                                   <div>
                                     <h3 className={`text-xl font-display font-bold mb-1 transition-colors ${
-                                      isSelected ? "text-primary" : "group-hover:text-primary"
+                                      isSelected ? "text-foreground" : "text-foreground group-hover:text-primary"
                                     }`}>
                                       {job.title}
                                     </h3>
-                                    <p className="text-xs text-muted-foreground font-semibold">{job.department}</p>
+                                    <p className={`text-xs font-semibold ${
+                                      isSelected ? "text-foreground/70" : "text-muted-foreground"
+                                    }`}>{job.department}</p>
                                   </div>
                                 </div>
 
@@ -537,7 +556,9 @@ const Careers = () => {
                                 <div className="flex flex-wrap items-center gap-4 text-sm">
                                   <motion.div
                                     whileHover={{ scale: 1.1 }}
-                                    className="flex items-center gap-1.5 text-muted-foreground"
+                                    className={`flex items-center gap-1.5 ${
+                                      isSelected ? "text-foreground/80" : "text-muted-foreground"
+                                    }`}
                                   >
                                     <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
                                       <MapPin className="w-4 h-4 text-primary" />
@@ -546,7 +567,9 @@ const Careers = () => {
                                   </motion.div>
                                   <motion.div
                                     whileHover={{ scale: 1.1 }}
-                                    className="flex items-center gap-1.5 text-muted-foreground"
+                                    className={`flex items-center gap-1.5 ${
+                                      isSelected ? "text-foreground/80" : "text-muted-foreground"
+                                    }`}
                                   >
                                     <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center">
                                       <Clock className="w-4 h-4 text-accent" />
@@ -601,7 +624,7 @@ const Careers = () => {
                 </div>
 
                 {/* Job Details - Enhanced Panel */}
-                <div className="lg:sticky lg:top-24 h-fit">
+                <div className="lg:sticky lg:top-24 h-fit max-h-[calc(100vh-200px)] overflow-y-auto pr-2 scrollbar-thin">
                   {selectedJobData ? (
                     <motion.div
                       key={selectedJobData.id}
@@ -614,7 +637,7 @@ const Careers = () => {
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/5 to-primary/5 rounded-3xl blur-2xl" />
                       <div className="absolute inset-0 grid-pattern opacity-10 rounded-3xl" />
 
-                      <div className="relative bg-card/90 backdrop-blur-md border-2 border-primary/20 rounded-3xl p-8 shadow-2xl overflow-hidden">
+                      <div className="relative bg-card border-2 border-primary/20 rounded-3xl p-8 shadow-2xl overflow-hidden">
                         {/* Header with Gradient */}
                         <div className="relative mb-8 pb-6 border-b-2 border-border/50">
                           <div className="flex items-start justify-between gap-4 mb-4">
@@ -691,7 +714,7 @@ const Careers = () => {
                               <div className="w-1 h-6 bg-gradient-to-b from-primary to-accent rounded-full" />
                               <h4 className="font-display font-bold text-lg">Job Description</h4>
                             </div>
-                            <p className="text-muted-foreground leading-relaxed pl-3">{selectedJobData.description}</p>
+                            <p className="text-foreground/90 leading-relaxed pl-3">{selectedJobData.description}</p>
                           </motion.div>
 
                           {/* Responsibilities */}
@@ -716,7 +739,7 @@ const Careers = () => {
                                   <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0 mt-0.5 shadow-md">
                                     <CheckCircle2 className="w-4 h-4 text-white" />
                                   </div>
-                                  <span className="text-muted-foreground leading-relaxed flex-1">{resp}</span>
+                                  <span className="text-foreground/80 leading-relaxed flex-1">{resp}</span>
                                 </motion.li>
                               ))}
                             </ul>
@@ -744,7 +767,7 @@ const Careers = () => {
                                   <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-accent to-primary flex items-center justify-center flex-shrink-0 mt-0.5 shadow-md">
                                     <CheckCircle2 className="w-4 h-4 text-white" />
                                   </div>
-                                  <span className="text-muted-foreground leading-relaxed flex-1">{req}</span>
+                                  <span className="text-foreground/80 leading-relaxed flex-1">{req}</span>
                                 </motion.li>
                               ))}
                             </ul>

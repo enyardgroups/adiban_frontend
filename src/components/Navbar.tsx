@@ -29,7 +29,7 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center space-x-1">
             {navLinks.map((link) => (
               <Link key={link.path} to={link.path}>
-                <Button variant="ghost" className="font-display font-medium hover:text-accent transition-colors">
+                <Button variant="ghost" className="font-display font-medium text-foreground hover:bg-accent hover:text-primary">
                   {link.name}
                 </Button>
               </Link>

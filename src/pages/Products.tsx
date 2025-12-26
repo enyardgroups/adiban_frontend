@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import { ArrowRight, Rocket, Sparkles, CheckCircle2, Award, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import uavImage from "@/assets/uav-flight.jpg";
-import testRigs from "@/assets/test-rigs.png";
+import testRigs from "@/assets/testrigs.jpg";
 import hardwareImage from "@/assets/hardware-tech.jpg";
 import { useSEO } from "@/hooks/useSEO";
 
@@ -23,8 +23,8 @@ const Products = () => {
   // SEO Optimization
   useSEO({
     title: "Products - Adiban Aviation | UAV Systems, Hardware & Testing Solutions",
-    description: "Explore Adiban Aviation's comprehensive product range: UAV systems (FPV, Agricultural, Logistics drones), aerospace hardware (BEC, Power Modules, PDB), and Testrix testing solutions. 100% Made in India, aerospace-grade quality.",
-    keywords: "Adiban Aviation products, UAV systems India, drone products, aerospace hardware, test rigs, FPV drones, agricultural drones, logistics drones, BEC power module, PDB, servo tester, strobe lights, drone gimbal rig, Indian drone manufacturer",
+    description: "Explore Adiban Aviation's comprehensive product range: UAV systems (FPV, Agricultural, Logistics drones), aerospace hardware (BEC, Power Modules, PDB), and Test Rigs testing solutions. 100% Made in India, aerospace-grade quality.",
+    keywords: "Adiban Aviation products, UAV systems India, drone products, aerospace hardware, test rigs, FPV drones, agricultural drones, logistics drones, BEC power module, PDB, GPS test module, power monitor, battery health checker, servo ESC tester, drone gimbal rig, Indian drone manufacturer",
     canonical: "https://adibanaviation.com/products",
     ogImage: "https://adibanaviation.com/products-og-image.jpg",
     ogType: "website"
@@ -43,12 +43,12 @@ const Products = () => {
       features: ["Advanced Flight Control", "Precision Navigation", "Long Endurance"]
     },
     {
-      title: "Testrix Solutions",
+      title: "Test Rigs",
       slug: "testrix",
       description: "Precision testing & validation systems for mission-critical aerospace components and flight systems",
       image: testRigs,
       subcategories: ["Drone Gimbal Rig", "Flight Test Systems", "Quality Assurance Tools"],
-      gradient: "from-purple-500 to-blue-500",
+      gradient: "from-blue-500 to-cyan-500",
       icon: Award,
       stats: { accuracy: "99.99%", tests: "1000+" },
       features: ["Multi-Axis Testing", "Real-Time Analysis", "Aerospace Standards"]
@@ -196,12 +196,16 @@ const Products = () => {
                     <Link to={`/products/${category.slug}`}>
                       <div className="relative bg-card border-2 border-border rounded-3xl overflow-hidden hover:border-primary/40 transition-all duration-300 h-full hover:shadow-float">
                         {/* Image Section */}
-                        <div className="relative aspect-[4/3] overflow-hidden">
+                        <div className={`relative aspect-[4/3] overflow-hidden ${
+                          category.title === "Test Rigs" ? "bg-gradient-to-br from-blue-50 to-cyan-50" : ""
+                        }`}>
                           <motion.img 
                             src={category.image} 
                             alt={`${category.title} - ${category.description} by Adiban Aviation`}
-                            className="w-full h-full object-cover"
-                            whileHover={{ scale: 1.1 }}
+                            className={`w-full h-full ${
+                              category.title === "Test Rigs" ? "object-contain p-4" : "object-cover"
+                            }`}
+                            whileHover={{ scale: category.title === "Test Rigs" ? 1.05 : 1.1 }}
                             transition={{ duration: 0.6 }}
                             loading="lazy"
                             width="800"
