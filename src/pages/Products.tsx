@@ -286,6 +286,122 @@ const Products = () => {
             </div>
           </section>
 
+          {/* Accessories Section - 3D Flip Cards */}
+          <section className="py-32 relative overflow-hidden" aria-label="Accessories">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
+            
+            <div className="container mx-auto px-4 relative z-10">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-center mb-16"
+              >
+                <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-display font-semibold text-sm mb-6">
+                  ACCESSORIES
+                </span>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
+                  Essential{" "}
+                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                    Accessories
+                  </span>
+                </h2>
+                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                  Quality accessories to complement your UAV systems
+                </p>
+              </motion.div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                {[
+                  {
+                    name: "Battery Strap Belt",
+                    image: null, // Add image path here when available
+                    description: "Secure and reliable battery strap belt designed for safe battery mounting on UAV platforms. Made from high-quality materials to ensure durability and consistent performance during flight operations.",
+                    gradient: "from-blue-500 to-cyan-500",
+                    features: ["Durable Material", "Secure Fastening", "Weather Resistant", "Multiple Sizes Available"]
+                  },
+                  {
+                    name: "Transmitter Neck Strap",
+                    image: null, // Add image path here when available
+                    description: "Comfortable and adjustable transmitter neck strap for extended flight sessions. Ergonomically designed to reduce fatigue and provide secure transmitter handling during operations.",
+                    gradient: "from-purple-500 to-blue-500",
+                    features: ["Adjustable Length", "Comfortable Design", "Secure Attachment", "Lightweight"]
+                  },
+                  {
+                    name: "Propeller Nut Key",
+                    image: null, // Add image path here when available
+                    description: "Precision-engineered propeller nut key for safe and efficient propeller installation and removal. Designed to fit standard propeller nut sizes with optimal torque application.",
+                    gradient: "from-cyan-500 to-blue-600",
+                    features: ["Precision Fit", "Durable Construction", "Easy to Use", "Standard Sizes"]
+                  }
+                ].map((accessory, index) => (
+                  <motion.div
+                    key={accessory.name}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.15, duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="group perspective-1000 h-[400px]"
+                  >
+                    <div className="relative w-full h-full preserve-3d transition-transform duration-700 group-hover:[transform:rotateY(180deg)]">
+                      {/* Front of Card */}
+                      <div className="absolute inset-0 backface-hidden bg-card border-2 border-border rounded-3xl overflow-hidden hover:border-primary/40 transition-all duration-300 shadow-lg">
+                        <div className={`absolute inset-0 bg-gradient-to-br ${accessory.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+                        
+                        <div className="relative z-10 h-full flex flex-col items-center justify-center p-8">
+                          {/* Image Container */}
+                          <div className={`w-full h-48 rounded-2xl bg-gradient-to-br ${accessory.gradient} opacity-20 flex items-center justify-center mb-6 group-hover:scale-105 group-hover:rotate-2 transition-all duration-500 shadow-xl overflow-hidden`}>
+                            {accessory.image ? (
+                              <img 
+                                src={accessory.image} 
+                                alt={accessory.name}
+                                className="w-full h-full object-cover"
+                              />
+                            ) : (
+                              <div className="w-full h-full bg-muted/30 flex items-center justify-center">
+                                <span className="text-muted-foreground/50 text-sm">Image Placeholder</span>
+                              </div>
+                            )}
+                          </div>
+                          
+                          <h3 className="text-2xl font-display font-bold mb-4 text-center">{accessory.name}</h3>
+                          
+                          <div className="mt-auto">
+                            <span className="text-sm text-muted-foreground">Hover to see details</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Back of Card */}
+                      <div className="absolute inset-0 backface-hidden bg-card border-2 border-primary/40 rounded-3xl overflow-hidden [transform:rotateY(180deg)] shadow-2xl">
+                        <div className={`absolute inset-0 bg-gradient-to-br ${accessory.gradient} opacity-5`} />
+                        
+                        <div className="relative z-10 h-full flex flex-col p-8">
+                          <h3 className="text-2xl font-display font-bold mb-4 text-center">{accessory.name}</h3>
+                          
+                          <p className="text-muted-foreground mb-6 leading-relaxed text-sm text-center flex-grow">
+                            {accessory.description}
+                          </p>
+                          
+                          <div className="space-y-2">
+                            <p className="text-sm font-display font-semibold text-primary mb-2">Features:</p>
+                            {accessory.features.map((feature, i) => (
+                              <div key={i} className="flex items-center gap-2 text-xs">
+                                <CheckCircle2 className="w-3 h-3 text-primary flex-shrink-0" />
+                                <span className="text-muted-foreground">{feature}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
           {/* Product Philosophy - Creative Layout */}
           <section className="py-32 relative bg-secondary/30 overflow-hidden" aria-label="Product Philosophy">
             <div className="absolute inset-0 diagonal-lines opacity-20" />

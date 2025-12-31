@@ -32,6 +32,7 @@ const HardwareProducts = () => {
     {
       icon: Cpu,
       name: "FPV Flight Controller",
+      label: "Avionics Systems",
       description: "A high-performance flight controller engineered for precise, low-latency manual flight. Designed for FPV platforms where direct stick response, fast control execution, and consistent flight behaviour are critical across racing, freestyle, cinematic, and fast manual inspection use cases.",
       gradient: "from-blue-500 to-cyan-500",
       capabilities: ["Ultra-Low-Latency Control Loop Execution", "High-Rate Attitude Estimation & Gyro Sampling", "Multi-Motor Configuration Support (Quad / Hex / Octa)", "FPV-Optimized Firmware Compatibility (Betaflight / iNav)"]
@@ -39,6 +40,7 @@ const HardwareProducts = () => {
     {
       icon: Zap,
       name: "BEC (Battery Eliminator Circuit)",
+      label: "Power Systems",
       description: "Dedicated voltage regulation subsystem for UAV platforms, providing stable and efficient power to flight control, avionics, and peripheral systems under dynamic load conditions.",
       gradient: "from-cyan-500 to-blue-500",
       capabilities: ["Wide Input Range (2S–12S Li-Po)", "Multiple Regulated Outputs (5V / 6V / 9V / 12V @ 3A)", "High Conversion Efficiency (>90%)", "Integrated Electrical Protection (Overcurrent / Overvoltage)"]
@@ -46,6 +48,7 @@ const HardwareProducts = () => {
     {
       icon: Battery,
       name: "Power Module",
+      label: "Avionics Systems",
       description: "Power monitoring subsystem for UAV platforms, enabling real-time measurement of electrical parameters for system health, energy management, and mission reliability.",
       gradient: "from-purple-500 to-blue-500",
       capabilities: ["Voltage Sensing", "Current Sensing", "Regulated Power Output (5V)", "Compact, Lightweight Integration"]
@@ -53,6 +56,7 @@ const HardwareProducts = () => {
     {
       icon: Radio,
       name: "PDB (Power Distribution Board)",
+      label: "Power Systems",
       description: "Centralized power distribution subsystem for multi-rotor and fixed-wing UAV architectures, designed to deliver clean and balanced power across propulsion and avionics domains.",
       gradient: "from-blue-600 to-purple-500",
       capabilities: ["Multi-Output Power Distribution", "Clean, Low-Noise Power Rails", "Low-Resistance High-Current Paths", "Aerospace-Grade Design & Layout"]
@@ -60,6 +64,7 @@ const HardwareProducts = () => {
     {
       icon: Lightbulb,
       name: "Aviation Strobe Light",
+      label: "Avionics Systems",
       description: "Integrated strobe lighting solution for UAV platforms, designed to support visibility, orientation, and operational safety across diverse mission profiles.",
       gradient: "from-yellow-500 to-orange-500",
       capabilities: ["High-Intensity Strobe Output", "Flight Controller–Synchronized Operation", "Low Power Electrical Footprint", "Extended Visibility Range"]
@@ -256,8 +261,19 @@ const HardwareProducts = () => {
                       <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
                       
                       <div className="relative z-10">
-                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
-                          <item.icon className="h-8 w-8 text-white" />
+                        <div className="flex items-center justify-between mb-4">
+                          <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
+                            <item.icon className="h-8 w-8 text-white" />
+                          </div>
+                          {item.label && (
+                            <span className={`px-3 py-1 rounded-full text-xs font-display font-semibold ${
+                              item.label === "Avionics Systems" 
+                                ? "bg-purple-500/10 border border-purple-500/30 text-purple-600 dark:text-purple-500" 
+                                : "bg-cyan-500/10 border border-cyan-500/30 text-cyan-600 dark:text-cyan-500"
+                            }`}>
+                              {item.label}
+                            </span>
+                          )}
                         </div>
                         <h3 className="text-xl font-display font-bold mb-3">{item.name}</h3>
                         <p className="text-muted-foreground mb-6 leading-relaxed text-sm">{item.description}</p>

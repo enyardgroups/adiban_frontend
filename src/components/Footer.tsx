@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="space-y-4">
             <img src={logo} alt="Adiban Aviation" className="h-12" />
             <p className="text-sm text-muted-foreground">
-              Shaping the future of unmanned aviation in India through innovation and precision engineering.
+              Shaping the future of unmanned aviation globally through innovation and precision engineering. A trusted aerospace technology company with global presence, committed to engineering excellence and "Make in India" principles.
             </p>
           </div>
 

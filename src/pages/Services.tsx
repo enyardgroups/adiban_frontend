@@ -224,47 +224,47 @@ const Services = () => {
     {
       icon: Wrench,
       title: "TC Documentation & Compliance Assistance",
-      description: "Expert guidance for type certification documentation and regulatory compliance for aerospace systems. We ensure your projects meet all international aviation standards.",
+      description: "Expert guidance through UAV type certification and regulatory compliance — ensuring your UAS systems meet all required DGCA standards.",
       gradient: "from-blue-500 to-cyan-500",
-      features: ["Regulatory Compliance", "Documentation Support", "Certification Guidance", "Standards Alignment"],
+      features: ["Standards Alignment", "Regulatory Compliance", "Documentation Support", "Certification Guidance"],
       color: "blue"
     },
     {
       icon: Cpu,
       title: "Custom Drone Design & Development",
-      description: "End-to-end drone design services tailored to your specific requirements and applications. From concept to production-ready solutions.",
+      description: "End-to-end UAV design engineered for your mission needs — from concept creation to fully integrated, production-ready systems.",
       gradient: "from-purple-500 to-blue-500",
-      features: ["Concept Development", "Prototype Design", "System Integration", "Production Ready"],
+      features: ["Concept Development", "System Integration", "Prototype Design", "Production-Ready Engineering"],
       color: "purple"
     },
     {
       icon: Factory,
       title: "Hardware Design & Development",
-      description: "Specialized aviation and electronic hardware design with aerospace-grade precision. Mission-critical components for reliable operations.",
+      description: "Aerospace-grade electronic and hardware engineering — from concept to validated mission-critical systems ensuring reliability and performance.",
       gradient: "from-cyan-500 to-blue-600",
-      features: ["Circuit Design", "PCB Development", "Component Selection", "Testing & Validation"],
+      features: ["Component Selection", "Circuit Design", "PCB Development", "Testing & Validation"],
       color: "cyan"
     },
     {
       icon: Ruler,
-      title: "Computer-Aided Design",
-      description: "Advanced CAD services for mechanical and structural design optimization. Precision engineering for optimal performance.",
+      title: "Computer-Aided Design (CAD)",
+      description: "High-precision CAD solutions for mechanical and structural applications, enabling optimized performance and efficient manufacturability.",
       gradient: "from-green-500 to-emerald-500",
-      features: ["3D Modeling", "Structural Analysis", "Design Optimization", "Technical Drawings"],
+      features: ["3D Modeling", "Structural Analysis", "Design Optimization", "Detailed Technical Drawings"],
       color: "green"
     },
     {
       icon: Zap,
-      title: "Computer-Aided Manufacturing",
-      description: "Precision manufacturing solutions with state-of-the-art CAM technology. From design to finished product.",
+      title: "Computer-Aided Manufacturing (CAM)",
+      description: "High-precision manufacturing using advanced CAM technology — seamlessly transforming designs into high-quality finished products.",
       gradient: "from-orange-500 to-red-500",
-      features: ["CNC Programming", "Toolpath Optimization", "Quality Control", "Production Planning"],
+      features: ["Production Planning", "CNC Programming", "Toolpath Optimization", "Quality Control"],
       color: "orange"
     },
     {
       icon: Wind,
-      title: "Finite Element Analysis / CFD",
-      description: "Computational fluid dynamics and structural analysis for optimal performance validation. Advanced simulation for aerospace applications.",
+      title: "Finite Element Analysis / Computational Fluid Dynamics (FEA / CFD)",
+      description: "Advanced structural and fluid simulations to validate performance, improve safety, and optimize aerospace system designs.",
       gradient: "from-indigo-500 to-purple-500",
       features: ["Structural FEA", "CFD Analysis", "Thermal Analysis", "Performance Validation"],
       color: "indigo"

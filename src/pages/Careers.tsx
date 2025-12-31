@@ -49,7 +49,7 @@ const Careers = () => {
   // SEO Optimization
   useSEO({
     title: "Careers - Adiban Aviation | Join Our Team | Aerospace & UAV Engineering Jobs",
-    description: "Join Adiban Aviation - India's premier aerospace & defense technology company. Explore career opportunities in UAV engineering, embedded systems, firmware development, and aerospace design. Full-time, part-time, and internship positions available.",
+    description: "Join Adiban Aviation - A premier aerospace & defense technology company with global presence. Explore career opportunities in UAV engineering, embedded systems, firmware development, and aerospace design. Full-time, part-time, and internship positions available.",
     keywords: "Adiban Aviation careers, aerospace jobs India, UAV engineering jobs, drone engineer jobs, embedded systems jobs, aerospace careers, engineering jobs Villupuram, Adiban Aviation hiring",
     canonical: "https://adibanaviation.com/careers",
     ogImage: "https://adibanaviation.com/careers-og-image.jpg",

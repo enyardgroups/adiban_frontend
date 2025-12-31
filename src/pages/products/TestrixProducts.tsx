@@ -54,8 +54,26 @@ const TestrixProducts = () => {
 
   const testSystems = [
     {
+      icon: TestTube2,
+      name: "Drone Gimbal Rig",
+      label: "Test Rig",
+      description: "The Drone Gimbal Rig is a safe, customisable and versatile test platform for FPV drones (up to 6-inch). From classrooms and training labs to hobby workshops and research centers, it helps users test, tune, and validate drones with confidence before real-world flights.",
+      gradient: "from-yellow-500 to-orange-500",
+      applications: [
+        "Complete System Validation",
+        "Training & Demonstrations",
+        "Environmental Simulation",
+        "Flight Controller & Firmware Testing",
+        "Signal & Communication Checks",
+        "Payload & Accessory Impact",
+        "Maneuverability & Stability Testing",
+        "Failsafe & Safety Verification"
+      ]
+    },
+    {
       icon: Satellite,
       name: "GPS Test & Validation Module",
+      label: "Tester Module",
       description: "Standalone test and diagnostic interface for UART-based GNSS receivers, designed to decode and process NMEA data and display key positioning, fix status, and signal quality parameters during integration, testing, and troubleshooting.",
       gradient: "from-blue-500 to-cyan-500",
       capabilities: [
@@ -68,6 +86,7 @@ const TestrixProducts = () => {
     {
       icon: Zap,
       name: "Power Monitor Module",
+      label: "Tester Module",
       description: "Integrated power monitoring and regulation module designed to measure electrical parameters while supplying regulated power to onboard electronics. The module supports wide battery input ranges and enables real-time visibility into system power health during integration and operation.",
       gradient: "from-cyan-500 to-blue-500",
       capabilities: [
@@ -80,6 +99,7 @@ const TestrixProducts = () => {
     {
       icon: Battery,
       name: "Battery Health Checker & RC Receiver Tester",
+      label: "Tester Module",
       description: "Integrated test and diagnostic module for evaluating battery health and validating RC receiver signals during system setup, integration, and troubleshooting. Designed to support both power and control verification in a single, standalone interface.",
       gradient: "from-blue-500 to-cyan-500",
       capabilities: [
@@ -92,6 +112,7 @@ const TestrixProducts = () => {
     {
       icon: Settings,
       name: "Servo & ESC Tester",
+      label: "Tester Module",
       description: "Integrated test and calibration interface for validating servo actuators and electronic speed controllers during UAV assembly, integration, and maintenance workflows.",
       gradient: "from-blue-600 to-cyan-500",
       capabilities: [
@@ -99,22 +120,6 @@ const TestrixProducts = () => {
         "ESC Calibration & Functional Verification",
         "Receiver Signal Pass-Through (PPM / PWM)",
         "Standalone, Portable Test Operation"
-      ]
-    },
-    {
-      icon: TestTube2,
-      name: "Drone Gimbal Rig",
-      description: "The Drone Gimbal Rig is a safe, customisable and versatile test platform for FPV drones (up to 6-inch). From classrooms and training labs to hobby workshops and research centers, it helps users test, tune, and validate drones with confidence before real-world flights.",
-      gradient: "from-yellow-500 to-orange-500",
-      applications: [
-        "Complete System Validation",
-        "Training & Demonstrations",
-        "Environmental Simulation",
-        "Flight Controller & Firmware Testing",
-        "Signal & Communication Checks",
-        "Payload & Accessory Impact",
-        "Maneuverability & Stability Testing",
-        "Failsafe & Safety Verification"
       ]
     },
   ];
@@ -369,8 +374,19 @@ const TestrixProducts = () => {
                       <div className={`absolute inset-0 bg-gradient-to-br ${system.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
                       
                       <div className="relative z-10">
-                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${system.gradient} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
-                          <system.icon className="h-8 w-8 text-white" />
+                        <div className="flex items-center justify-between mb-4">
+                          <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${system.gradient} flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
+                            <system.icon className="h-8 w-8 text-white" />
+                          </div>
+                          {system.label && (
+                            <span className={`px-3 py-1 rounded-full text-xs font-display font-semibold ${
+                              system.label === "Test Rig" 
+                                ? "bg-yellow-500/10 border border-yellow-500/30 text-yellow-600 dark:text-yellow-500" 
+                                : "bg-blue-500/10 border border-blue-500/30 text-blue-600 dark:text-blue-500"
+                            }`}>
+                              {system.label}
+                            </span>
+                          )}
                         </div>
                         <h3 className="text-xl font-display font-bold mb-3">{system.name}</h3>
                         <p className="text-muted-foreground mb-6 leading-relaxed text-sm">{system.description}</p>

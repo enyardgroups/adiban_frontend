@@ -40,7 +40,7 @@ const Index = () => {
     { 
       icon: Sparkles, 
       title: "Indigenisation", 
-      description: "100% Made in India excellence",
+      description: "Make in India excellence",
       color: "from-cyan-500 to-blue-500"
     },
     { 
@@ -86,7 +86,7 @@ const Index = () => {
     },
     {
       title: "Hardware Systems",
-      description: "Aerospace-grade components & avionic solutions",
+      description: "Aerospace-grade UAV components and avionic solutions",
       image: hardwareImage,
       link: "/products/hardware",
       gradient: "from-cyan-500 to-blue-600"
@@ -108,8 +108,8 @@ const Index = () => {
       color: "from-red-500 to-orange-500"
     },
     {
-      title: "AgroChemical",
-      description: "Precision farming, crop monitoring, and pesticide spraying",
+      title: "Agriculture",
+      description: "Precision farming, crop monitoring, and agro chemicals",
       icon: Target,
       color: "from-green-500 to-emerald-500"
     },
@@ -137,7 +137,7 @@ const Index = () => {
   const services = [
     {
       title: "TC Documentation & Compliance Assistance",
-      description: "Expert guidance through type certification processes and regulatory compliance documentation",
+      description: "Expert guidance through UAV type certification processes and regulatory compliance documentation",
       icon: FileText,
       color: "from-blue-500 to-cyan-500"
     },
@@ -325,7 +325,7 @@ const Index = () => {
                   <Sparkles className="w-5 h-5 text-primary" />
                 </motion.div>
                 <span className="text-base font-display font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]">
-                  PROUDLY MADE IN INDIA
+                  MAKE IN INDIA
                 </span>
               </motion.div>
 
@@ -357,7 +357,7 @@ const Index = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.8 }}
               >
-                Engineering India's future with autonomous <Link to="/products/uav" className="text-primary hover:underline font-semibold">UAV systems</Link>, precision <Link to="/products/hardware" className="text-primary hover:underline font-semibold">aerospace and defense solutions.</Link>
+                Engineering the future with autonomous <Link to="/products/uav" className="text-primary hover:underline font-semibold">UAV systems</Link>, precision <Link to="/products/hardware" className="text-primary hover:underline font-semibold">aerospace and defense solutions.</Link>
               </motion.p>
 
               {/* CTA Buttons */}
@@ -598,7 +598,7 @@ const Index = () => {
                 viewport={{ once: true }}
                 className="text-xl font-display font-semibold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
               >
-                At Adiban Aviation, we're not just building Drones — we're shaping the Future of Unmanned Aviation in India.
+                At Adiban Aviation, we're not just building Drones — we're shaping the Future of Unmanned Aviation globally.
               </motion.p>
 
               {/* Key Points */}
@@ -615,7 +615,7 @@ const Index = () => {
                   </div>
                   <div>
                     <h4 className="font-display font-bold mb-1">Complete Drone Stack</h4>
-                    <p className="text-sm text-muted-foreground">End-to-end OEM solutions</p>
+                    <p className="text-sm text-muted-foreground">End-To-End OEM Solutions</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -624,7 +624,7 @@ const Index = () => {
                   </div>
                   <div>
                     <h4 className="font-display font-bold mb-1">Regulatory Expertise</h4>
-                    <p className="text-sm text-muted-foreground">Type certification assistance</p>
+                    <p className="text-sm text-muted-foreground">Type Certification Assistance</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -633,7 +633,7 @@ const Index = () => {
                   </div>
                   <div>
                     <h4 className="font-display font-bold mb-1">Multidisciplinary Team</h4>
-                    <p className="text-sm text-muted-foreground">Aerodynamics to avionics</p>
+                    <p className="text-sm text-muted-foreground">Aerodynamics To Avionics</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -642,7 +642,7 @@ const Index = () => {
                   </div>
                   <div>
                     <h4 className="font-display font-bold mb-1">Engineering Excellence</h4>
-                    <p className="text-sm text-muted-foreground">Operational efficiency</p>
+                    <p className="text-sm text-muted-foreground">Operational Efficiency</p>
                   </div>
                 </div>
               </motion.div>
@@ -940,7 +940,7 @@ const Index = () => {
               </span>
             </h2>
             <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
-              Partner with India's leading aerospace innovation company. Let's bring your vision to life with cutting-edge technology and unmatched expertise.
+              Partner with a global aerospace innovation company. Let's bring your vision to life with cutting-edge technology and unmatched expertise.
             </p>
             
             <div className="flex flex-wrap gap-4 justify-center">

@@ -48,7 +48,7 @@ const UAVProducts = () => {
       description: "Precision agriculture solutions for crop monitoring, spraying, and field analysis. Designed to optimize farming operations and increase crop yields.",
       gradient: "from-green-500 to-emerald-500",
       features: ["Precision Spraying", "Crop Monitoring", "Field Mapping", "Multi-Spectral Imaging"],
-      applications: ["Crop Monitoring", "Pesticide Application", "Field Analysis", "Yield Optimization"]
+      applications: ["Crop Monitoring", "Agro Chemicals", "Field Analysis", "Yield Optimization"]
     },
     {
       icon: Plane,

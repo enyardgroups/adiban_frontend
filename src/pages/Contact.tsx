@@ -54,7 +54,7 @@ const Contact = () => {
       title: "Email",
       details: [
         { label: "General", value: "contact@adibanaviation.in", link: "mailto:contact@adibanaviation.in" },
-        { label: "Support", value: "info@adibanaviation.com", link: "mailto:info@adibanaviation.com" },
+        { label: "Support", value: "info@adibanaviation.in", link: "mailto:info@adibanaviation.in" },
       ],
       description: "Send us an email anytime",
       gradient: "from-purple-500 to-blue-500",
@@ -70,7 +70,7 @@ const Contact = () => {
       description: "Visit our facility",
       gradient: "from-green-500 to-emerald-500",
       action: "Get Direction",
-      primaryLink: "https://www.google.com/maps/search/?api=1&query=65/65,+Trichy+Main+Road,+Nathamedu,+Pidagam,+Villupuram,+Tamil+Nadu,+605401"
+      primaryLink: "https://maps.app.goo.gl/8ok1iCta94HvEAgD8"
     },
   ];
 
@@ -365,7 +365,7 @@ const Contact = () => {
                   <div className="bg-card/80 backdrop-blur-md border-2 border-border rounded-3xl overflow-hidden">
                     <div className="aspect-video relative">
                       <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3905.8!2d79.5!3d11.75!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDQ1JzAwLjAiTiA3OcKwMzAnMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567890"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3905.8!2d79.5!3d11.75!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDQ1JzAwLjAiTiA3OcKwMzAnMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567890&q=65%2F65%2C+Trichy+Main+Road%2C+Nathamedu%2C+Pidagam%2C+Villupuram%2C+Tamil+Nadu%2C+605401"
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}

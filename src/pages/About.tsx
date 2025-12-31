@@ -3,7 +3,7 @@ import { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Target, Eye, Heart, Award, Rocket, Shield, Zap, Users, ArrowRight, Quote, Sparkles, Plane, TrendingUp, CheckCircle2 } from "lucide-react";
+import { Target, Eye, Heart, Award, Rocket, Shield, Zap, Users, ArrowRight, Quote, Sparkles, Plane, TrendingUp, CheckCircle2, Flag, Compass, Navigation, Globe, MapPin, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/Gemini_Generated_Image_rmc62trmc62trmc6-Photoroom.png";
 import { useSEO } from "@/hooks/useSEO";
@@ -86,7 +86,7 @@ const About = () => {
     {
       icon: Eye,
       title: "Our Vision",
-      description: "To be a global leader in UAV innovation and shape the future of aerial solutions. We envision a world where unmanned aviation technology transforms industries, enhances safety, and creates new possibilities for human progress. We aim to establish Adiban Aviation as India's most trusted and innovative aerospace technology company, recognized worldwide for engineering excellence and commitment to the \"Make in India\" initiative.",
+      description: "To be a global leader in UAV innovation and shape the future of aerial solutions. We envision a world where unmanned aviation technology transforms industries, enhances safety, and creates new possibilities for human progress. We aim to establish Adiban Aviation as a trusted and innovative aerospace technology company with global presence, recognized worldwide for engineering excellence and commitment to the \"Make in India\" initiative.",
       color: "from-blue-500 to-cyan-500",
       stat: "Global"
     },
@@ -248,7 +248,7 @@ const About = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.7, duration: 0.8 }}
                 >
-                  Building India's premier <Link to="/products" className="text-primary hover:underline font-semibold">Aerospace & Defense technology company</Link> through innovation, precision engineering, and unwavering commitment to excellence.
+                  Building a premier <Link to="/products" className="text-primary hover:underline font-semibold">Aerospace & Defense technology company</Link> with global presence through innovation, precision engineering, and unwavering commitment to excellence.
                 </motion.p>
 
                 {/* Quick Stats */}
@@ -372,7 +372,7 @@ const About = () => {
                     </p>
                     
                     <p>
-                      At Adiban Aviation, we focus on doing the fundamentals right — <strong className="text-foreground">disciplined engineering</strong>, indigenous capability development, and systems built to perform reliably in demanding environments. Our goal is to contribute meaningfully to India's growing unmanned aviation ecosystem through responsible innovation and well-engineered solutions.
+                      At Adiban Aviation, we focus on doing the fundamentals right — <strong className="text-foreground">disciplined engineering</strong>, indigenous capability development, and systems built to perform reliably in demanding environments. Our goal is to contribute meaningfully to the global unmanned aviation ecosystem through responsible innovation and well-engineered solutions.
                     </p>
                   </div>
           </motion.div>
@@ -418,74 +418,228 @@ const About = () => {
             </div>
           </section>
 
-          {/* Vision & Mission - New Creative Design */}
+          {/* Vision & Mission - Innovative 3D Split Design */}
           <section className="py-32 relative overflow-hidden" aria-label="Vision and Mission">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
-            <div className="absolute inset-0 diagonal-lines opacity-20" />
+            {/* Animated Background */}
+            <div className="absolute inset-0">
+              <motion.div
+                animate={{
+                  backgroundPosition: ["0% 0%", "100% 100%"],
+                }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                }}
+                className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/10 to-primary/10 bg-[length:200%_200%]"
+              />
+              <div className="absolute inset-0 grid-pattern opacity-10" />
+            </div>
             
             <div className="container mx-auto px-4 relative z-10">
-              {/* Vision Section - Left Aligned */}
-              <div className="mb-24">
+              {/* Section Header */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-center mb-16"
+              >
+                <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-display font-semibold text-sm mb-6">
+                  OUR FOUNDATION
+                </span>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
+                  Vision &{" "}
+                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                    Mission
+                  </span>
+                </h2>
+              </motion.div>
+
+              <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+                {/* Mission - Left Side with 3D Effect */}
                 <motion.div
-                  initial={{ opacity: 0, x: -100 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8 }}
+                  initial={{ opacity: 0, x: -100, rotateY: -15 }}
+                  whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+                  transition={{ duration: 0.8, type: "spring" }}
                   viewport={{ once: true }}
-                  className="max-w-4xl"
+                  className="group perspective-1000"
                 >
-                  <div className="flex items-start gap-6 mb-6">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0 shadow-lg">
-                      <Eye className="w-8 h-8 text-white" />
+                  <div className="relative h-full">
+                    {/* 3D Card Container */}
+                    <div className="relative bg-card border-2 border-primary/20 rounded-3xl p-10 shadow-2xl overflow-hidden h-full transform-gpu group-hover:shadow-[0_30px_60px_rgba(59,130,246,0.3)] transition-all duration-500">
+                      {/* Animated Gradient Overlay */}
+                      <motion.div
+                        animate={{
+                          backgroundPosition: ["0% 0%", "100% 100%"],
+                        }}
+                        transition={{
+                          duration: 15,
+                          repeat: Infinity,
+                          repeatType: "reverse",
+                        }}
+                        className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/5 to-primary/5 bg-[length:200%_200%] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                      />
+                      
+                      {/* Floating Particles */}
+                      {[...Array(5)].map((_, i) => (
+                        <motion.div
+                          key={i}
+                          className="absolute w-2 h-2 rounded-full bg-primary/30"
+                          style={{
+                            left: `${20 + i * 15}%`,
+                            top: `${30 + (i % 3) * 20}%`,
+                          }}
+                          animate={{
+                            y: [0, -20, 0],
+                            opacity: [0.3, 0.7, 0.3],
+                            scale: [1, 1.5, 1],
+                          }}
+                          transition={{
+                            duration: 3 + i * 0.5,
+                            repeat: Infinity,
+                            delay: i * 0.3,
+                            ease: "easeInOut"
+                          }}
+                        />
+                      ))}
+                      
+                      <div className="relative z-10">
+                        {/* Icon with Glow Effect */}
+                        <motion.div
+                          whileHover={{ scale: 1.1, rotate: 5 }}
+                          className="w-28 h-28 rounded-3xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center mb-8 shadow-lg relative"
+                        >
+                          <Target className="w-14 h-14 text-white" />
+                          <motion.div
+                            animate={{
+                              scale: [1, 1.2, 1],
+                              opacity: [0.5, 0.8, 0.5],
+                            }}
+                            transition={{
+                              duration: 2,
+                              repeat: Infinity,
+                            }}
+                            className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary to-blue-600 blur-xl -z-10"
+                          />
+                        </motion.div>
+                        
+                        {/* Title */}
+                        <h3 className="text-4xl md:text-5xl font-display font-bold mb-6 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+                          Our Mission
+                        </h3>
+                        
+                        {/* Description */}
+                        <p className="text-muted-foreground leading-relaxed text-lg mb-6">
+                          To deliver innovative technologies that make the drone industry safer, smarter, and more efficient.
+                        </p>
+                        <p className="text-muted-foreground leading-relaxed text-lg">
+                          We develop high-performance UAV systems and aerospace hardware, setting new benchmarks through continuous innovation and rigorous quality standards.
+                        </p>
+                        
+                        {/* Decorative Line */}
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: "100%" }}
+                          transition={{ delay: 0.5, duration: 0.8 }}
+                          viewport={{ once: true }}
+                          className="h-1 bg-gradient-to-r from-primary to-accent rounded-full mt-8"
+                        />
+                      </div>
                     </div>
-                    <div>
-                      <span className="inline-block px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-500 font-display font-semibold text-sm mb-4">
-                        OUR VISION
-                      </span>
-                      <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-                        Leading the{" "}
-                        <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
-                          Future
-                        </span>
-                      </h2>
-                    </div>
-                  </div>
-                  <div className="pl-24">
-                    <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                      To be a global leader in UAV innovation and shape the future of aerial solutions. We envision a world where unmanned aviation technology transforms industries, enhances safety, and creates new possibilities for human progress. We aim to establish Adiban Aviation as India's most trusted and innovative aerospace technology company, recognized worldwide for engineering excellence and commitment to the "Make in India" initiative.
-                    </p>
                   </div>
                 </motion.div>
-              </div>
 
-              {/* Mission Section - Right Aligned */}
-              <div className="flex justify-end">
+                {/* Vision - Right Side with 3D Effect */}
                 <motion.div
-                  initial={{ opacity: 0, x: 100 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8 }}
+                  initial={{ opacity: 0, x: 100, rotateY: 15 }}
+                  whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+                  transition={{ duration: 0.8, type: "spring", delay: 0.2 }}
                   viewport={{ once: true }}
-                  className="max-w-4xl"
+                  className="group perspective-1000"
                 >
-                  <div className="flex items-start gap-6 mb-6 flex-row-reverse">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center flex-shrink-0 shadow-lg">
-                      <Target className="w-8 h-8 text-white" />
+                  <div className="relative h-full">
+                    {/* 3D Card Container */}
+                    <div className="relative bg-card border-2 border-accent/20 rounded-3xl p-10 shadow-2xl overflow-hidden h-full transform-gpu group-hover:shadow-[0_30px_60px_rgba(6,182,212,0.3)] transition-all duration-500">
+                      {/* Animated Gradient Overlay */}
+                      <motion.div
+                        animate={{
+                          backgroundPosition: ["100% 100%", "0% 0%"],
+                        }}
+                        transition={{
+                          duration: 15,
+                          repeat: Infinity,
+                          repeatType: "reverse",
+                        }}
+                        className="absolute inset-0 bg-gradient-to-br from-accent/5 via-primary/5 to-accent/5 bg-[length:200%_200%] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                      />
+                      
+                      {/* Floating Particles */}
+                      {[...Array(5)].map((_, i) => (
+                        <motion.div
+                          key={i}
+                          className="absolute w-2 h-2 rounded-full bg-accent/30"
+                          style={{
+                            right: `${20 + i * 15}%`,
+                            top: `${30 + (i % 3) * 20}%`,
+                          }}
+                          animate={{
+                            y: [0, -20, 0],
+                            opacity: [0.3, 0.7, 0.3],
+                            scale: [1, 1.5, 1],
+                          }}
+                          transition={{
+                            duration: 3 + i * 0.5,
+                            repeat: Infinity,
+                            delay: i * 0.3,
+                            ease: "easeInOut"
+                          }}
+                        />
+                      ))}
+                      
+                      <div className="relative z-10">
+                        {/* Icon with Glow Effect */}
+                        <motion.div
+                          whileHover={{ scale: 1.1, rotate: 5 }}
+                          className="w-28 h-28 rounded-3xl bg-gradient-to-br from-accent to-cyan-500 flex items-center justify-center mb-8 shadow-lg relative"
+                        >
+                          <Lightbulb className="w-14 h-14 text-white" />
+                          <motion.div
+                            animate={{
+                              scale: [1, 1.2, 1],
+                              opacity: [0.5, 0.8, 0.5],
+                            }}
+                            transition={{
+                              duration: 2,
+                              repeat: Infinity,
+                            }}
+                            className="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent to-cyan-500 blur-xl -z-10"
+                          />
+                        </motion.div>
+                        
+                        {/* Title */}
+                        <h3 className="text-4xl md:text-5xl font-display font-bold mb-6 bg-gradient-to-r from-accent to-cyan-500 bg-clip-text text-transparent">
+                          Our Vision
+                        </h3>
+                        
+                        {/* Description */}
+                        <p className="text-muted-foreground leading-relaxed text-lg mb-6">
+                          To be a global leader in UAV innovation, transforming industries and enhancing safety through cutting-edge aerial solutions.
+                        </p>
+                        <p className="text-muted-foreground leading-relaxed text-lg">
+                          We aim to be a trusted aerospace technology company with global presence, recognized worldwide for engineering excellence and commitment to "Make in India."
+                        </p>
+                        
+                        {/* Decorative Line */}
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: "100%" }}
+                          transition={{ delay: 0.7, duration: 0.8 }}
+                          viewport={{ once: true }}
+                          className="h-1 bg-gradient-to-r from-accent to-primary rounded-full mt-8"
+                        />
+                      </div>
                     </div>
-                    <div className="text-right">
-                      <span className="inline-block px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-500 font-display font-semibold text-sm mb-4">
-                        OUR MISSION
-                      </span>
-                      <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-                        Delivering{" "}
-                        <span className="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
-                          Excellence
-                        </span>
-                      </h2>
-                    </div>
-                  </div>
-                  <div className="pr-24">
-                    <p className="text-lg md:text-xl text-muted-foreground leading-relaxed text-right">
-                      To deliver innovative technologies that make the drone industry safer, smarter, and more efficient. We are committed to developing high-performance UAV systems that meet the evolving needs of defense, agriculture, logistics, and research sectors. Through continuous innovation, rigorous quality standards, and customer-centric approach, we strive to exceed expectations and set new benchmarks in aerospace engineering.
-                    </p>
                   </div>
                 </motion.div>
               </div>
@@ -707,7 +861,7 @@ const About = () => {
                             >
                               future
                             </motion.span>{" "}
-                            <span className="text-foreground">of unmanned aviation in India.</span>
+                            <span className="text-foreground">of unmanned aviation globally.</span>
                           </motion.p>
 
                           {/* Closing Quote Mark */}
