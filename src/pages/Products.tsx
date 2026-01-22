@@ -23,7 +23,7 @@ const Products = () => {
   // SEO Optimization
   useSEO({
     title: "Products - Adiban Aviation | UAV Systems, Hardware & Testing Solutions",
-    description: "Explore Adiban Aviation's comprehensive product range: UAV systems (FPV, Agricultural, Logistics drones), aerospace hardware (BEC, Power Modules, PDB), and Test Rigs testing solutions. 100% Made in India, aerospace-grade quality.",
+    description: "Explore Adiban Aviation's comprehensive product range: UAV systems (FPV, Agricultural, Logistics drones), aerospace hardware (BEC, Power Modules, PDB), and Test Rigs testing solutions. Made in India, aerospace-grade quality.",
     keywords: "Adiban Aviation products, UAV systems India, drone products, aerospace hardware, test rigs, FPV drones, agricultural drones, logistics drones, BEC power module, PDB, GPS test module, power monitor, battery health checker, servo ESC tester, drone gimbal rig, Indian drone manufacturer",
     canonical: "https://adibanaviation.com/products",
     ogImage: "https://adibanaviation.com/products-og-image.jpg",
@@ -36,7 +36,11 @@ const Products = () => {
       slug: "uav",
       description: "Next-generation autonomous flight systems engineered for diverse applications including defense, agriculture, and logistics",
       image: uavImage,
-      subcategories: ["FPV Drones", "Agricultural UAVs", "Logistics Drones"],
+      subcategories: [
+        { name: "FPV Drones", classification: "UAV System" },
+        { name: "Agricultural UAVs", classification: "UAV System" },
+        { name: "Logistics Drones", classification: "UAV System" }
+      ],
       gradient: "from-blue-500 to-cyan-500",
       icon: Rocket,
       stats: { projects: "200+", reliability: "99.9%" },
@@ -47,7 +51,11 @@ const Products = () => {
       slug: "testrix",
       description: "Precision testing & validation systems for mission-critical aerospace components and flight systems",
       image: testRigs,
-      subcategories: ["Drone Gimbal Rig", "Flight Test Systems", "Quality Assurance Tools"],
+      subcategories: [
+        { name: "Drone Gimbal Rig", classification: "Test Rig" },
+        { name: "Flight Test Systems", classification: "Test Rig" },
+        { name: "Quality Assurance Tools", classification: "Test Rig" }
+      ],
       gradient: "from-blue-500 to-cyan-500",
       icon: Award,
       stats: { accuracy: "99.99%", tests: "1000+" },
@@ -58,10 +66,16 @@ const Products = () => {
       slug: "hardware",
       description: "Aerospace-grade electronic components and avionic solutions engineered for reliability and performance",
       image: hardwareImage,
-      subcategories: ["BEC", "Power Modules", "PDB", "Servo Testers", "Strobe Lights"],
+      subcategories: [
+        { name: "BEC", classification: "Hardware Component" },
+        { name: "Power Modules", classification: "Hardware Component" },
+        { name: "PDB", classification: "Hardware Component" },
+        { name: "Servo Testers", classification: "Hardware Component" },
+        { name: "Strobe Lights", classification: "Hardware Component" }
+      ],
       gradient: "from-cyan-500 to-blue-600",
       icon: Zap,
-      stats: { components: "50+", quality: "100%" },
+      stats: { components: "15+", quality: "100%" },
       features: ["Aerospace-Grade", "High Efficiency", "Mission-Critical"]
     },
   ];
@@ -169,7 +183,7 @@ const Products = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.7, duration: 0.8 }}
                 >
-                  Designed to deliver consistent and reliable performance across diverse applications. Engineered with precision for smooth operation and long-term durability. <Link to="/about" className="text-primary hover:underline font-semibold">100% Made in India</Link> with aerospace-grade quality.
+                  Designed to deliver consistent and reliable performance across diverse applications. Engineered with precision for smooth operation and long-term durability. <Link to="/about" className="text-primary hover:underline font-semibold">Made in India</Link> with aerospace-grade quality.
                 </motion.p>
               </motion.div>
             </div>
@@ -262,12 +276,20 @@ const Products = () => {
                             <p className="text-sm font-display font-semibold text-primary mb-2">Product Lines:</p>
                             <div className="flex flex-wrap gap-2">
                               {category.subcategories.map((sub) => (
-                                <span 
-                                  key={sub}
-                                  className="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs text-primary font-semibold"
-                                >
-                                  {sub}
-                                </span>
+                                <div key={typeof sub === 'string' ? sub : sub.name} className="flex flex-col gap-1.5">
+                                  <div className="flex items-center gap-2">
+                                    <span 
+                                      className="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs text-primary font-semibold"
+                                    >
+                                      {typeof sub === 'string' ? sub : sub.name}
+                                    </span>
+                                  </div>
+                                  {typeof sub === 'object' && sub.classification && (
+                                    <span className="text-[10px] text-muted-foreground px-3 italic">
+                                      Classification: {sub.classification}
+                                    </span>
+                                  )}
+                                </div>
                               ))}
                             </div>
                           </div>
@@ -522,7 +544,7 @@ const Products = () => {
                             <p>
                               We combine innovation with practicality to meet modern industry demands. Crafted with quality materials and{" "}
                               <Link to="/about" className="text-primary hover:underline font-semibold inline-flex items-center gap-1">
-                                100% in-house manufacturing
+                                in-house manufacturing
                                 <motion.span
                                   animate={{ x: [0, 4, 0] }}
                                   transition={{ duration: 1.5, repeat: Infinity }}
@@ -554,7 +576,7 @@ const Products = () => {
                           >
                             {[
                               { label: "Reliability", value: "99.9%" },
-                              { label: "Projects", value: "500+" },
+                              { label: "Projects", value: "10+" },
                             ].map((stat, i) => (
                               <motion.div
                                 key={stat.label}

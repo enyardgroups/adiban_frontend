@@ -79,7 +79,7 @@ const HardwareProducts = () => {
     },
     {
       icon: Award,
-      title: "100% Quality Tested",
+      title: "Quality Tested",
       description: "Every component undergoes extensive testing before delivery"
     },
     {
@@ -169,7 +169,7 @@ const HardwareProducts = () => {
                 />
                 
                 <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-                  Specialized aviation and electronic hardware components engineered to aerospace standards. <Link to="/about" className="text-primary hover:underline font-semibold">50+ components</Link> with <Link to="/products/testrix" className="text-primary hover:underline font-semibold">100% quality assurance</Link>.
+                  Specialized aviation and electronic hardware components engineered to aerospace standards. <Link to="/about" className="text-primary hover:underline font-semibold">15+ components</Link> with <Link to="/products/testrix" className="text-primary hover:underline font-semibold">quality assurance</Link>.
                 </p>
 
                 {/* Quick Stats */}
@@ -180,7 +180,7 @@ const HardwareProducts = () => {
                     transition={{ delay: 0.9 }}
                     className="bg-card/50 backdrop-blur-sm border border-border rounded-xl p-4 hover:border-primary/50 transition-all"
                   >
-                    <div className="text-2xl font-display font-bold text-primary">50+</div>
+                    <div className="text-2xl font-display font-bold text-primary">15+</div>
                     <div className="text-xs text-muted-foreground">Components</div>
                   </motion.div>
                   <motion.div

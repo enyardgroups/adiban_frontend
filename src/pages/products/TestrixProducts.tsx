@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { TestTube2, Gauge, CheckCircle, Rocket, Award, Shield, Zap, ArrowRight, Target, Satellite, Battery, Radio, Settings } from "lucide-react";
+import { TestTube2, Gauge, CheckCircle, Rocket, Award, Shield, Zap, ArrowRight, Target, Satellite, Battery, Radio, Settings, RotateCcw, GaugeCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import testRigsImage from "@/assets/testrigs.jpg";
 import { useSEO } from "@/hooks/useSEO";
@@ -121,6 +121,47 @@ const TestrixProducts = () => {
         "Receiver Signal Pass-Through (PPM / PWM)",
         "Standalone, Portable Test Operation"
       ]
+    },
+    {
+      icon: Rocket,
+      name: "Propulsion System Tester",
+      label: "Test Rig",
+      description: "High-precision propulsion testing and performance analysis for UAV and advanced aerospace applications.",
+      gradient: "from-purple-500 to-blue-500",
+      capabilities: [
+        "Propulsion System Testing",
+        "Performance Analysis",
+        "Thrust Measurement",
+        "Aerospace Applications"
+      ],
+      comingSoon: true
+    },
+    {
+      icon: RotateCcw,
+      name: "Motorised Gimbal Rig",
+      label: "Test Rig",
+      description: "A precision motorised gimbal rig engineered for UAV and payload testing, delivering high-accuracy multi-axis stabilization and control. It ensures smooth, vibration-free operation for imaging, sensing, and surveillance missions across dynamic flight conditions.",
+      gradient: "from-indigo-500 to-purple-500",
+      capabilities: [
+        "Multi-Axis Stabilization",
+        "Vibration-Free Operation",
+        "Imaging & Sensing Testing",
+        "Dynamic Flight Condition Testing"
+      ]
+    },
+    {
+      icon: GaugeCircle,
+      name: "Propeller Balancer",
+      label: "Test Rig",
+      description: "High-accuracy propeller balancer for UAV propulsion systems, enabling precise static and dynamic balance verification. Ensures smooth operation, reduced vibration, and reliable performance during flight testing.",
+      gradient: "from-teal-500 to-cyan-500",
+      capabilities: [
+        "Static Balance Verification",
+        "Dynamic Balance Verification",
+        "Vibration Reduction",
+        "Flight Testing Support"
+      ],
+      comingSoon: true
     },
   ];
 
@@ -378,15 +419,22 @@ const TestrixProducts = () => {
                           <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${system.gradient} flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
                             <system.icon className="h-8 w-8 text-white" />
                           </div>
-                          {system.label && (
-                            <span className={`px-3 py-1 rounded-full text-xs font-display font-semibold ${
-                              system.label === "Test Rig" 
-                                ? "bg-yellow-500/10 border border-yellow-500/30 text-yellow-600 dark:text-yellow-500" 
-                                : "bg-blue-500/10 border border-blue-500/30 text-blue-600 dark:text-blue-500"
-                            }`}>
-                              {system.label}
-                            </span>
-                          )}
+                          <div className="flex flex-col items-end gap-2">
+                            {system.label && (
+                              <span className={`px-3 py-1 rounded-full text-xs font-display font-semibold ${
+                                system.label === "Test Rig" 
+                                  ? "bg-yellow-500/10 border border-yellow-500/30 text-yellow-600 dark:text-yellow-500" 
+                                  : "bg-blue-500/10 border border-blue-500/30 text-blue-600 dark:text-blue-500"
+                              }`}>
+                                {system.label}
+                              </span>
+                            )}
+                            {system.comingSoon && (
+                              <span className="px-2 py-1 rounded-full text-[10px] font-display font-semibold bg-orange-500/10 border border-orange-500/30 text-orange-600 dark:text-orange-500">
+                                Coming Soon
+                              </span>
+                            )}
+                          </div>
                         </div>
                         <h3 className="text-xl font-display font-bold mb-3">{system.name}</h3>
                         <p className="text-muted-foreground mb-6 leading-relaxed text-sm">{system.description}</p>

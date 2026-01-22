@@ -72,7 +72,7 @@ const About = () => {
       ],
       "numberOfEmployees": {
         "@type": "QuantitativeValue",
-        "value": "50+"
+        "value": "15+"
       },
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -119,14 +119,14 @@ const About = () => {
       title: "Excellence",
       description: "We strive for perfection in every project, ensuring quality and reliability in all our deliverables.",
       color: "from-purple-500 to-blue-500",
-      stat: "500+"
+      stat: "10+"
     },
     {
       icon: Users,
       title: "Collaboration",
       description: "We believe in the power of teamwork and building strong partnerships with our clients and stakeholders.",
       color: "from-blue-600 to-purple-500",
-      stat: "50+"
+      stat: "10+"
     },
   ];
 
@@ -259,8 +259,8 @@ const About = () => {
                   transition={{ delay: 0.9, duration: 0.8 }}
                 >
                   {[
-                    { value: "500+", label: "Projects", icon: Rocket },
-                    { value: "10+", label: "Years", icon: Award },
+                    { value: "10+", label: "Projects", icon: Rocket },
+                    { value: "2+", label: "Years", icon: Award },
                   ].map((stat, i) => (
           <motion.div
                       key={stat.label}

@@ -109,7 +109,7 @@ const Index = () => {
     },
     {
       title: "Agriculture",
-      description: "Precision farming, crop monitoring, and agro chemicals",
+      description: "Precision farming, crop monitoring, and Agrochemical spraying",
       icon: Target,
       color: "from-green-500 to-emerald-500"
     },
@@ -128,9 +128,9 @@ const Index = () => {
   ];
 
   const achievements = [
-    { value: "500+", label: "Projects Delivered", icon: CheckCircle2 },
-    { value: "10+", label: "Years Experience", icon: Award },
-    { value: "50+", label: "Expert Team", icon: Users },
+    { value: "10+", label: "Projects Delivered", icon: CheckCircle2 },
+    { value: "2+", label: "Years Experience", icon: Award },
+    { value: "15+", label: "Products / Components", icon: Users },
     { value: "15+", label: "States Covered", icon: MapPin },
   ];
 
@@ -458,7 +458,7 @@ const Index = () => {
                     </div>
                     <div>
                       <div className="text-2xl font-display font-bold text-accent">2+</div>
-                      <div className="text-xs text-muted-foreground">Years of Experience</div>
+                      <div className="text-xs text-muted-foreground">Years of Expertise</div>
                     </div>
                   </div>
                 </motion.div>
