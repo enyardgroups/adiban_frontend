@@ -119,7 +119,7 @@ const About = () => {
       title: "Excellence",
       description: "We strive for perfection in every project, ensuring quality and reliability in all our deliverables.",
       color: "from-purple-500 to-blue-500",
-      stat: "10+"
+      stat: "50+"
     },
     {
       icon: Users,

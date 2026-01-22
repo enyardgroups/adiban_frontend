@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { TestTube2, Gauge, CheckCircle, Rocket, Award, Shield, Zap, ArrowRight, Target, Satellite, Battery, Radio, Settings, RotateCcw, GaugeCircle } from "lucide-react";
+import { TestTube2, Gauge, CheckCircle, Rocket, Award, Shield, Zap, ArrowRight, Target, Satellite, Battery, Radio, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import testRigsImage from "@/assets/testrigs.jpg";
 import { useSEO } from "@/hooks/useSEO";
@@ -137,7 +137,7 @@ const TestrixProducts = () => {
       comingSoon: true
     },
     {
-      icon: RotateCcw,
+      icon: Settings,
       name: "Motorised Gimbal Rig",
       label: "Test Rig",
       description: "A precision motorised gimbal rig engineered for UAV and payload testing, delivering high-accuracy multi-axis stabilization and control. It ensures smooth, vibration-free operation for imaging, sensing, and surveillance missions across dynamic flight conditions.",
@@ -150,7 +150,7 @@ const TestrixProducts = () => {
       ]
     },
     {
-      icon: GaugeCircle,
+      icon: Gauge,
       name: "Propeller Balancer",
       label: "Test Rig",
       description: "High-accuracy propeller balancer for UAV propulsion systems, enabling precise static and dynamic balance verification. Ensures smooth operation, reduced vibration, and reliable performance during flight testing.",

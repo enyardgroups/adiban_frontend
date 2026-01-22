@@ -36,11 +36,7 @@ const Products = () => {
       slug: "uav",
       description: "Next-generation autonomous flight systems engineered for diverse applications including defense, agriculture, and logistics",
       image: uavImage,
-      subcategories: [
-        { name: "FPV Drones", classification: "UAV System" },
-        { name: "Agricultural UAVs", classification: "UAV System" },
-        { name: "Logistics Drones", classification: "UAV System" }
-      ],
+      subcategories: ["FPV Drones", "Agricultural UAVs", "Logistics Drones"],
       gradient: "from-blue-500 to-cyan-500",
       icon: Rocket,
       stats: { projects: "200+", reliability: "99.9%" },
@@ -51,11 +47,7 @@ const Products = () => {
       slug: "testrix",
       description: "Precision testing & validation systems for mission-critical aerospace components and flight systems",
       image: testRigs,
-      subcategories: [
-        { name: "Drone Gimbal Rig", classification: "Test Rig" },
-        { name: "Flight Test Systems", classification: "Test Rig" },
-        { name: "Quality Assurance Tools", classification: "Test Rig" }
-      ],
+      subcategories: ["Drone Gimbal Rig", "Flight Test Systems", "Quality Assurance Tools"],
       gradient: "from-blue-500 to-cyan-500",
       icon: Award,
       stats: { accuracy: "99.99%", tests: "1000+" },
@@ -66,13 +58,7 @@ const Products = () => {
       slug: "hardware",
       description: "Aerospace-grade electronic components and avionic solutions engineered for reliability and performance",
       image: hardwareImage,
-      subcategories: [
-        { name: "BEC", classification: "Hardware Component" },
-        { name: "Power Modules", classification: "Hardware Component" },
-        { name: "PDB", classification: "Hardware Component" },
-        { name: "Servo Testers", classification: "Hardware Component" },
-        { name: "Strobe Lights", classification: "Hardware Component" }
-      ],
+      subcategories: ["BEC", "Power Modules", "PDB", "Servo Testers", "Strobe Lights"],
       gradient: "from-cyan-500 to-blue-600",
       icon: Zap,
       stats: { components: "15+", quality: "100%" },
@@ -276,20 +262,12 @@ const Products = () => {
                             <p className="text-sm font-display font-semibold text-primary mb-2">Product Lines:</p>
                             <div className="flex flex-wrap gap-2">
                               {category.subcategories.map((sub) => (
-                                <div key={typeof sub === 'string' ? sub : sub.name} className="flex flex-col gap-1.5">
-                                  <div className="flex items-center gap-2">
-                                    <span 
-                                      className="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs text-primary font-semibold"
-                                    >
-                                      {typeof sub === 'string' ? sub : sub.name}
-                                    </span>
-                                  </div>
-                                  {typeof sub === 'object' && sub.classification && (
-                                    <span className="text-[10px] text-muted-foreground px-3 italic">
-                                      Classification: {sub.classification}
-                                    </span>
-                                  )}
-                                </div>
+                                <span 
+                                  key={sub}
+                                  className="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs text-primary font-semibold"
+                                >
+                                  {sub}
+                                </span>
                               ))}
                             </div>
                           </div>
