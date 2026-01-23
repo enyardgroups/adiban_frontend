@@ -6,8 +6,11 @@ import Footer from "@/components/Footer";
 import { ArrowRight, Rocket, Sparkles, CheckCircle2, Award, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import uavImage from "@/assets/uav-flight.jpg";
-import testRigs from "@/assets/testrigs.jpg";
+import testRigs from "@/assets/test rig common pic.png";
 import hardwareImage from "@/assets/hardware-tech.jpg";
+import batteryStrapImage from "@/assets/Battery strap belt.png";
+import transmitterStrapImage from "@/assets/Transmitter neck strap.png";
+import propellerKeyImage from "@/assets/propellor nut key.jpeg";
 import { useSEO } from "@/hooks/useSEO";
 
 const Products = () => {
@@ -196,16 +199,14 @@ const Products = () => {
                     <Link to={`/products/${category.slug}`}>
                       <div className="relative bg-card border-2 border-border rounded-3xl overflow-hidden hover:border-primary/40 transition-all duration-300 h-full hover:shadow-float">
                         {/* Image Section */}
-                        <div className={`relative aspect-[4/3] overflow-hidden ${
-                          category.title === "Test Rigs" ? "bg-gradient-to-br from-blue-50 to-cyan-50" : ""
-                        }`}>
+                        <div className="relative aspect-[4/3] overflow-hidden">
                           <motion.img 
                             src={category.image} 
                             alt={`${category.title} - ${category.description} by Adiban Aviation`}
                             className={`w-full h-full ${
-                              category.title === "Test Rigs" ? "object-contain p-4" : "object-cover"
+                              category.title === "Test Rigs" ? "object-cover" : "object-cover"
                             }`}
-                            whileHover={{ scale: category.title === "Test Rigs" ? 1.05 : 1.1 }}
+                            whileHover={{ scale: 1.1 }}
                             transition={{ duration: 0.6 }}
                             loading="lazy"
                             width="800"
@@ -316,21 +317,21 @@ const Products = () => {
                 {[
                   {
                     name: "Battery Strap Belt",
-                    image: null, // Add image path here when available
+                    image: batteryStrapImage,
                     description: "Secure and reliable battery strap belt designed for safe battery mounting on UAV platforms. Made from high-quality materials to ensure durability and consistent performance during flight operations.",
                     gradient: "from-blue-500 to-cyan-500",
                     features: ["Durable Material", "Secure Fastening", "Weather Resistant", "Multiple Sizes Available"]
                   },
                   {
                     name: "Transmitter Neck Strap",
-                    image: null, // Add image path here when available
+                    image: transmitterStrapImage,
                     description: "Comfortable and adjustable transmitter neck strap for extended flight sessions. Ergonomically designed to reduce fatigue and provide secure transmitter handling during operations.",
                     gradient: "from-purple-500 to-blue-500",
                     features: ["Adjustable Length", "Comfortable Design", "Secure Attachment", "Lightweight"]
                   },
                   {
                     name: "Propeller Nut Key",
-                    image: null, // Add image path here when available
+                    image: propellerKeyImage,
                     description: "Precision-engineered propeller nut key for safe and efficient propeller installation and removal. Designed to fit standard propeller nut sizes with optimal torque application.",
                     gradient: "from-cyan-500 to-blue-600",
                     features: ["Precision Fit", "Durable Construction", "Easy to Use", "Standard Sizes"]
@@ -351,12 +352,12 @@ const Products = () => {
                         
                         <div className="relative z-10 h-full flex flex-col items-center justify-center p-8">
                           {/* Image Container */}
-                          <div className={`w-full h-48 rounded-2xl bg-gradient-to-br ${accessory.gradient} opacity-20 flex items-center justify-center mb-6 group-hover:scale-105 group-hover:rotate-2 transition-all duration-500 shadow-xl overflow-hidden`}>
+                          <div className="w-full h-48 rounded-2xl bg-white flex items-center justify-center mb-6 group-hover:scale-105 group-hover:rotate-2 transition-all duration-500 shadow-xl overflow-hidden">
                             {accessory.image ? (
                               <img 
                                 src={accessory.image} 
                                 alt={accessory.name}
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-contain p-4"
                               />
                             ) : (
                               <div className="w-full h-full bg-muted/30 flex items-center justify-center">

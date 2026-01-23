@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import heroImage from "@/assets/Gemini_Generated_Image_dbrffmdbrffmdbrf-Photoroom.png";
 import hardwareImage from "@/assets/hardware-tech.jpg";
 import uavImage from "@/assets/uav-flight.jpg";
-import testRigs from "@/assets/testrigs.jpg";
+import testRigs from "@/assets/test rig common pic.png";
 import { useRef, useEffect, useState } from "react";
 
 const Index = () => {
@@ -869,16 +869,14 @@ const Index = () => {
               >
                 <Link to={product.link}>
                   <div className="relative bg-card border-2 border-border rounded-3xl overflow-hidden hover:border-primary/40 transition-all duration-300 h-full hover:shadow-float">
-                    <div className={`relative aspect-[4/3] overflow-hidden ${
-                      product.title === "Test Rigs" ? "bg-gradient-to-br from-blue-50 to-cyan-50" : ""
-                    }`}>
+                    <div className="relative aspect-[4/3] overflow-hidden">
                       <motion.img 
                         src={product.image} 
                         alt={`${product.title} - ${product.description} by Adiban Aviation, Indian Aerospace & Defense Manufacturer`}
                         className={`w-full h-full ${
-                          product.title === "Test Rigs" ? "object-contain p-4" : "object-cover"
+                          product.title === "Test Rigs" ? "object-cover" : "object-cover"
                         }`}
-                        whileHover={{ scale: product.title === "Test Rigs" ? 1.05 : 1.1 }}
+                        whileHover={{ scale: 1.1 }}
                         transition={{ duration: 0.6 }}
                         loading="lazy"
                         width="800"

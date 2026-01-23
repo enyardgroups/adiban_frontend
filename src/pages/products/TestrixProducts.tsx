@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { TestTube2, Gauge, CheckCircle, Rocket, Award, Shield, Zap, ArrowRight, Target, Satellite, Battery, Radio, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import testRigsImage from "@/assets/testrigs.jpg";
+import testRigsImage from "@/assets/test rig common pic.png";
 import { useSEO } from "@/hooks/useSEO";
 
 const TestrixProducts = () => {
@@ -297,11 +297,11 @@ const TestrixProducts = () => {
                 style={{ y }}
                 className="relative"
               >
-                <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-blue-50 to-cyan-50 border-2 border-border">
+                <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-blue-50 to-cyan-50 border-2 border-border aspect-[4/3]">
                   <motion.img 
                     src={testRigsImage} 
                     alt="Adiban Aviation Test Rigs - GPS Test Module, Power Monitor, Battery Health Checker, Servo ESC Tester, and Drone Gimbal Rig for Aerospace Testing"
-                    className="w-full h-auto rounded-3xl object-contain p-8"
+                    className="w-full h-full rounded-3xl object-cover"
                     loading="eager"
                     width="800"
                     height="600"

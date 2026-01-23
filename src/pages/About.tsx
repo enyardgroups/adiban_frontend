@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Target, Eye, Heart, Award, Rocket, Shield, Zap, Users, ArrowRight, Quote, Sparkles, Plane, TrendingUp, CheckCircle2, Flag, Compass, Navigation, Globe, MapPin, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/Gemini_Generated_Image_rmc62trmc62trmc6-Photoroom.png";
+import heroImage from "@/assets/about sec Aircraft.png";
 import { useSEO } from "@/hooks/useSEO";
 
 const About = () => {
@@ -295,7 +295,7 @@ const About = () => {
                   <motion.img 
                     src={heroImage} 
                     alt="Adiban Aviation Engineer - Professional woman engineer working with holographic drone design displays, UAV components, and aerospace technology at advanced development workstation"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain p-8"
                     loading="eager"
                     width="800"
                     height="1000"

@@ -1,16 +1,26 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Mail, Phone, MapPin, Send, MessageSquare, Clock, Globe, ArrowRight, Sparkles, Rocket } from "lucide-react";
+import { Mail, Phone, MapPin, Send, MessageSquare, Clock, Globe, ArrowRight, Sparkles, Rocket, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useSEO } from "@/hooks/useSEO";
+import { toast } from "sonner";
 
 const Contact = () => {
   const heroRef = useRef<HTMLDivElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
+
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"]
@@ -29,11 +39,46 @@ const Contact = () => {
     ogType: "website"
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted");
-    // You can add API call here
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast.success('Message Sent Successfully!', {
+          description: data.message,
+        });
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        toast.error('Failed to Send Message', {
+          description: data.message || 'Please try again later.',
+        });
+      }
+    } catch (error) {
+      console.error('Contact form error:', error);
+      toast.error('Failed to Send Message', {
+        description: 'Please check your connection and try again, or contact us directly.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactMethods = [
@@ -318,36 +363,83 @@ const Contact = () => {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                           <Label htmlFor="name" className="mb-2">Name *</Label>
-                          <Input id="name" required className="h-12" />
+                          <Input 
+                            id="name" 
+                            required 
+                            className="h-12"
+                            value={formData.name}
+                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                            disabled={isSubmitting}
+                          />
                         </div>
                         <div>
                           <Label htmlFor="email" className="mb-2">Email *</Label>
-                          <Input id="email" type="email" required className="h-12" />
+                          <Input 
+                            id="email" 
+                            type="email" 
+                            required 
+                            className="h-12"
+                            value={formData.email}
+                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                            disabled={isSubmitting}
+                          />
                         </div>
                       </div>
 
                       <div>
                         <Label htmlFor="phone" className="mb-2">Phone Number</Label>
-                        <Input id="phone" type="tel" className="h-12" />
+                        <Input 
+                          id="phone" 
+                          type="tel" 
+                          className="h-12"
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          disabled={isSubmitting}
+                        />
                       </div>
 
                       <div>
                         <Label htmlFor="subject" className="mb-2">Subject *</Label>
-                        <Input id="subject" required className="h-12" />
+                        <Input 
+                          id="subject" 
+                          required 
+                          className="h-12"
+                          value={formData.subject}
+                          onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                          disabled={isSubmitting}
+                        />
                       </div>
 
                       <div>
                         <Label htmlFor="message" className="mb-2">Message *</Label>
-                        <Textarea id="message" required rows={6} className="resize-none" />
+                        <Textarea 
+                          id="message" 
+                          required 
+                          rows={6} 
+                          className="resize-none"
+                          value={formData.message}
+                          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                          disabled={isSubmitting}
+                        />
                       </div>
 
                       <Button 
                         type="submit" 
                         size="lg" 
-                        className="w-full bg-gradient-to-r from-primary to-accent hover:shadow-glow font-display font-semibold text-lg py-7 rounded-2xl group"
+                        disabled={isSubmitting}
+                        className="w-full bg-gradient-to-r from-primary to-accent hover:shadow-glow font-display font-semibold text-lg py-7 rounded-2xl group disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        Send Message
-                        <Send className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform" />
+                        {isSubmitting ? (
+                          <>
+                            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                            Sending...
+                          </>
+                        ) : (
+                          <>
+                            Send Message
+                            <Send className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform" />
+                          </>
+                        )}
                       </Button>
                     </form>
                   </div>

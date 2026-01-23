@@ -3,13 +3,14 @@ import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Briefcase, Users, ArrowRight, Sparkles, Rocket, CheckCircle2, MapPin, Clock, Building2, GraduationCap, Mail, Phone, Upload, Send } from "lucide-react";
+import { Briefcase, Users, ArrowRight, Sparkles, Rocket, CheckCircle2, MapPin, Clock, Building2, GraduationCap, Mail, Phone, Upload, Send, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useSEO } from "@/hooks/useSEO";
+import { toast } from "sonner";
 
 type JobType = "Full Time" | "Part Time" | "Intern" | "Contract";
 type WorkMode = "Onsite" | "Hybrid" | "Remote";
@@ -285,11 +286,60 @@ const Careers = () => {
 
   const selectedJobData = jobOpenings.find(job => job.id === selectedJob);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
-    // You can add API call here
+    
+    if (!formData.resume) {
+      toast.error('Resume Required', {
+        description: 'Please upload your resume to submit the application.',
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('mobile', formData.mobile);
+      formDataToSend.append('role', formData.role);
+      formDataToSend.append('resume', formData.resume);
+
+      const response = await fetch('/api/careers', {
+        method: 'POST',
+        body: formDataToSend,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast.success('Application Submitted Successfully!', {
+          description: data.message,
+        });
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          mobile: "",
+          role: "",
+          resume: null,
+        });
+      } else {
+        toast.error('Failed to Submit Application', {
+          description: data.message || 'Please try again later.',
+        });
+      }
+    } catch (error) {
+      console.error('Careers form error:', error);
+      toast.error('Failed to Submit Application', {
+        description: 'Please check your connection and try again, or email us directly.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -858,6 +908,7 @@ const Careers = () => {
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           className="h-12"
+                          disabled={isSubmitting}
                         />
                       </div>
                       <div>
@@ -869,6 +920,7 @@ const Careers = () => {
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           className="h-12"
+                          disabled={isSubmitting}
                         />
                       </div>
                     </div>
@@ -883,6 +935,7 @@ const Careers = () => {
                           value={formData.mobile}
                           onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
                           className="h-12"
+                          disabled={isSubmitting}
                         />
                       </div>
                       <div>
@@ -891,8 +944,9 @@ const Careers = () => {
                           value={formData.role} 
                           onValueChange={(value) => setFormData({ ...formData, role: value })}
                           required
+                          disabled={isSubmitting}
                         >
-                          <SelectTrigger className="h-12">
+                          <SelectTrigger className="h-12" disabled={isSubmitting}>
                             <SelectValue placeholder="Select a position" />
                           </SelectTrigger>
                           <SelectContent>
@@ -916,6 +970,7 @@ const Careers = () => {
                           onChange={handleFileChange}
                           className="hidden"
                           required
+                          disabled={isSubmitting}
                         />
                         <label htmlFor="resume" className="cursor-pointer">
                           <Upload className="w-8 h-8 text-primary mx-auto mb-2" />
@@ -930,8 +985,8 @@ const Careers = () => {
                     <div className="bg-primary/5 border border-primary/20 rounded-xl p-4">
                       <p className="text-sm text-muted-foreground">
                         <strong className="text-foreground">Note:</strong> You can also email your resume directly to{" "}
-                        <a href="mailto:contact@adibanaviation.in" className="text-primary hover:underline font-semibold">
-                          contact@adibanaviation.in
+                        <a href="mailto:info@adibanaviation.in" className="text-primary hover:underline font-semibold">
+                          info@adibanaviation.in
                         </a>
                       </p>
                     </div>
@@ -939,10 +994,20 @@ const Careers = () => {
                     <Button 
                       type="submit" 
                       size="lg" 
-                      className="w-full bg-gradient-to-r from-primary to-accent hover:shadow-glow font-display font-semibold text-lg py-7 rounded-2xl group"
+                      disabled={isSubmitting}
+                      className="w-full bg-gradient-to-r from-primary to-accent hover:shadow-glow font-display font-semibold text-lg py-7 rounded-2xl group disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Submit Application
-                      <Send className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform" />
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                          Submitting...
+                        </>
+                      ) : (
+                        <>
+                          Submit Application
+                          <Send className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform" />
+                        </>
+                      )}
                     </Button>
                   </form>
                 </motion.div>
