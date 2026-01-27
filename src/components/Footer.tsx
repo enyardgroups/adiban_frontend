@@ -10,8 +10,8 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <img src={logo} alt="Adiban Aviation" className="h-12" />
-            <p className="text-sm text-muted-foreground">
-              Shaping the future of unmanned aviation globally through innovation and precision engineering. A trusted aerospace technology company with global presence, committed to engineering excellence and "Make in India" principles.
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Indian aerospace & defense leader. UAV systems, hardware & engineering solutions. Innovation meets precision. Make in India.
             </p>
           </div>
 
@@ -67,7 +67,7 @@ const Footer = () => {
 
         <div className="border-t border-border/40 mt-8 pt-6 text-center text-sm text-muted-foreground">
           <p>
-            © 2025 Adiban Aviation Private Limited. All rights reserved. | Designed & Developed by{" "}
+            © 2026 Adiban Aviation Private Limited. All rights reserved. | Designed & Developed by{" "}
             <a 
               href="https://enyard.in" 
               target="_blank" 

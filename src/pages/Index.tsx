@@ -813,15 +813,15 @@ const Index = () => {
                 whileHover={{ scale: 1.02 }}
                 className="group"
               >
-                <div className="relative bg-card border-2 border-border rounded-3xl p-8 overflow-hidden hover:border-primary/40 transition-all duration-300 hover:shadow-float">
-                  <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${useCase.color} opacity-10 blur-2xl`} />
+                <div className="relative bg-card border-2 border-border rounded-2xl md:rounded-3xl p-6 md:p-8 overflow-hidden hover:border-primary/40 transition-all duration-300 hover:shadow-float">
+                  <div className={`absolute top-0 right-0 w-24 h-24 md:w-32 md:h-32 bg-gradient-to-br ${useCase.color} opacity-10 blur-2xl`} />
                   
                   <div className="relative z-10">
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${useCase.color} flex items-center justify-center mb-6`}>
-                      <useCase.icon className="h-8 w-8 text-white" />
+                    <div className={`w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br ${useCase.color} flex items-center justify-center mb-4 md:mb-6`}>
+                      <useCase.icon className="h-6 w-6 md:h-8 md:w-8 text-white" />
                     </div>
-                    <h3 className="text-3xl font-display font-bold mb-4">{useCase.title}</h3>
-                    <p className="text-muted-foreground text-lg leading-relaxed">{useCase.description}</p>
+                    <h3 className="text-2xl md:text-3xl font-display font-bold mb-3 md:mb-4">{useCase.title}</h3>
+                    <p className="text-muted-foreground text-sm md:text-base lg:text-lg leading-relaxed">{useCase.description}</p>
                   </div>
                 </div>
               </motion.div>

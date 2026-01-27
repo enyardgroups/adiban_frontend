@@ -339,7 +339,7 @@ const TestrixProducts = () => {
                 </p>
               </motion.div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
                 {features.map((feature, index) => (
                   <motion.div
                     key={feature.title}
@@ -350,15 +350,15 @@ const TestrixProducts = () => {
                     whileHover={{ y: -12, transition: { duration: 0.3 } }}
                     className="group"
                   >
-                    <div className="relative bg-card border-2 border-border rounded-3xl p-8 h-full overflow-hidden hover:border-primary/40 transition-all duration-300 hover:shadow-float">
+                    <div className="relative bg-card border-2 border-border rounded-2xl md:rounded-3xl p-6 md:p-8 h-full overflow-hidden hover:border-primary/40 transition-all duration-300 hover:shadow-float">
                       <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
                       
                       <div className="relative z-10">
-                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                          <feature.icon className="h-8 w-8 text-white" />
+                        <div className={`w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                          <feature.icon className="h-6 w-6 md:h-8 md:w-8 text-white" />
                         </div>
-                        <h3 className="text-2xl font-display font-bold mb-4">{feature.title}</h3>
-                        <p className="text-muted-foreground mb-6 leading-relaxed">{feature.description}</p>
+                        <h3 className="text-xl md:text-2xl font-display font-bold mb-3 md:mb-4">{feature.title}</h3>
+                        <p className="text-muted-foreground mb-4 md:mb-6 leading-relaxed text-sm md:text-base">{feature.description}</p>
 
                         {/* Benefits */}
                         <div className="space-y-2">
@@ -400,72 +400,156 @@ const TestrixProducts = () => {
                 </h2>
               </motion.div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-                {testSystems.map((system, index) => (
-                  <motion.div
-                    key={system.name}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1, duration: 0.6 }}
-                    viewport={{ once: true }}
-                    whileHover={{ y: -12, transition: { duration: 0.3 } }}
-                    className="group"
-                  >
-                    <div className="relative bg-card border-2 border-border rounded-2xl p-8 h-full overflow-hidden hover:border-primary/40 transition-all duration-300 hover:shadow-float">
-                      <div className={`absolute inset-0 bg-gradient-to-br ${system.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
-                      
-                      <div className="relative z-10">
-                        <div className="flex items-center justify-between mb-4">
-                          <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${system.gradient} flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
-                            <system.icon className="h-8 w-8 text-white" />
+              {/* Test Rig Subsection */}
+              <div className="mb-16">
+                <motion.h3
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="text-2xl md:text-3xl font-display font-bold mb-8 text-center"
+                >
+                  Test Rig
+                </motion.h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                  {testSystems.filter(system => system.label === "Test Rig").map((system, index) => (
+                    <motion.div
+                      key={system.name}
+                      initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1, duration: 0.6 }}
+                      viewport={{ once: true }}
+                      whileHover={{ y: -12, transition: { duration: 0.3 } }}
+                      className="group"
+                    >
+                      <div className="relative bg-card border-2 border-border rounded-2xl p-8 h-full overflow-hidden hover:border-primary/40 transition-all duration-300 hover:shadow-float">
+                        <div className={`absolute inset-0 bg-gradient-to-br ${system.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+                        
+                        <div className="relative z-10">
+                          <div className="flex items-center justify-between mb-4">
+                            <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${system.gradient} flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
+                              <system.icon className="h-8 w-8 text-white" />
+                            </div>
+                            <div className="flex flex-col items-end gap-2">
+                              {system.label && (
+                                <span className="px-3 py-1 rounded-full text-xs font-display font-semibold bg-yellow-500/10 border border-yellow-500/30 text-yellow-600 dark:text-yellow-500">
+                                  {system.label}
+                                </span>
+                              )}
+                              {system.comingSoon && (
+                                <span className="px-2 py-1 rounded-full text-[10px] font-display font-semibold bg-orange-500/10 border border-orange-500/30 text-orange-600 dark:text-orange-500">
+                                  Coming Soon
+                                </span>
+                              )}
+                            </div>
                           </div>
-                          <div className="flex flex-col items-end gap-2">
-                            {system.label && (
-                              <span className={`px-3 py-1 rounded-full text-xs font-display font-semibold ${
-                                system.label === "Test Rig" 
-                                  ? "bg-yellow-500/10 border border-yellow-500/30 text-yellow-600 dark:text-yellow-500" 
-                                  : "bg-blue-500/10 border border-blue-500/30 text-blue-600 dark:text-blue-500"
-                              }`}>
-                                {system.label}
-                              </span>
-                            )}
-                            {system.comingSoon && (
-                              <span className="px-2 py-1 rounded-full text-[10px] font-display font-semibold bg-orange-500/10 border border-orange-500/30 text-orange-600 dark:text-orange-500">
-                                Coming Soon
-                              </span>
-                            )}
-                          </div>
+                          <h3 className="text-xl font-display font-bold mb-3">{system.name}</h3>
+                          <p className="text-muted-foreground mb-6 leading-relaxed text-sm">{system.description}</p>
+
+                          {system.capabilities && (
+                            <div className="space-y-2">
+                              <p className="text-sm font-display font-semibold text-primary mb-2">Key Capabilities:</p>
+                              {system.capabilities.map((capability, i) => (
+                                <div key={i} className="flex items-start gap-2 text-xs">
+                                  <CheckCircle className="w-3 h-3 text-primary flex-shrink-0 mt-0.5" />
+                                  <span className="text-muted-foreground">{capability}</span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+
+                          {system.applications && (
+                            <div className="space-y-2">
+                              <p className="text-sm font-display font-semibold text-primary mb-2">Applications:</p>
+                              {system.applications.map((application, i) => (
+                                <div key={i} className="flex items-start gap-2 text-xs">
+                                  <CheckCircle className="w-3 h-3 text-primary flex-shrink-0 mt-0.5" />
+                                  <span className="text-muted-foreground">{application}</span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
                         </div>
-                        <h3 className="text-xl font-display font-bold mb-3">{system.name}</h3>
-                        <p className="text-muted-foreground mb-6 leading-relaxed text-sm">{system.description}</p>
-
-                        {system.capabilities && (
-                          <div className="space-y-2">
-                            <p className="text-sm font-display font-semibold text-primary mb-2">Key Capabilities:</p>
-                            {system.capabilities.map((capability, i) => (
-                              <div key={i} className="flex items-start gap-2 text-xs">
-                                <CheckCircle className="w-3 h-3 text-primary flex-shrink-0 mt-0.5" />
-                                <span className="text-muted-foreground">{capability}</span>
-                              </div>
-                            ))}
-                          </div>
-                        )}
-
-                        {system.applications && (
-                          <div className="space-y-2">
-                            <p className="text-sm font-display font-semibold text-primary mb-2">Applications:</p>
-                            {system.applications.map((application, i) => (
-                              <div key={i} className="flex items-start gap-2 text-xs">
-                                <CheckCircle className="w-3 h-3 text-primary flex-shrink-0 mt-0.5" />
-                                <span className="text-muted-foreground">{application}</span>
-                              </div>
-                            ))}
-                          </div>
-                        )}
                       </div>
-                    </div>
-                  </motion.div>
-                ))}
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Tester Module Subsection */}
+              <div>
+                <motion.h3
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="text-2xl md:text-3xl font-display font-bold mb-8 text-center"
+                >
+                  Tester Module
+                </motion.h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                  {testSystems.filter(system => system.label === "Tester Module").map((system, index) => (
+                    <motion.div
+                      key={system.name}
+                      initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1, duration: 0.6 }}
+                      viewport={{ once: true }}
+                      whileHover={{ y: -12, transition: { duration: 0.3 } }}
+                      className="group"
+                    >
+                      <div className="relative bg-card border-2 border-border rounded-2xl p-8 h-full overflow-hidden hover:border-primary/40 transition-all duration-300 hover:shadow-float">
+                        <div className={`absolute inset-0 bg-gradient-to-br ${system.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+                        
+                        <div className="relative z-10">
+                          <div className="flex items-center justify-between mb-4">
+                            <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${system.gradient} flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
+                              <system.icon className="h-8 w-8 text-white" />
+                            </div>
+                            <div className="flex flex-col items-end gap-2">
+                              {system.label && (
+                                <span className="px-3 py-1 rounded-full text-xs font-display font-semibold bg-blue-500/10 border border-blue-500/30 text-blue-600 dark:text-blue-500">
+                                  {system.label}
+                                </span>
+                              )}
+                              {system.comingSoon && (
+                                <span className="px-2 py-1 rounded-full text-[10px] font-display font-semibold bg-orange-500/10 border border-orange-500/30 text-orange-600 dark:text-orange-500">
+                                  Coming Soon
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                          <h3 className="text-xl font-display font-bold mb-3">{system.name}</h3>
+                          <p className="text-muted-foreground mb-6 leading-relaxed text-sm">{system.description}</p>
+
+                          {system.capabilities && (
+                            <div className="space-y-2">
+                              <p className="text-sm font-display font-semibold text-primary mb-2">Key Capabilities:</p>
+                              {system.capabilities.map((capability, i) => (
+                                <div key={i} className="flex items-start gap-2 text-xs">
+                                  <CheckCircle className="w-3 h-3 text-primary flex-shrink-0 mt-0.5" />
+                                  <span className="text-muted-foreground">{capability}</span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+
+                          {system.applications && (
+                            <div className="space-y-2">
+                              <p className="text-sm font-display font-semibold text-primary mb-2">Applications:</p>
+                              {system.applications.map((application, i) => (
+                                <div key={i} className="flex items-start gap-2 text-xs">
+                                  <CheckCircle className="w-3 h-3 text-primary flex-shrink-0 mt-0.5" />
+                                  <span className="text-muted-foreground">{application}</span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </div>
           </section>

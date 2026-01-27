@@ -30,27 +30,9 @@ const Software = () => {
 
   const softwareProducts = [
     {
-      name: "Flight Control System",
-      description: "Advanced flight control and navigation software for autonomous UAV operations",
-      features: ["Autonomous Navigation", "Waypoint Planning", "Real-time Telemetry", "Mission Planning"],
-      screenshot: "/api/placeholder/1200/800"
-    },
-    {
       name: "Ground Control Station",
       description: "Comprehensive ground control interface for monitoring and managing UAV operations",
       features: ["Live Monitoring", "Data Visualization", "Command Interface", "Mission Control"],
-      screenshot: "/api/placeholder/1200/800"
-    },
-    {
-      name: "Data Analysis Suite",
-      description: "Powerful analytics and reporting tools for flight data and mission analysis",
-      features: ["Flight Analytics", "Performance Reports", "Data Export", "Trend Analysis"],
-      screenshot: "/api/placeholder/1200/800"
-    },
-    {
-      name: "Mission Planner",
-      description: "Intuitive mission planning and route optimization software",
-      features: ["Route Planning", "Weather Integration", "Risk Assessment", "Optimization"],
       screenshot: "/api/placeholder/1200/800"
     },
   ];
@@ -208,28 +190,6 @@ const Software = () => {
                 </p>
               </motion.div>
 
-              {/* Software Selector Tabs */}
-              <div className="flex flex-wrap justify-center gap-4 mb-12">
-                {softwareProducts.map((product, index) => (
-                  <motion.button
-                    key={index}
-                    onClick={() => setSelectedSoftware(index)}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`px-6 py-3 rounded-xl font-display font-semibold transition-all ${
-                      selectedSoftware === index
-                        ? "bg-gradient-to-r from-primary to-accent text-white shadow-lg"
-                        : "bg-card border-2 border-border text-muted-foreground hover:border-primary/40"
-                    }`}
-                  >
-                    {product.name}
-                  </motion.button>
-                ))}
-              </div>
 
               {/* Laptop Layout with Screenshot */}
               <div className="max-w-6xl mx-auto">

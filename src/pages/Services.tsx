@@ -458,11 +458,6 @@ const Services = () => {
                           ))}
                         </div>
 
-                        {/* CTA Arrow */}
-                        <div className="flex items-center text-primary font-display font-semibold group-hover:gap-2 transition-all">
-                          Learn More
-                          <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform" />
-                        </div>
                       </div>
                     </div>
                   </motion.div>

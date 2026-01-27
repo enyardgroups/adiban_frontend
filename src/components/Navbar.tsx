@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { Link, NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/logo.png";
@@ -28,11 +27,21 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
             {navLinks.map((link) => (
-              <Link key={link.path} to={link.path}>
-                <Button variant="ghost" className="font-display font-medium text-foreground hover:bg-accent hover:text-primary">
-                  {link.name}
-                </Button>
-              </Link>
+              <NavLink
+                key={link.path}
+                to={link.path}
+                end={link.path === "/"}
+                className={({ isActive }) =>
+                  [
+                    "px-4 py-2 rounded-md font-display font-medium transition-colors",
+                    isActive
+                      ? "bg-accent text-white"
+                      : "text-foreground/80 hover:bg-accent hover:text-white",
+                  ].join(" ")
+                }
+              >
+                {link.name}
+              </NavLink>
             ))}
           </div>
 
@@ -49,14 +58,20 @@ const Navbar = () => {
         {isOpen && (
           <div className="lg:hidden py-4 space-y-2">
             {navLinks.map((link) => (
-              <Link
+              <NavLink
                 key={link.path}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className="block px-4 py-2 rounded-md hover:bg-muted transition-colors font-display font-medium"
+                end={link.path === "/"}
+                className={({ isActive }) =>
+                  [
+                    "block px-4 py-2 rounded-md transition-colors font-display font-medium",
+                    isActive ? "bg-muted text-foreground" : "hover:bg-muted",
+                  ].join(" ")
+                }
               >
                 {link.name}
-              </Link>
+              </NavLink>
             ))}
           </div>
         )}

@@ -456,7 +456,7 @@ const About = () => {
                 </h2>
               </motion.div>
 
-              <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 max-w-7xl mx-auto">
                 {/* Mission - Left Side with 3D Effect */}
                 <motion.div
                   initial={{ opacity: 0, x: -100, rotateY: -15 }}
@@ -467,7 +467,7 @@ const About = () => {
                 >
                   <div className="relative h-full">
                     {/* 3D Card Container */}
-                    <div className="relative bg-card border-2 border-primary/20 rounded-3xl p-10 shadow-2xl overflow-hidden h-full transform-gpu group-hover:shadow-[0_30px_60px_rgba(59,130,246,0.3)] transition-all duration-500">
+                    <div className="relative bg-card border-2 border-primary/20 rounded-3xl p-6 md:p-8 lg:p-10 shadow-2xl overflow-hidden h-full transform-gpu group-hover:shadow-[0_30px_60px_rgba(59,130,246,0.3)] transition-all duration-500">
                       {/* Animated Gradient Overlay */}
                       <motion.div
                         animate={{
@@ -508,9 +508,9 @@ const About = () => {
                         {/* Icon with Glow Effect */}
                         <motion.div
                           whileHover={{ scale: 1.1, rotate: 5 }}
-                          className="w-28 h-28 rounded-3xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center mb-8 shadow-lg relative"
+                          className="w-16 h-16 md:w-20 md:h-20 lg:w-28 lg:h-28 rounded-2xl md:rounded-3xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center mb-4 md:mb-6 lg:mb-8 shadow-lg relative"
                         >
-                          <Target className="w-14 h-14 text-white" />
+                          <Target className="w-8 h-8 md:w-10 md:h-10 lg:w-14 lg:h-14 text-white" />
                           <motion.div
                             animate={{
                               scale: [1, 1.2, 1],
@@ -525,15 +525,15 @@ const About = () => {
                         </motion.div>
                         
                         {/* Title */}
-                        <h3 className="text-4xl md:text-5xl font-display font-bold mb-6 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+                        <h3 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-display font-bold mb-4 md:mb-5 lg:mb-6 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
                           Our Mission
                         </h3>
                         
                         {/* Description */}
-                        <p className="text-muted-foreground leading-relaxed text-lg mb-6">
+                        <p className="text-muted-foreground leading-relaxed text-sm md:text-base lg:text-lg mb-4 md:mb-5 lg:mb-6">
                           To deliver innovative technologies that make the drone industry safer, smarter, and more efficient.
                         </p>
-                        <p className="text-muted-foreground leading-relaxed text-lg">
+                        <p className="text-muted-foreground leading-relaxed text-sm md:text-base lg:text-lg">
                           We develop high-performance UAV systems and aerospace hardware, setting new benchmarks through continuous innovation and rigorous quality standards.
                         </p>
                         
@@ -560,7 +560,7 @@ const About = () => {
                 >
                   <div className="relative h-full">
                     {/* 3D Card Container */}
-                    <div className="relative bg-card border-2 border-accent/20 rounded-3xl p-10 shadow-2xl overflow-hidden h-full transform-gpu group-hover:shadow-[0_30px_60px_rgba(6,182,212,0.3)] transition-all duration-500">
+                    <div className="relative bg-card border-2 border-accent/20 rounded-3xl p-6 md:p-8 lg:p-10 shadow-2xl overflow-hidden h-full transform-gpu group-hover:shadow-[0_30px_60px_rgba(6,182,212,0.3)] transition-all duration-500">
                       {/* Animated Gradient Overlay */}
                       <motion.div
                         animate={{
@@ -601,9 +601,9 @@ const About = () => {
                         {/* Icon with Glow Effect */}
                         <motion.div
                           whileHover={{ scale: 1.1, rotate: 5 }}
-                          className="w-28 h-28 rounded-3xl bg-gradient-to-br from-accent to-cyan-500 flex items-center justify-center mb-8 shadow-lg relative"
+                          className="w-16 h-16 md:w-20 md:h-20 lg:w-28 lg:h-28 rounded-2xl md:rounded-3xl bg-gradient-to-br from-accent to-cyan-500 flex items-center justify-center mb-4 md:mb-6 lg:mb-8 shadow-lg relative"
                         >
-                          <Lightbulb className="w-14 h-14 text-white" />
+                          <Lightbulb className="w-8 h-8 md:w-10 md:h-10 lg:w-14 lg:h-14 text-white" />
                           <motion.div
                             animate={{
                               scale: [1, 1.2, 1],
@@ -618,15 +618,15 @@ const About = () => {
                         </motion.div>
                         
                         {/* Title */}
-                        <h3 className="text-4xl md:text-5xl font-display font-bold mb-6 bg-gradient-to-r from-accent to-cyan-500 bg-clip-text text-transparent">
+                        <h3 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-display font-bold mb-4 md:mb-5 lg:mb-6 bg-gradient-to-r from-accent to-cyan-500 bg-clip-text text-transparent">
                           Our Vision
                         </h3>
                         
                         {/* Description */}
-                        <p className="text-muted-foreground leading-relaxed text-lg mb-6">
+                        <p className="text-muted-foreground leading-relaxed text-sm md:text-base lg:text-lg mb-4 md:mb-5 lg:mb-6">
                           To be a global leader in UAV innovation, transforming industries and enhancing safety through cutting-edge aerial solutions.
                         </p>
-                        <p className="text-muted-foreground leading-relaxed text-lg">
+                        <p className="text-muted-foreground leading-relaxed text-sm md:text-base lg:text-lg">
                           We aim to be a trusted aerospace technology company with global presence, recognized worldwide for engineering excellence and commitment to "Make in India."
                         </p>
                         
