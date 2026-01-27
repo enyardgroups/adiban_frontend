@@ -52,12 +52,12 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
-    cursor: none; /* Hide default cursor */
+    cursor: auto;
   }
 
-  /* Show default cursor on interactive elements */
+  /* Keep normal cursor everywhere */
   a, button, input, textarea, select, [role="button"], [tabindex] {
-    cursor: none;
+    cursor: auto;
   }
 
   h1, h2, h3, h4, h5, h6 {

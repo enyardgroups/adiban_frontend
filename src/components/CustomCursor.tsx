@@ -53,108 +53,39 @@ const CustomCursor = () => {
         transform: "translate(-50%, -50%)",
       }}
     >
-      <div className="relative w-20 h-20 flex items-center justify-center">
-        {/* Propeller Blades - 4-blade design with proper drone propeller wing shape */}
-        <div className={`absolute inset-0 ${isHovering ? 'animate-spin' : 'animate-spin-slow'}`} style={{ transformOrigin: '50% 50%' }}>
-          {/* Blade 1 - Top (0 degrees) */}
-          <div className="absolute" style={{ 
-            top: '50%', 
-            left: '50%', 
-            transform: 'translate(-50%, -50%) translateY(-14px)',
-            transformOrigin: 'center bottom'
-          }}>
-            <svg width="8" height="28" viewBox="0 0 8 28" className="drop-shadow-lg">
-              <defs>
-                <linearGradient id="bladeGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="hsl(221, 83%, 53%)" stopOpacity="1" />
-                  <stop offset="50%" stopColor="hsl(189, 95%, 45%)" stopOpacity="0.9" />
-                  <stop offset="100%" stopColor="hsl(189, 95%, 45%)" stopOpacity="0" />
-                </linearGradient>
-              </defs>
-              <path 
-                d="M 4 0 L 7 24 L 4 28 L 1 24 Z" 
-                fill="url(#bladeGrad1)"
-                style={{ filter: 'drop-shadow(0 0 4px rgba(59, 130, 246, 0.8))' }}
-              />
-            </svg>
-          </div>
-          
-          {/* Blade 2 - Right (90 degrees) */}
-          <div className="absolute" style={{ 
-            top: '50%', 
-            left: '50%', 
-            transform: 'translate(-50%, -50%) translateX(14px) rotate(90deg)',
-            transformOrigin: 'left center'
-          }}>
-            <svg width="8" height="28" viewBox="0 0 8 28" className="drop-shadow-lg">
-              <defs>
-                <linearGradient id="bladeGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="hsl(221, 83%, 53%)" stopOpacity="1" />
-                  <stop offset="50%" stopColor="hsl(189, 95%, 45%)" stopOpacity="0.9" />
-                  <stop offset="100%" stopColor="hsl(189, 95%, 45%)" stopOpacity="0" />
-                </linearGradient>
-              </defs>
-              <path 
-                d="M 4 0 L 7 24 L 4 28 L 1 24 Z" 
-                fill="url(#bladeGrad2)"
-                style={{ filter: 'drop-shadow(0 0 4px rgba(59, 130, 246, 0.8))' }}
-              />
-            </svg>
-          </div>
-          
-          {/* Blade 3 - Bottom (180 degrees) */}
-          <div className="absolute" style={{ 
-            top: '50%', 
-            left: '50%', 
-            transform: 'translate(-50%, -50%) translateY(14px) rotate(180deg)',
-            transformOrigin: 'center top'
-          }}>
-            <svg width="8" height="28" viewBox="0 0 8 28" className="drop-shadow-lg">
-              <defs>
-                <linearGradient id="bladeGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="hsl(221, 83%, 53%)" stopOpacity="1" />
-                  <stop offset="50%" stopColor="hsl(189, 95%, 45%)" stopOpacity="0.9" />
-                  <stop offset="100%" stopColor="hsl(189, 95%, 45%)" stopOpacity="0" />
-                </linearGradient>
-              </defs>
-              <path 
-                d="M 4 0 L 7 24 L 4 28 L 1 24 Z" 
-                fill="url(#bladeGrad3)"
-                style={{ filter: 'drop-shadow(0 0 4px rgba(59, 130, 246, 0.8))' }}
-              />
-            </svg>
-          </div>
-          
-          {/* Blade 4 - Left (270 degrees) */}
-          <div className="absolute" style={{ 
-            top: '50%', 
-            left: '50%', 
-            transform: 'translate(-50%, -50%) translateX(-14px) rotate(-90deg)',
-            transformOrigin: 'right center'
-          }}>
-            <svg width="8" height="28" viewBox="0 0 8 28" className="drop-shadow-lg">
-              <defs>
-                <linearGradient id="bladeGrad4" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="hsl(221, 83%, 53%)" stopOpacity="1" />
-                  <stop offset="50%" stopColor="hsl(189, 95%, 45%)" stopOpacity="0.9" />
-                  <stop offset="100%" stopColor="hsl(189, 95%, 45%)" stopOpacity="0" />
-                </linearGradient>
-              </defs>
-              <path 
-                d="M 4 0 L 7 24 L 4 28 L 1 24 Z" 
-                fill="url(#bladeGrad4)"
-                style={{ filter: 'drop-shadow(0 0 4px rgba(59, 130, 246, 0.8))' }}
-              />
-            </svg>
-          </div>
-        </div>
-        
-        {/* Center Hub - Motor */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-gradient-to-br from-accent via-primary to-accent border-2 border-primary shadow-xl z-10"
-             style={{ 
-               boxShadow: '0 0 12px rgba(6, 182, 212, 0.8), inset 0 0 8px rgba(59, 130, 246, 0.4)',
-               animation: 'pulse 2s ease-in-out infinite'
-             }} />
+      {/* Normal system cursor remains; this is only a blue animated accent */}
+      <div className="relative w-12 h-12">
+        {/* Outer glow ring */}
+        <div
+          className={[
+            "absolute inset-0 rounded-full",
+            "border border-primary/50",
+            "blur-[0.2px]",
+            "transition-transform duration-150",
+          ].join(" ")}
+          style={{
+            transform: isHovering ? "scale(1.15)" : "scale(1)",
+            boxShadow:
+              "0 0 16px rgba(59,130,246,0.35), 0 0 28px rgba(6,182,212,0.25)",
+            animation: "pulse 1.6s ease-in-out infinite",
+          }}
+        />
+
+        {/* Soft fill glow */}
+        <div
+          className="absolute inset-2 rounded-full bg-gradient-to-br from-primary/20 via-accent/10 to-primary/10"
+          style={{
+            boxShadow: "0 0 22px rgba(59,130,246,0.25)",
+          }}
+        />
+
+        {/* Center dot */}
+        <div
+          className="absolute top-1/2 left-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary"
+          style={{
+            boxShadow: "0 0 10px rgba(59,130,246,0.55)",
+          }}
+        />
       </div>
     </div>
   );
