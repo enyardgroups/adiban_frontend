@@ -313,7 +313,7 @@ const About = () => {
                         <CheckCircle2 className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <div className="text-2xl font-display font-bold text-primary">Made in</div>
+                        <div className="text-2xl font-display font-bold text-primary">Make in</div>
                         <div className="text-lg font-display font-bold text-accent">India</div>
                       </div>
                     </div>
