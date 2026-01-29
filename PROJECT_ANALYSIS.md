@@ -98,7 +98,7 @@ src/
 
 ### 1. UAV Systems (`/products/uav`)
 - **FPV Drones**: Racing, reconnaissance, surveillance
-- **Agricultural UAVs**: Crop monitoring, spraying, field analysis
+- **Agricultural Drones**: Crop monitoring, spraying, field analysis
 - **Logistics Drones**: Cargo delivery, heavy-lift operations
 
 ### 2. Test Rigs (`/products/testrix`)

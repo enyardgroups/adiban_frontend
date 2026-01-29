@@ -39,10 +39,10 @@ const Products = () => {
       slug: "uav",
       description: "Next-generation autonomous flight systems engineered for diverse applications including defense, agriculture, and logistics",
       image: uavImage,
-      subcategories: ["FPV Drones", "Agricultural UAVs", "Logistics Drones"],
+      subcategories: ["FPV Drones", "Agricultural Drones", "Logistics Drones"],
       gradient: "from-blue-500 to-cyan-500",
       icon: Rocket,
-      stats: { projects: "200+", reliability: "99.9%" },
+      stats: { projects: "20+", reliability: "99.9%" },
       features: ["Advanced Flight Control", "Precision Navigation", "Long Endurance"]
     },
     {

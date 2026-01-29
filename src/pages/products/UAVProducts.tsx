@@ -24,7 +24,7 @@ const UAVProducts = () => {
   // SEO Optimization
   useSEO({
     title: "UAV Systems - Adiban Aviation | FPV, Agricultural & Logistics Drones | Made in India",
-    description: "Explore Adiban Aviation's advanced UAV systems: FPV drones for racing, Agricultural UAVs for precision farming, and Logistics drones for cargo delivery. 200+ projects delivered with 99.9% reliability. Indian drone manufacturer.",
+    description: "Explore Adiban Aviation's advanced UAV systems: FPV drones for racing, Agricultural Drones for precision farming, and Logistics drones for cargo delivery. 20+ projects delivered with 99.9% reliability. Indian drone manufacturer.",
     keywords: "UAV systems India, FPV drones, agricultural drones, logistics drones, unmanned aerial vehicles, Indian drone manufacturer, cargo drones, precision agriculture drones, racing drones, Adiban Aviation UAV",
     canonical: "https://adibanaviation.com/products/uav",
     ogImage: "https://adibanaviation.com/uav-og-image.jpg",
@@ -43,7 +43,7 @@ const UAVProducts = () => {
     },
     {
       icon: Wind,
-      name: "Agricultural UAVs",
+      name: "Agricultural Drones",
       image: agriImage,
       description: "Precision agriculture solutions for crop monitoring, spraying, and field analysis. Designed to optimize farming operations and increase crop yields.",
       gradient: "from-green-500 to-emerald-500",
@@ -165,7 +165,7 @@ const UAVProducts = () => {
                 />
                 
                 <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-                  Unmanned Aerial Vehicles engineered for diverse applications with cutting-edge technology. <Link to="/products" className="text-primary hover:underline font-semibold">200+ successful projects</Link> delivered with <Link to="/about" className="text-primary hover:underline font-semibold">99.9% reliability</Link>.
+                  Unmanned Aerial Vehicles engineered for diverse applications with cutting-edge technology. <Link to="/products" className="text-primary hover:underline font-semibold">20+ successful projects</Link> delivered with <Link to="/about" className="text-primary hover:underline font-semibold">99.9% reliability</Link>.
                 </p>
 
                 {/* Quick Stats */}
