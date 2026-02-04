@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { Code, Monitor, Cpu, Database, ArrowRight, Sparkles, Rocket, Zap, Shield, CheckCircle2, Play, Download, Layers } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/useSEO";
+import softwareScreenshot from "@/assets/software interface 1.png";
 
 const Software = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -218,26 +219,12 @@ const Software = () => {
                     <div className="relative bg-background rounded-2xl overflow-hidden border-4 border-border shadow-2xl">
                       {/* Screen Content */}
                       <div className="aspect-video relative">
-                        {/* Placeholder for screenshot - Replace with actual images */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/10 to-primary/10 flex items-center justify-center">
-                          <div className="text-center p-8">
-                            <Monitor className="w-16 h-16 text-primary/50 mx-auto mb-4" />
-                            <p className="text-muted-foreground font-display font-semibold">
-                              {softwareProducts[selectedSoftware].name} Screenshot
-                            </p>
-                            <p className="text-sm text-muted-foreground mt-2">
-                              Replace with actual software screenshot
-                            </p>
-                          </div>
-                        </div>
-                        
-                        {/* You can replace the above div with an actual image:
                         <img 
-                          src={softwareProducts[selectedSoftware].screenshot} 
+                          src={softwareScreenshot} 
                           alt={`${softwareProducts[selectedSoftware].name} interface`}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-contain"
+                          loading="lazy"
                         />
-                        */}
                       </div>
                     </div>
 
