@@ -40,7 +40,7 @@ const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: process.env.GMAIL_USER || 'website.adibanaviation@gmail.com',
-    pass: process.env.GMAIL_APP_PASSWORD || 'uhpe umvv qgtn coeq', // App-specific password
+    pass: process.env.GMAIL_APP_PASSWORD || 'uhpeumvvqgtncoeq', // App-specific password
   },
 });
 

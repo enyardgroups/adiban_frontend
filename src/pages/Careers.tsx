@@ -12,6 +12,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useSEO } from "@/hooks/useSEO";
 import { toast } from "sonner";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:3055";
+
 type JobType = "Full Time" | "Part Time" | "Intern" | "Contract";
 type WorkMode = "Onsite" | "Hybrid" | "Remote";
 
@@ -308,7 +310,7 @@ const Careers = () => {
       formDataToSend.append('role', formData.role);
       formDataToSend.append('resume', formData.resume);
 
-      const response = await fetch('/api/careers', {
+      const response = await fetch(`${API_BASE_URL}/api/careers`, {
         method: 'POST',
         body: formDataToSend,
       });

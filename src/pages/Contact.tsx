@@ -10,6 +10,8 @@ import { Label } from "@/components/ui/label";
 import { useSEO } from "@/hooks/useSEO";
 import { toast } from "sonner";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:3055";
+
 const Contact = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -44,7 +46,7 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch(`${API_BASE_URL}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -100,6 +102,7 @@ const Contact = () => {
       details: [
         { label: "General", value: "contact@adibanaviation.in", link: "mailto:contact@adibanaviation.in" },
         { label: "Support", value: "info@adibanaviation.in", link: "mailto:info@adibanaviation.in" },
+        
       ],
       description: "Send us an email anytime",
       gradient: "from-purple-500 to-blue-500",
