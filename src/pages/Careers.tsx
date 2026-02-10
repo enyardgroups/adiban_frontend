@@ -12,7 +12,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useSEO } from "@/hooks/useSEO";
 import { toast } from "sonner";
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:3055";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
 
 type JobType = "Full Time" | "Part Time" | "Intern" | "Contract";
 type WorkMode = "Onsite" | "Hybrid" | "Remote";

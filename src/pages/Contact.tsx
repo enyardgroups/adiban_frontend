@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label";
 import { useSEO } from "@/hooks/useSEO";
 import { toast } from "sonner";
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:3055";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
 
 const Contact = () => {
   const heroRef = useRef<HTMLDivElement>(null);
