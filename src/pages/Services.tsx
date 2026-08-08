@@ -14,23 +14,12 @@ import service3 from "@/assets/services/3.png";
 import service4 from "@/assets/services/4.png";
 import service5 from "@/assets/services/5.png";
 import service6 from "@/assets/services/6.jpg";
-import service7 from "@/assets/services/7.jpg";
 import service8 from "@/assets/services/8.jpg";
-import service9 from "@/assets/services/9.jpg";
-import service10 from "@/assets/services/10.jpg";
-import service11 from "@/assets/services/11.jpg";
-import service12 from "@/assets/services/12.jpg";
-import service13 from "@/assets/services/13.jpg";
-import service14 from "@/assets/services/14.jpg";
 import service15 from "@/assets/services/15.jpg";
-import service16 from "@/assets/services/16.jpg";
-import service17 from "@/assets/services/17.jpg";
-import service18 from "@/assets/services/18.jpg";
 import service19 from "@/assets/services/19.png";
 
 const serviceImages = [
-  service1, service2, service3, service4, service5, service6, service7, service8, service9, service10,
-  service11, service12, service13, service14, service15, service16, service17, service18, service19
+  service1, service2, service3, service4, service5, service6, service8, service15, service19
 ];
 
 // Carousel Component
@@ -535,7 +524,7 @@ const Services = () => {
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
                   Showcasing{" "}
                   <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                    Our Projects
+                    Our Products
                   </span>
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto">

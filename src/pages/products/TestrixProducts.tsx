@@ -70,32 +70,7 @@ const TestrixProducts = () => {
         "Failsafe & Safety Verification"
       ]
     },
-    {
-      icon: Satellite,
-      name: "GPS Test & Validation Module",
-      label: "Tester Module",
-      description: "Standalone test and diagnostic interface for UART-based GNSS receivers, designed to decode and process NMEA data and display key positioning, fix status, and signal quality parameters during integration, testing, and troubleshooting.",
-      gradient: "from-blue-500 to-cyan-500",
-      capabilities: [
-        "UART Interface for GNSS Receivers (NMEA Input)",
-        "Real-Time NMEA Parsing & Display of Position and Fix Data (Latitude, Longitude, Altitude, Fix Mode)",
-        "Satellite & Signal Metrics Monitoring (Satellite Count, HDOP, Time)",
-        "Flexible External Power Support (5V via USB or 3–6S Input via Buck Regulation)"
-      ]
-    },
-    {
-      icon: Zap,
-      name: "Power Monitor Module",
-      label: "Tester Module",
-      description: "Integrated power monitoring and regulation module designed to measure electrical parameters while supplying regulated power to onboard electronics. The module supports wide battery input ranges and enables real-time visibility into system power health during integration and operation.",
-      gradient: "from-cyan-500 to-blue-500",
-      capabilities: [
-        "Wide Input Voltage Support (2S–14S Battery Input)",
-        "Direct Battery Pass-Through Output for External Loads",
-        "Integrated Buck Regulation with Fixed 5V Output",
-        "Real-Time Voltage & Current Monitoring with Onboard Display"
-      ]
-    },
+
     {
       icon: Battery,
       name: "Battery Health Checker & RC Receiver Tester",
@@ -122,33 +97,7 @@ const TestrixProducts = () => {
         "Standalone, Portable Test Operation"
       ]
     },
-    {
-      icon: Rocket,
-      name: "Propulsion System Tester",
-      label: "Test Rig",
-      description: "High-precision propulsion testing and performance analysis for UAV and advanced aerospace applications.",
-      gradient: "from-purple-500 to-blue-500",
-      capabilities: [
-        "Propulsion System Testing",
-        "Performance Analysis",
-        "Thrust Measurement",
-        "Aerospace Applications"
-      ],
-      comingSoon: true
-    },
-    {
-      icon: Settings,
-      name: "Motorised Gimbal Rig",
-      label: "Test Rig",
-      description: "A precision motorised gimbal rig engineered for UAV and payload testing, delivering high-accuracy multi-axis stabilization and control. It ensures smooth, vibration-free operation for imaging, sensing, and surveillance missions across dynamic flight conditions.",
-      gradient: "from-indigo-500 to-purple-500",
-      capabilities: [
-        "Multi-Axis Stabilization",
-        "Vibration-Free Operation",
-        "Imaging & Sensing Testing",
-        "Dynamic Flight Condition Testing"
-      ]
-    },
+
     {
       icon: Gauge,
       name: "Propeller Balancer",
@@ -411,7 +360,7 @@ const TestrixProducts = () => {
                 >
                   Test Rig
                 </motion.h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                   {testSystems.filter(system => system.label === "Test Rig").map((system, index) => (
                     <motion.div
                       key={system.name}
@@ -487,7 +436,7 @@ const TestrixProducts = () => {
                 >
                   Tester Module
                 </motion.h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                   {testSystems.filter(system => system.label === "Tester Module").map((system, index) => (
                     <motion.div
                       key={system.name}

@@ -555,7 +555,7 @@ const Products = () => {
                           >
                             {[
                               { label: "Reliability", value: "99.9%" },
-                              { label: "Projects", value: "10+" },
+                              { label: "Products", value: "10+" },
                             ].map((stat, i) => (
                               <motion.div
                                 key={stat.label}

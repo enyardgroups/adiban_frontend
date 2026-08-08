@@ -13,6 +13,12 @@ const Footer = () => {
             <p className="text-xs text-muted-foreground leading-relaxed">
               Indian aerospace & defense leader. UAV systems, hardware & engineering solutions. Innovation meets precision. Make in India.
             </p>
+            {/* 
+              To add the Make in India logo:
+              1. Drop the logo file into the 'public' folder of your project (e.g., 'public/make-in-india.png')
+              2. Update the 'src' attribute below if you named it differently.
+            */}
+            <img src="/make-in-india.png" alt="Make in India" className="h-12 object-contain mt-2" />
           </div>
 
           {/* Quick Links */}
@@ -33,7 +39,7 @@ const Footer = () => {
               <li><Link to="/products/uav" className="text-sm text-muted-foreground hover:text-accent transition-colors">UAV Systems</Link></li>
               <li><Link to="/products/testrix" className="text-sm text-muted-foreground hover:text-accent transition-colors">Test Rigs</Link></li>
               <li><Link to="/products/hardware" className="text-sm text-muted-foreground hover:text-accent transition-colors">Hardware</Link></li>
-              <li><Link to="/software" className="text-sm text-muted-foreground hover:text-accent transition-colors">Software</Link></li>
+
             </ul>
           </div>
 
@@ -75,15 +81,6 @@ const Footer = () => {
               className="hover:text-accent transition-colors font-semibold"
             >
               Enyard
-            </a>{" "}
-            |{" "}
-            <a 
-              href="https://jezx.in" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="hover:text-accent transition-colors font-semibold"
-            >
-              JezX
             </a>
           </p>
         </div>

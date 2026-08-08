@@ -15,7 +15,7 @@ const About = () => {
     target: heroRef,
     offset: ["start start", "end start"]
   });
-  
+
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
   const y = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
@@ -148,17 +148,17 @@ const About = () => {
       />
 
       <div className="min-h-screen bg-background">
-      <Navbar />
-      
+        <Navbar />
+
         {/* Innovative Hero Section with Split Design */}
-        <section 
-          ref={heroRef} 
+        <section
+          ref={heroRef}
           className="relative min-h-screen flex items-center overflow-hidden pt-20"
           aria-label="About Us Hero"
         >
           {/* Dynamic Background */}
           <div className="absolute inset-0">
-            <motion.div 
+            <motion.div
               className="absolute inset-0 mesh-gradient"
               style={{
                 transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px)`,
@@ -169,27 +169,27 @@ const About = () => {
           </div>
 
           {/* Animated Geometric Shapes */}
-          <motion.div 
+          <motion.div
             className="absolute top-1/4 left-10 w-24 h-24 border-4 border-primary/30 rounded-xl"
-            animate={{ 
+            animate={{
               rotate: [0, 360],
               y: [0, -40, 0],
               scale: [1, 1.1, 1]
             }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           />
-          <motion.div 
+          <motion.div
             className="absolute bottom-1/4 right-20 w-40 h-40 border-4 border-accent/30 rounded-full"
-            animate={{ 
+            animate={{
               rotate: [360, 0],
               y: [0, 50, 0],
               scale: [1, 1.2, 1]
             }}
             transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
           />
-          <motion.div 
+          <motion.div
             className="absolute top-1/3 right-1/4 w-20 h-20 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl"
-            animate={{ 
+            animate={{
               rotate: [0, 180, 0],
               scale: [1, 1.3, 1]
             }}
@@ -222,7 +222,7 @@ const About = () => {
                   </span>
                 </motion.div>
 
-                <motion.h1 
+                <motion.h1
                   className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold leading-[0.9]"
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -234,15 +234,15 @@ const About = () => {
                   </span>
                   <span className="block text-foreground">of Aviation</span>
                 </motion.h1>
-                
+
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: "200px" }}
                   transition={{ delay: 1, duration: 0.8 }}
                   className="h-1.5 bg-gradient-to-r from-primary to-accent rounded-full"
                 />
-                
-                <motion.p 
+
+                <motion.p
                   className="text-xl md:text-2xl text-muted-foreground leading-relaxed"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -252,23 +252,23 @@ const About = () => {
                 </motion.p>
 
                 {/* Quick Stats */}
-                <motion.div 
+                <motion.div
                   className="grid grid-cols-2 gap-4 pt-4"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.9, duration: 0.8 }}
                 >
                   {[
-                    { value: "10+", label: "Projects", icon: Rocket },
+                    { value: "10+", label: "Products", icon: Rocket },
                     { value: "2+", label: "Years", icon: Award },
                   ].map((stat, i) => (
-          <motion.div
+                    <motion.div
                       key={stat.label}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.9 + i * 0.1 }}
                       className="bg-card/50 backdrop-blur-sm border border-border rounded-xl p-4 hover:border-primary/50 transition-all"
-          >
+                    >
                       <stat.icon className="w-6 h-6 text-primary mb-2" />
                       <div className="text-2xl font-display font-bold text-primary">{stat.value}</div>
                       <div className="text-xs text-muted-foreground">{stat.label}</div>
@@ -284,7 +284,7 @@ const About = () => {
                 transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
                 className="relative"
               >
-                <motion.div 
+                <motion.div
                   className="relative aspect-[4/5] rounded-3xl overflow-hidden"
                   style={{
                     transform: `perspective(1000px) rotateY(${mousePosition.x * 0.01}deg) rotateX(${-mousePosition.y * 0.01}deg)`,
@@ -292,15 +292,15 @@ const About = () => {
                     y
                   }}
                 >
-                  <motion.img 
-                    src={heroImage} 
+                  <motion.img
+                    src={heroImage}
                     alt="Adiban Aviation Engineer - Professional woman engineer working with holographic drone design displays, UAV components, and aerospace technology at advanced development workstation"
                     className="w-full h-full object-contain p-8"
                     loading="eager"
                     width="800"
                     height="1000"
                   />
-                  
+
                   {/* Floating Badge */}
                   <motion.div
                     initial={{ opacity: 0, scale: 0 }}
@@ -309,8 +309,12 @@ const About = () => {
                     className="absolute bottom-8 right-8 bg-card/90 backdrop-blur-md border-2 border-primary/30 rounded-2xl p-4 shadow-2xl z-10"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                        <CheckCircle2 className="w-6 h-6 text-white" />
+                      <div className="w-14 h-14 flex items-center justify-center">
+                        <img
+                          src="/make-in-india.png"
+                          alt="Make in India"
+                          className="w-full h-full object-contain"
+                        />
                       </div>
                       <div>
                         <div className="text-2xl font-display font-bold text-primary">Make in</div>
@@ -318,7 +322,7 @@ const About = () => {
                       </div>
                     </div>
                   </motion.div>
-          </motion.div>
+                </motion.div>
 
                 {/* Decorative Elements */}
                 <div className="absolute -z-10 -top-10 -right-10 w-72 h-72 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-3xl animate-pulse" />
@@ -332,11 +336,11 @@ const About = () => {
           {/* Our Story Section - Creative Split Layout */}
           <section className="py-32 relative overflow-hidden" aria-label="Our Story">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
-            
+
             <div className="container mx-auto px-4 relative z-10">
               <div className="grid lg:grid-cols-2 gap-16 items-center">
                 {/* Left - Content */}
-          <motion.div
+                <motion.div
                   initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8 }}
@@ -353,29 +357,29 @@ const About = () => {
                     </span>
                     , Built with Purpose
                   </h2>
-                  
+
                   <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                     <p>
                       <strong className="text-foreground">Adiban Aviation Private Limited</strong> is an Indian <Link to="/products" className="text-primary hover:underline font-semibold">aerospace technology company</Link> focused on building reliable <Link to="/products/uav" className="text-primary hover:underline font-semibold">unmanned systems</Link>, <Link to="/products/hardware" className="text-primary hover:underline font-semibold">avionics hardware</Link>, and advanced engineering solutions. Guided by an engineering-first mindset and <strong className="text-foreground">Make in India</strong> principles, we work to develop technologies that are practical, dependable, and ready for real-world aviation use.
                     </p>
-                    
+
                     <p>
                       From the beginning, Adiban Aviation has followed an <strong className="text-foreground">OEM-led approach</strong>, developing strong in-house capabilities across <Link to="/products/uav" className="text-primary hover:underline font-semibold">UAV platforms</Link>, aerospace electronics, embedded systems, and supporting engineering services. Our work spans design and manufacturability (<Link to="/services" className="text-primary hover:underline font-semibold">CAD/CAM</Link>), engineering analysis and validation (<Link to="/services" className="text-primary hover:underline font-semibold">FEA/CFD</Link>), hardware development, system integration, and compliance-oriented technical documentation.
                     </p>
-                    
+
                     <p>
                       We design with a clear understanding of <strong className="text-foreground">DGCA regulatory frameworks</strong> and <Link to="/services" className="text-primary hover:underline font-semibold">UAV type certification pathways</Link>, ensuring that safety, compliance, and long-term readiness are considered early in the engineering process. This approach allows us to build systems thoughtfully, without shortcuts or retroactive fixes.
                     </p>
-                    
+
                     <p>
                       With in-house development and manufacturing facilities in <strong className="text-foreground">Tamil Nadu</strong>, we maintain close control over design iterations, quality, testing, and validation. Continuous investment in research and engineering helps us improve steadily across UAV subsystems, aerospace components, and product development processes.
                     </p>
-                    
+
                     <p>
                       At Adiban Aviation, we focus on doing the fundamentals right — <strong className="text-foreground">disciplined engineering</strong>, indigenous capability development, and systems built to perform reliably in demanding environments. Our goal is to contribute meaningfully to the global unmanned aviation ecosystem through responsible innovation and well-engineered solutions.
                     </p>
                   </div>
-          </motion.div>
+                </motion.div>
 
                 {/* Right - Timeline */}
                 <motion.div
@@ -389,7 +393,7 @@ const About = () => {
                     <h3 className="text-2xl font-display font-bold mb-8 text-center">Our Journey</h3>
                     <div className="space-y-6">
                       {milestones.map((milestone, index) => (
-            <motion.div
+                        <motion.div
                           key={milestone.title}
                           initial={{ opacity: 0, x: 30 }}
                           whileInView={{ opacity: 1, x: 0 }}
@@ -435,7 +439,7 @@ const About = () => {
               />
               <div className="absolute inset-0 grid-pattern opacity-10" />
             </div>
-            
+
             <div className="container mx-auto px-4 relative z-10">
               {/* Section Header */}
               <motion.div
@@ -480,7 +484,7 @@ const About = () => {
                         }}
                         className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/5 to-primary/5 bg-[length:200%_200%] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                       />
-                      
+
                       {/* Floating Particles */}
                       {[...Array(5)].map((_, i) => (
                         <motion.div
@@ -503,7 +507,7 @@ const About = () => {
                           }}
                         />
                       ))}
-                      
+
                       <div className="relative z-10">
                         {/* Icon with Glow Effect */}
                         <motion.div
@@ -523,12 +527,12 @@ const About = () => {
                             className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary to-blue-600 blur-xl -z-10"
                           />
                         </motion.div>
-                        
+
                         {/* Title */}
                         <h3 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-display font-bold mb-4 md:mb-5 lg:mb-6 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
                           Our Mission
                         </h3>
-                        
+
                         {/* Description */}
                         <p className="text-muted-foreground leading-relaxed text-sm md:text-base lg:text-lg mb-4 md:mb-5 lg:mb-6">
                           To deliver innovative technologies that make the drone industry safer, smarter, and more efficient.
@@ -536,7 +540,7 @@ const About = () => {
                         <p className="text-muted-foreground leading-relaxed text-sm md:text-base lg:text-lg">
                           We develop high-performance UAV systems and aerospace hardware, setting new benchmarks through continuous innovation and rigorous quality standards.
                         </p>
-                        
+
                         {/* Decorative Line */}
                         <motion.div
                           initial={{ width: 0 }}
@@ -573,7 +577,7 @@ const About = () => {
                         }}
                         className="absolute inset-0 bg-gradient-to-br from-accent/5 via-primary/5 to-accent/5 bg-[length:200%_200%] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                       />
-                      
+
                       {/* Floating Particles */}
                       {[...Array(5)].map((_, i) => (
                         <motion.div
@@ -596,7 +600,7 @@ const About = () => {
                           }}
                         />
                       ))}
-                      
+
                       <div className="relative z-10">
                         {/* Icon with Glow Effect */}
                         <motion.div
@@ -616,12 +620,12 @@ const About = () => {
                             className="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent to-cyan-500 blur-xl -z-10"
                           />
                         </motion.div>
-                        
+
                         {/* Title */}
                         <h3 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-display font-bold mb-4 md:mb-5 lg:mb-6 bg-gradient-to-r from-accent to-cyan-500 bg-clip-text text-transparent">
                           Our Vision
                         </h3>
-                        
+
                         {/* Description */}
                         <p className="text-muted-foreground leading-relaxed text-sm md:text-base lg:text-lg mb-4 md:mb-5 lg:mb-6">
                           To be a global leader in UAV innovation, transforming industries and enhancing safety through cutting-edge aerial solutions.
@@ -629,7 +633,7 @@ const About = () => {
                         <p className="text-muted-foreground leading-relaxed text-sm md:text-base lg:text-lg">
                           We aim to be a trusted aerospace technology company with global presence, recognized worldwide for engineering excellence and commitment to "Make in India."
                         </p>
-                        
+
                         {/* Decorative Line */}
                         <motion.div
                           initial={{ width: 0 }}
@@ -650,7 +654,7 @@ const About = () => {
           <section className="py-32 relative overflow-hidden" aria-label="Company Values">
             <div className="absolute inset-0 grid-pattern opacity-10" />
             <div className="absolute inset-0 mesh-gradient opacity-20" />
-            
+
             <div className="container mx-auto px-4 relative z-10">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -670,12 +674,12 @@ const About = () => {
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                   The core principles that guide everything we do
-              </p>
-            </motion.div>
+                </p>
+              </motion.div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
                 {companyValues.map((value, index) => (
-            <motion.div
+                  <motion.div
                     key={value.title}
                     initial={{ opacity: 0, y: 50, rotateY: -15 }}
                     whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
@@ -686,7 +690,7 @@ const About = () => {
                   >
                     <div className="relative bg-card border-2 border-border rounded-3xl p-8 h-full overflow-hidden hover:border-primary/40 transition-all duration-300 hover:shadow-float transform-gpu">
                       <div className={`absolute inset-0 bg-gradient-to-br ${value.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-                      
+
                       <div className="relative z-10">
                         <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${value.color} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg`}>
                           <value.icon className="h-10 w-10 text-white" />
@@ -716,7 +720,7 @@ const About = () => {
           <section className="py-32 relative overflow-hidden" aria-label="Company Quote">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/5 to-primary/5" />
             <div className="absolute inset-0 diagonal-lines opacity-20" />
-            
+
             <div className="container mx-auto px-4 relative z-10">
               <div className="max-w-6xl mx-auto">
                 {/* Asymmetric Creative Layout */}
@@ -731,7 +735,7 @@ const About = () => {
                   >
                     <div className="relative">
                       <motion.div
-                        animate={{ 
+                        animate={{
                           rotate: [0, 5, -5, 0],
                           scale: [1, 1.05, 1]
                         }}
@@ -739,7 +743,7 @@ const About = () => {
                         className="text-[200px] md:text-[300px] font-display font-bold leading-none bg-gradient-to-br from-primary/20 via-accent/20 to-primary/20 bg-clip-text text-transparent select-none"
                       >
                         "
-            </motion.div>
+                      </motion.div>
                       <div className="absolute inset-0 flex items-center justify-center">
                         <motion.div
                           animate={{ rotate: 360 }}
@@ -747,7 +751,7 @@ const About = () => {
                           className="w-32 h-32 rounded-full border-4 border-primary/20"
                         />
                       </div>
-          </div>
+                    </div>
                   </motion.div>
 
                   {/* Center - Main Quote Content */}
@@ -761,7 +765,7 @@ const About = () => {
                     <div className="relative bg-card/80 backdrop-blur-md border-2 border-primary/20 rounded-3xl p-8 md:p-12 lg:p-16 overflow-hidden">
                       {/* Animated Background Elements */}
                       <motion.div
-                        animate={{ 
+                        animate={{
                           x: [0, 100, 0],
                           y: [0, 50, 0],
                           scale: [1, 1.2, 1]
@@ -770,7 +774,7 @@ const About = () => {
                         className="absolute -top-20 -right-20 w-96 h-96 bg-gradient-to-br from-primary/15 to-accent/15 rounded-full blur-3xl"
                       />
                       <motion.div
-                        animate={{ 
+                        animate={{
                           x: [0, -80, 0],
                           y: [0, -60, 0],
                           scale: [1, 1.3, 1]
@@ -778,7 +782,7 @@ const About = () => {
                         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
                         className="absolute -bottom-20 -left-20 w-80 h-80 bg-gradient-to-br from-accent/15 to-primary/15 rounded-full blur-3xl"
                       />
-                      
+
                       {/* Floating Particles */}
                       {[...Array(6)].map((_, i) => (
                         <motion.div
@@ -801,7 +805,7 @@ const About = () => {
                           }}
                         />
                       ))}
-                      
+
                       <div className="relative z-10">
                         {/* Top Quote Icon - Mobile Visible */}
                         <motion.div
@@ -819,7 +823,7 @@ const About = () => {
                             >
                               <Quote className="w-12 h-12 text-white" />
                             </motion.div>
-          <motion.div
+                            <motion.div
                               animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
                               transition={{ duration: 2, repeat: Infinity }}
                               className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/30 to-accent/30 blur-xl"
@@ -839,9 +843,9 @@ const About = () => {
                           >
                             "
                           </motion.span>
-                          
+
                           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4, duration: 0.6 }}
                             viewport={{ once: true }}
@@ -880,7 +884,7 @@ const About = () => {
                         <motion.div
                           initial={{ opacity: 0, x: -20 }}
                           whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
+                          transition={{ delay: 0.6, duration: 0.6 }}
                           viewport={{ once: true }}
                           className="flex items-center justify-center lg:justify-start gap-4 mt-12 pt-8 border-t border-border/50"
                         >
@@ -889,7 +893,7 @@ const About = () => {
                               whileHover={{ scale: 1.1, rotate: 360 }}
                               transition={{ duration: 0.5 }}
                               className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg"
-          >
+                            >
                               <Award className="w-7 h-7 text-white" />
                             </motion.div>
                             <motion.div
@@ -914,9 +918,9 @@ const About = () => {
                         />
                       </div>
                     </div>
-          </motion.div>
-        </div>
-      </div>
+                  </motion.div>
+                </div>
+              </div>
             </div>
           </section>
 
@@ -924,7 +928,7 @@ const About = () => {
           <section className="py-32 relative overflow-hidden" aria-label="Call to Action">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/5 to-primary/5" />
             <div className="absolute inset-0 grid-pattern opacity-20" />
-            
+
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -950,7 +954,7 @@ const About = () => {
                     JOIN OUR JOURNEY
                   </span>
                 </motion.div>
-                
+
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
                   Ready to{" "}
                   <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
@@ -961,7 +965,7 @@ const About = () => {
                 <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-2xl mx-auto">
                   Discover our innovative <Link to="/products" className="text-primary hover:underline font-semibold">products</Link>, explore our comprehensive <Link to="/services" className="text-primary hover:underline font-semibold">services</Link>, or get in touch to discuss how we can help bring your vision to life.
                 </p>
-                
+
                 <div className="flex flex-wrap gap-4 justify-center">
                   <Link to="/contact">
                     <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:shadow-glow font-display font-semibold text-lg px-10 py-7 rounded-2xl group">
@@ -980,8 +984,8 @@ const About = () => {
           </section>
         </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
     </>
   );
 };
