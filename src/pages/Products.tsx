@@ -46,7 +46,7 @@ const Products = () => {
       features: ["Advanced Flight Control", "Precision Navigation", "Long Endurance"]
     },
     {
-      title: "Test Rigs",
+      title: "Validation and test system",
       slug: "testrix",
       description: "Precision testing & validation systems for mission-critical aerospace components and flight systems",
       image: testRigs,
@@ -57,7 +57,7 @@ const Products = () => {
       features: ["Multi-Axis Testing", "Real-Time Analysis", "Aerospace Standards"]
     },
     {
-      title: "Hardware Systems",
+      title: "Embedded & Avionics Systems",
       slug: "hardware",
       description: "Aerospace-grade electronic components and avionic solutions engineered for reliability and performance",
       image: hardwareImage,

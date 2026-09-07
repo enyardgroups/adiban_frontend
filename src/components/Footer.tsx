@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin, Instagram } from "lucide-react";
 import logo from "@/assets/logo.png";
-
+import as9100d from "@/assets/AS9100D.png";
 const Footer = () => {
   return (
     <footer className="bg-card border-t border-border/40">
@@ -18,7 +18,10 @@ const Footer = () => {
               1. Drop the logo file into the 'public' folder of your project (e.g., 'public/make-in-india.png')
               2. Update the 'src' attribute below if you named it differently.
             */}
-            <img src="/make-in-india.png" alt="Make in India" className="h-12 object-contain mt-2" />
+            <div className="flex items-center gap-4 mt-4">
+              <img src="/make-in-india.png" alt="Make in India" className="h-12 object-contain" />
+              <img src={as9100d} alt="AS9100D Certified" className="h-16 object-contain" />
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -37,8 +40,8 @@ const Footer = () => {
             <h3 className="font-display font-semibold text-lg mb-4">Products</h3>
             <ul className="space-y-2">
               <li><Link to="/products/uav" className="text-sm text-muted-foreground hover:text-accent transition-colors">UAV Systems</Link></li>
-              <li><Link to="/products/testrix" className="text-sm text-muted-foreground hover:text-accent transition-colors">Test Rigs</Link></li>
-              <li><Link to="/products/hardware" className="text-sm text-muted-foreground hover:text-accent transition-colors">Hardware</Link></li>
+              <li><Link to="/products/testrix" className="text-sm text-muted-foreground hover:text-accent transition-colors">Validation and test system</Link></li>
+              <li><Link to="/products/hardware" className="text-sm text-muted-foreground hover:text-accent transition-colors">Embedded & Avionics Systems</Link></li>
 
             </ul>
           </div>

@@ -78,14 +78,14 @@ const Index = () => {
       gradient: "from-blue-500 to-cyan-500"
     },
     {
-      title: "Test Rigs",
+      title: "Validation and test system",
       description: "Precision testing & validation for mission-critical systems",
       image: testRigs,
       link: "/products/testrix",
       gradient: "from-blue-500 to-cyan-500"
     },
     {
-      title: "Hardware Systems",
+      title: "Embedded & Avionics Systems",
       description: "Aerospace-grade UAV components and avionic solutions",
       image: hardwareImage,
       link: "/products/hardware",
@@ -136,39 +136,39 @@ const Index = () => {
 
   const services = [
     {
-      title: "TC Documentation & Compliance Assistance",
-      description: "Expert guidance through UAV type certification processes and regulatory compliance documentation",
-      icon: FileText,
+      title: "UAV Design & Development",
+      description: "Engineering and development of mission-ready UAV systems for industrial and institutional applications.",
+      icon: Plane,
       color: "from-blue-500 to-cyan-500"
     },
     {
-      title: "Custom Drone Design & Development",
-      description: "Tailored UAV solutions designed to meet your specific mission requirements and operational needs",
-      icon: Plane,
+      title: "Embedded Systems & Hardware Development",
+      description: "Mission-critical embedded electronics and avionics engineering for UAV and aerospace systems.",
+      icon: Cpu,
       color: "from-cyan-500 to-blue-500"
     },
     {
-      title: "Hardware Design & Development",
-      description: "Aerospace-grade hardware components engineered for reliability and performance",
-      icon: Cpu,
+      title: "Structural & Aerodynamic Analysis",
+      description: "Engineering analysis of UAV structures and aerodynamic systems for performance, integrity, and operational life.",
+      icon: Layout,
       color: "from-purple-500 to-blue-500"
     },
     {
-      title: "Computer-Aided Design",
-      description: "Advanced CAD solutions for precise modeling and design optimization",
-      icon: Layout,
+      title: "Testing, Validation & Performance Verification",
+      description: "Engineering-grade validation of propulsion systems, avionics, and UAV platforms.",
+      icon: Activity,
       color: "from-blue-600 to-purple-500"
     },
     {
-      title: "Computer-Aided Manufacturing",
-      description: "Precision manufacturing solutions leveraging cutting-edge CAM technologies",
-      icon: Factory,
+      title: "Type Certification & Regulatory Compliance",
+      description: "Engineering and documentation support for UAV Type Certification and applicable regulatory requirements.",
+      icon: FileText,
       color: "from-purple-500 to-pink-500"
     },
     {
-      title: "Finite Element Analysis / Computational Fluid Dynamics",
-      description: "Advanced simulation and analysis for structural integrity and aerodynamic optimization",
-      icon: Activity,
+      title: "Manufacturing & Production Support",
+      description: "Engineering transition from prototype to controlled production through manufacturability, assembly, and production planning.",
+      icon: Factory,
       color: "from-cyan-400 to-blue-600"
     },
   ];

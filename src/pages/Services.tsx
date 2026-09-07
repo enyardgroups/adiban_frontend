@@ -212,50 +212,56 @@ const Services = () => {
   const services = [
     {
       icon: Wrench,
-      title: "TC Documentation & Compliance Assistance",
-      description: "Expert guidance through UAV type certification and regulatory compliance — ensuring your UAS systems meet all required DGCA standards.",
+      title: "UAV Design & Development",
+      description: "Engineering and development of mission-ready UAV systems for industrial and institutional applications.",
+      extendedDescription: "Adiban Aviation delivers structured UAV platform engineering from system architecture definition through prototype realization, ensuring performance reliability, configuration stability, and life-cycle readiness.",
       gradient: "from-blue-500 to-cyan-500",
-      features: ["Standards Alignment", "Regulatory Compliance", "Documentation Support", "Certification Guidance"],
+      features: ["System architecture & configuration", "Airframe & structural design", "Payload & flight control integration", "Propulsion & power system design"],
       color: "blue"
     },
     {
       icon: Cpu,
-      title: "Custom Drone Design & Development",
-      description: "End-to-end UAV design engineered for your mission needs — from concept creation to fully integrated, production-ready systems.",
+      title: "Embedded Systems & Hardware Development",
+      description: "Mission-critical embedded electronics and avionics engineering for UAV and aerospace systems.",
+      extendedDescription: "We develop modular embedded subsystems for OEM integration, combining disciplined hardware architecture, firmware engineering, and controlled system validation.",
       gradient: "from-purple-500 to-blue-500",
-      features: ["Concept Development", "System Integration", "Prototype Design", "Production-Ready Engineering"],
+      features: ["Custom PCB & avionics development", "Embedded firmware development", "Power distribution & regulation", "Hardware–software integration"],
       color: "purple"
     },
     {
       icon: Factory,
-      title: "Hardware Design & Development",
-      description: "Aerospace-grade electronic and hardware engineering — from concept to validated mission-critical systems ensuring reliability and performance.",
+      title: "Structural & Aerodynamic Analysis",
+      description: "Engineering analysis of UAV structures and aerodynamic systems for performance, integrity, and operational life.",
+      extendedDescription: "Adiban performs structured engineering analysis to assess structural integrity, aerodynamic efficiency, configuration balance, and operational life.",
       gradient: "from-cyan-500 to-blue-600",
-      features: ["Component Selection", "Circuit Design", "PCB Development", "Testing & Validation"],
+      features: ["Structural load & safety factor analysis", "Structural & operational life assessment", "Vibration & thermal analysis", "Aerodynamic & C.G. evaluation"],
       color: "cyan"
     },
     {
       icon: Ruler,
-      title: "Computer-Aided Design (CAD)",
-      description: "High-precision CAD solutions for mechanical and structural applications, enabling optimized performance and efficient manufacturability.",
+      title: "Testing, Validation & Performance Verification",
+      description: "Engineering-grade validation of propulsion systems, avionics, and UAV platforms.",
+      extendedDescription: "Our validation infrastructure supports performance characterization, design refinement, and structured pre-certification readiness assessment.",
       gradient: "from-green-500 to-emerald-500",
-      features: ["3D Modeling", "Structural Analysis", "Design Optimization", "Detailed Technical Drawings"],
+      features: ["Propulsion thrust & efficiency testing", "Power system stress evaluation", "Vibration & strain measurement", "Endurance & performance verification"],
       color: "green"
     },
     {
       icon: Zap,
-      title: "Computer-Aided Manufacturing (CAM)",
-      description: "High-precision manufacturing using advanced CAM technology — seamlessly transforming designs into high-quality finished products.",
+      title: "Type Certification & Regulatory Compliance",
+      description: "Engineering and documentation support for UAV Type Certification and applicable regulatory requirements.",
+      extendedDescription: "We provide technical and documentation support for UAV programs preparing for DGCA Type Certification and applicable UAS regulatory requirements.",
       gradient: "from-orange-500 to-red-500",
-      features: ["Production Planning", "CNC Programming", "Toolpath Optimization", "Quality Control"],
+      features: ["DGCA compliance matrix development", "CSUAS documentation support", "Certification-oriented test planning", "Engineering gap & readiness assessment"],
       color: "orange"
     },
     {
       icon: Wind,
-      title: "Finite Element Analysis / Computational Fluid Dynamics (FEA / CFD)",
-      description: "Advanced structural and fluid simulations to validate performance, improve safety, and optimize aerospace system designs.",
+      title: "Manufacturing & Production Support",
+      description: "Engineering transition from prototype to controlled production through manufacturability, assembly, and production planning.",
+      extendedDescription: "Adiban supports UAV and aerospace programs in achieving structured production readiness with documentation integrity and manufacturability alignment.",
       gradient: "from-indigo-500 to-purple-500",
-      features: ["Structural FEA", "CFD Analysis", "Thermal Analysis", "Performance Validation"],
+      features: ["DFM & DFA review", "2D drafting & 3D CAD development", "Manufacturing drawings & fixtures", "Assembly & production documentation"],
       color: "indigo"
     },
   ];
@@ -426,9 +432,14 @@ const Services = () => {
                         </h3>
                         
                         {/* Description */}
-                        <p className="text-muted-foreground mb-6 leading-relaxed">
+                        <p className="text-muted-foreground font-semibold mb-3 leading-relaxed">
                           {service.description}
                         </p>
+                        {service.extendedDescription && (
+                          <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
+                            {service.extendedDescription}
+                          </p>
+                        )}
 
                         {/* Features */}
                         <div className="space-y-2 mb-6">
@@ -452,6 +463,19 @@ const Services = () => {
                   </motion.div>
                 ))}
               </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="mt-16 text-center"
+              >
+                <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto font-medium bg-card/50 backdrop-blur-sm border border-border p-6 rounded-2xl shadow-sm">
+                  <span className="text-primary font-bold">Note: </span>
+                  All engagements include a structured gap analysis to identify regulatory, design, performance, and manufacturing gaps before execution.
+                </p>
+              </motion.div>
             </div>
           </section>
 

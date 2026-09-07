@@ -351,15 +351,20 @@ const TestrixProducts = () => {
 
               {/* Test Rig Subsection */}
               <div className="mb-16">
-                <motion.h3
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
                   viewport={{ once: true }}
-                  className="text-2xl md:text-3xl font-display font-bold mb-8 text-center"
+                  className="text-center mb-8"
                 >
-                  Test Rig
-                </motion.h3>
+                  <h3 className="text-2xl md:text-3xl font-display font-bold mb-4">
+                    Test Rig
+                  </h3>
+                  <p className="text-muted-foreground max-w-2xl mx-auto">
+                    Engineering test systems for UAV propulsion, flight-control, payload, and platform validation.
+                  </p>
+                </motion.div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                   {testSystems.filter(system => system.label === "Test Rig").map((system, index) => (
                     <motion.div
@@ -427,15 +432,20 @@ const TestrixProducts = () => {
 
               {/* Tester Module Subsection */}
               <div>
-                <motion.h3
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
                   viewport={{ once: true }}
-                  className="text-2xl md:text-3xl font-display font-bold mb-8 text-center"
+                  className="text-center mb-8"
                 >
-                  Tester Module
-                </motion.h3>
+                  <h3 className="text-2xl md:text-3xl font-display font-bold mb-4">
+                    Tester Module
+                  </h3>
+                  <p className="text-muted-foreground max-w-2xl mx-auto">
+                    Specialized test modules for UAV systems, electronics, and component-level validation.
+                  </p>
+                </motion.div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                   {testSystems.filter(system => system.label === "Tester Module").map((system, index) => (
                     <motion.div
