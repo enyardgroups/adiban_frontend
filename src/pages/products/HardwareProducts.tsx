@@ -242,7 +242,7 @@ const HardwareProducts = () => {
                   </span>
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                  Precision-engineered hardware for mission-critical applications
+                  Modular embedded and avionics hardware engineered for UAV power, control, and platform integration.
                 </p>
               </motion.div>
 
